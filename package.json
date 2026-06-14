@@ -4,7 +4,7 @@
   "description": "Bakım Merkezi Web Scraper — Stealth Puppeteer + Gemini + Firebase",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js & node bildirim-motoru.js & python hotel_scraper.py --simdi & python3 rehab_scraper.py --simdi & node bot-motoru.js --tek-sefer",
+    "start": "node bot.js & node bildirim-motoru.js & python hotel_scraper.py --simdi & python3 rehab_scraper.py --simdi & node bot-motoru.js --tek-sefer & node ebot.js --tek-sefer",
     "tek-sefer": "node bot.js --tek-sefer",
     "test-url": "node bot.js --url https://www.drserhatduruhanengellibakimmerkezi.com/"
   },
