@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İletişime Geç | Medivibe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#f8fafc] text-gray-800 antialiased font-['Inter'] flex flex-col min-h-screen relative">
+
+  <!-- NAVBAR -->
+  <nav class="bg-white px-6 md:px-12 py-4 flex justify-between items-center fixed w-full top-0 z-50 shadow-sm">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="logo.png" alt="Medivibe" class="h-10">
+      <span class="text-2xl font-extrabold text-gray-800 ml-[-24px]">Medi<span class="text-[#00a859]">vibe</span></span>
+    </a>
+    <div class="hidden md:flex items-center gap-6">
+      <a href="ceviri.html" class="flex items-center justify-center w-10 h-10 bg-gray-50 text-gray-600 rounded-full hover:bg-emerald-50 hover:text-[#00a859] transition-all duration-300 shadow-sm border border-gray-100 group" title="Akıllı Tıbbi Belge Çevirisi">
+  <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"></path>
+    <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"></path>
+  </svg>
+</a>
+      <a href="hastaneler.html" class="text-gray-600 hover:text-[#00a859] font-medium transition-colors">Hastanelerimiz</a>
+      <a href="iletisim.html" class="bg-[#00a859] text-white px-6 py-2.5 rounded-full font-semibold shadow-md">İletişime Geç</a>
+    </div>
+  </nav>
+
+  <!-- BAŞARI BİLDİRİMİ (Başlangıçta Gizli) -->
+  <div id="basariMesaji" class="fixed top-24 left-1/2 transform -translate-x-1/2 bg-green-100 border border-green-400 text-green-700 px-6 py-3 rounded-xl shadow-lg z-50 hidden flex items-center gap-3 transition-all duration-300">
+    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+    <span class="font-medium">Mesajınız başarıyla gönderildi! Ekibimiz size dönüş yapacaktır.</span>
+  </div>
+
+  <!-- İLETİŞİM KARTI -->
+  <main class="flex-grow flex items-center justify-center pt-28 pb-12 px-4 md:px-0">
+    <div class="bg-white w-full max-w-xl p-8 md:p-10 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 relative">
+      
+      <div class="text-center mb-8">
+        <h1 class="text-3xl font-extrabold text-gray-900 mb-2">Bize Ulaşın</h1>
+        <p class="text-gray-500 text-sm">Sorularınız veya iş birliği talepleriniz için formu doldurabilirsiniz.</p>
+      </div>
+
+      <form id="iletisimFormu" class="space-y-5">
+        <!-- Ad Soyad -->
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1" for="adsoyad">Ad Soyad</label>
+          <input type="text" id="adsoyad" required placeholder="Örn: Ahmet Eren" 
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:border-[#00a859] focus:ring-2 focus:ring-[#00a859]/20 transition-all">
+        </div>
+
+        <!-- İkili Grid: E-posta ve Telefon -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1" for="email">E-posta Adresi</label>
+            <input type="email" id="email" required placeholder="ornek@gmail.com" 
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:border-[#00a859] focus:ring-2 focus:ring-[#00a859]/20 transition-all">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1" for="telefon">Telefon Numarası</label>
+            <input type="tel" id="telefon" required placeholder="0555 555 55 55" 
+              class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:border-[#00a859] focus:ring-2 focus:ring-[#00a859]/20 transition-all">
+          </div>
+        </div>
+
+        <!-- Konu Seçimi (Yeni Eklendi) -->
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1" for="konu">Konu</label>
+          <select id="konu" required class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:border-[#00a859] focus:ring-2 focus:ring-[#00a859]/20 transition-all text-gray-700 cursor-pointer">
+            <option value="" disabled selected>Lütfen bir konu seçin</option>
+            <option value="Bilgi Alma">Bilgi Almak İstiyorum</option>
+            <option value="İş Birliği">İş Birliği / Yatırım</option>
+            <option value="Teknik Destek">Sistem / Teknik Destek</option>
+            <option value="Diğer">Diğer</option>
+          </select>
+        </div>
+
+        <!-- Mesaj -->
+        <div>
+          <label class="block text-sm font-semibold text-gray-700 mb-1" for="mesaj">Mesajınız</label>
+          <textarea id="mesaj" rows="4" required placeholder="Nasıl yardımcı olabiliriz?" 
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:border-[#00a859] focus:ring-2 focus:ring-[#00a859]/20 transition-all resize-none"></textarea>
+        </div>
+
+        <!-- KVKK Onay (Yeni Eklendi) -->
+        <div class="flex items-start gap-3 mt-2">
+          <input type="checkbox" id="kvkk" required class="mt-1 w-4 h-4 text-[#00a859] border-gray-300 rounded focus:ring-[#00a859] cursor-pointer">
+          <label for="kvkk" class="text-sm text-gray-500 cursor-pointer">
+            Kişisel verilerimin iletişim süreçlerinin yürütülmesi amacıyla işlenmesini onaylıyorum.
+          </label>
+        </div>
+
+        <!-- Gönder Butonu -->
+        <button type="submit" id="gonderButonu"
+          class="w-full flex justify-center items-center gap-2 bg-[#00a859] hover:bg-[#008f4c] text-white font-bold py-3.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 mt-2 disabled:opacity-70 disabled:cursor-not-allowed">
+          <span id="butonMetni">Mesajı Gönder</span>
+          <!-- Yükleniyor İkonu (Başlangıçta Gizli) -->
+          <svg id="butonLoader" class="hidden w-5 h-5 animate-spin text-white" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </button>
+      </form>
+
+    </div>
+  </main>
+
+  <script type="module" src="iletisim.js"></script>
+</body>
+</html>

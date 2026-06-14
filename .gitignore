@@ -1,0 +1,9 @@
+.env
+serviceAccountKey.json
+medivibe-resmi-firebase-adminsdk-fbsvc-cb3b6001e8.json
+node_modules/
+*.log
+.son_tarama
+.son_rehab_tarama
+*.save
+.env.save

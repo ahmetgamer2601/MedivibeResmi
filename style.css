@@ -1,0 +1,50 @@
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  /* Daha koyu, derinlik hissi veren premium gri */
+  background-color: #cbd5e1; 
+  color: #1e293b;
+}
+/* --- HERO SECTION --- */
+/* Kapak resmi yuvarlak kutunun içine hapsedildi */
+.hero-container {
+  background-image: url('kapak.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* --- ARAMA MOTORU (AUTOCOMPLETE) --- */
+/* Arama tahmin listesindeki öğeler için hover efekti */
+.autocomplete-item {
+  padding: 12px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #f3f4f6;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #374151;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.autocomplete-item:last-child {
+  border-bottom: none;
+}
+
+.autocomplete-item:hover {
+  background-color: #f9fafb;
+  color: #00a859;
+}
+
+/* Scrollbar tasarımı */
+#autocompleteList::-webkit-scrollbar {
+  width: 6px;
+}
+#autocompleteList::-webkit-scrollbar-thumb {
+  background-color: #d1d5db;
+  border-radius: 10px;
+}

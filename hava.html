@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediVibe - Küresel Hava Durumu ve Dergi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 10px 30px -10px rgba(0, 168, 89, 0.1);
+    }
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .news-card-img { transition: transform 0.5s ease; }
+    .news-card:hover .news-card-img { transform: scale(1.05); }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-emerald-50 via-gray-50 to-blue-50 text-gray-800 antialiased min-h-screen pt-24 pb-12">
+
+  <nav class="bg-white/90 backdrop-blur-md px-6 md:px-12 py-4 flex justify-between items-center fixed w-full top-0 z-50 shadow-sm border-b border-gray-100">
+    <div class="flex items-center gap-10">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="text-2xl font-extrabold tracking-tight text-gray-800">
+          Medi<span class="text-[#00a859]">vibe</span>
+        </span>
+      </a>
+    </div>
+    <div class="flex items-center gap-4">
+      <select id="langSelector" class="bg-gray-100 border-none text-gray-800 text-sm font-semibold rounded-lg px-3 py-2 outline-none cursor-pointer hover:bg-gray-200 transition">
+        <option value="tr">TR</option>
+        <option value="en">EN</option>
+        <option value="de">DE</option>
+      </select>
+      <a href="index.html" class="text-sm font-semibold text-gray-600 hover:text-[#00a859] transition t-geri">Ana Sayfaya Dön</a>
+    </div>
+  </nav>
+
+  <main class="max-w-7xl mx-auto px-6">
+    
+    <div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-10">
+      <div>
+        <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight t-baslik">Küresel Hava Durumu</h1>
+        <p class="text-sm text-gray-500 font-medium mt-1 t-altbaslik">Seyahat ve tedavi planlaması için anlık meteorolojik veriler.</p>
+      </div>
+      
+      <div class="relative w-full md:w-96">
+        <div class="relative">
+          <i data-lucide="search" class="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"></i>
+          <input type="text" id="citySearch" class="w-full bg-white border border-gray-200 rounded-2xl pl-12 pr-4 py-3.5 text-sm font-semibold text-gray-800 focus:outline-none focus:border-[#00a859] focus:ring-4 focus:ring-emerald-50 transition-all shadow-sm" placeholder="Şehir, bölge veya konum arayın...">
+        </div>
+        <div id="searchResults" class="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-100 rounded-2xl shadow-xl z-40 hidden overflow-hidden"></div>
+      </div>
+    </div>
+
+    <div id="loadingState" class="hidden flex justify-center items-center py-20">
+      <i data-lucide="loader-2" class="w-10 h-10 text-[#00a859] animate-spin"></i>
+    </div>
+
+    <div id="weatherDashboard" class="opacity-0 transition-opacity duration-500 hidden">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+        <div class="glass-card rounded-3xl p-8 lg:col-span-2 relative overflow-hidden flex flex-col justify-between">
+          <div class="absolute -right-10 -top-10 opacity-5"><i data-lucide="sun" class="w-64 h-64"></i></div>
+          <div>
+            <h2 id="cityName" class="text-2xl font-extrabold text-gray-800">İstanbul, Türkiye</h2>
+            <p id="currentDate" class="text-sm font-medium text-gray-500 mt-1">Yükleniyor...</p>
+          </div>
+          <div class="flex items-end gap-6 mt-8">
+            <span id="currentTemp" class="text-7xl font-extrabold text-gray-900 tracking-tighter">--°</span>
+            <div class="mb-2">
+              <div class="flex items-center gap-2 text-xl font-bold text-gray-700">
+                <i id="currentIcon" data-lucide="cloud" class="w-8 h-8 text-[#00a859]"></i>
+                <span id="currentCondition">--</span>
+              </div>
+              <p class="text-sm font-medium text-gray-500 mt-1"><span class="t-hissedilen">Hissedilen</span>: <span id="feelsLike">--°</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-3xl p-8 flex flex-col bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-xl shadow-emerald-200">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="bg-white/20 p-2 rounded-xl backdrop-blur-sm"><i data-lucide="heart-pulse" class="w-5 h-5 text-white"></i></div>
+            <h3 class="font-bold tracking-wide text-sm uppercase text-emerald-50 t-akilli">Akıllı Sağlık Önerisi</h3>
+          </div>
+          <p id="healthAdvice" class="text-lg font-semibold leading-relaxed mt-2 flex-grow">--</p>
+          <div class="mt-4 pt-4 border-t border-white/20 flex justify-between items-center text-sm font-medium">
+            <span class="t-uv">Maks UV İndeksi</span>
+            <span id="uvIndex" class="bg-white/20 px-3 py-1 rounded-full backdrop-blur-sm">--</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+        <div class="lg:col-span-1 space-y-6">
+          <div class="glass-card rounded-3xl p-6">
+            <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-5 t-detaylar">Anlık Detaylar</h3>
+            <div class="space-y-5">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3 text-gray-600 font-semibold">
+                  <div class="bg-blue-50 text-blue-500 p-2 rounded-xl"><i data-lucide="droplets" class="w-4 h-4"></i></div><span class="t-nem">Nem</span>
+                </div>
+                <span id="humidity" class="font-bold text-gray-900">--%</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3 text-gray-600 font-semibold">
+                  <div class="bg-gray-100 text-gray-500 p-2 rounded-xl"><i data-lucide="wind" class="w-4 h-4"></i></div><span class="t-ruzgar">Rüzgar</span>
+                </div>
+                <span id="windSpeed" class="font-bold text-gray-900">-- km/s</span>
+              </div>
+            </div>
+          </div>
+          <div class="glass-card rounded-3xl p-6">
+            <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4 t-gunluk">7 Günlük Tahmin</h3>
+            <div id="dailyForecast" class="space-y-4"></div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2 glass-card rounded-3xl p-6 flex flex-col">
+          <h3 class="text-sm font-bold text-gray-400 uppercase tracking-wider mb-6 t-saatlik">Saatlik Tahmin (24 Saat)</h3>
+          <div class="relative w-full flex-grow flex items-center">
+            <div id="hourlyForecast" class="flex gap-4 overflow-x-auto hide-scrollbar pb-4 w-full snap-x"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 mb-12">
+        <div class="flex items-center justify-between mb-6">
+          <div class="flex items-center gap-3">
+            <div class="bg-[#00a859] p-2 rounded-xl text-white shadow-md shadow-green-200">
+              <i data-lucide="newspaper" class="w-6 h-6"></i>
+            </div>
+            <h2 class="text-2xl font-extrabold text-gray-900 tracking-tight t-haberBaslik">Sağlık Dergisi & Güncel Gelişmeler</h2>
+          </div>
+          <a href="#" class="text-sm font-bold text-[#00a859] hover:underline t-tumHaberler">Tümünü Gör →</a>
+        </div>
+        
+        <div id="newsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="col-span-full flex justify-center py-8"><i data-lucide="loader-2" class="w-8 h-8 text-[#00a859] animate-spin"></i></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+    // --- DİL VE HABER KAYNAKLARI (RSS FEEDS) ---
+    const dict = {
+      tr: {
+        geri: "Ana Sayfaya Dön", baslik: "Küresel Hava Durumu", altbaslik: "Seyahat ve tedavi planlaması için anlık meteorolojik veriler.",
+        aramaPlaceholder: "Şehir, bölge veya hastane konumu arayın...", hissedilen: "Hissedilen", akilli: "Akıllı Sağlık Önerisi",
+        uv: "Maks UV İndeksi", detaylar: "Anlık Detaylar", nem: "Nem Oranı", ruzgar: "Rüzgar Hızı",
+        gunluk: "7 Günlük Tahmin", saatlik: "Saatlik Tahmin", bugun: "Bugün", sonucYok: "Sonuç bulunamadı.",
+        haberBaslik: "Sağlık Dergisi & Güncel Gelişmeler", tumHaberler: "Tümünü Gör →", okuBtn: "Haberi Oku",
+        rssUrl: "https://www.ntv.com.tr/saglik.rss", // NTV Sağlık (Türkiye)
+        advice: {
+          ideal: "Hava şartları ameliyat sonrası kısa yürüyüşler ve seyahat için oldukça ideal.",
+          sicak: "Hava çok sıcak. Tansiyon sorunlarına karşı bol sıvı tüketin ve direkt güneşten kaçının.",
+          soguk: "Hava soğuk. Eklem ve kas ağrılarını önlemek için sıkı giyinin.",
+          yagmurlu: "Yağışlı hava. Fizik tedavi seanslarına giderken kaygan zeminlere dikkat edin.",
+          uvYuksek: "UV indeksi yüksek! İyileşen yara izlerini ve hassas cildinizi güneşten koruyun."
+        }
+      },
+      en: {
+        geri: "Back to Home", baslik: "Global Weather", altbaslik: "Instant meteorological data for travel and treatment planning.",
+        aramaPlaceholder: "Search city, region or hospital location...", hissedilen: "Feels like", akilli: "Smart Health Advisory",
+        uv: "Max UV Index", detaylar: "Current Details", nem: "Humidity", ruzgar: "Wind Speed",
+        gunluk: "7-Day Forecast", saatlik: "Hourly Forecast", bugun: "Today", sonucYok: "No results found.",
+        haberBaslik: "Health Magazine & Latest Updates", tumHaberler: "View All →", okuBtn: "Read Article",
+        rssUrl: "https://rss.nytimes.com/services/xml/rss/nyt/Health.xml", // NYT Health (Global)
+        advice: {
+          ideal: "Weather conditions are ideal for short post-surgery walks and travel.",
+          sicak: "Very hot weather. Drink plenty of fluids and avoid direct sun.",
+          soguk: "Cold weather. Dress warmly to prevent joint and muscle pain.",
+          yagmurlu: "Rainy weather. Be careful of slippery surfaces.",
+          uvYuksek: "High UV index! Protect healing scars and sensitive skin from the sun."
+        }
+      },
+      de: {
+        geri: "Zurück zur Startseite", baslik: "Globales Wetter", altbaslik: "Aktuelle meteorologische Daten für die Reise- und Behandlungsplanung.",
+        aramaPlaceholder: "Stadt, Region oder Klinikort suchen...", hissedilen: "Gefühlt wie", akilli: "Smarte Gesundheitsberatung",
+        uv: "Max UV-Index", detaylar: "Aktuelle Details", nem: "Luftfeuchtigkeit", ruzgar: "Wind",
+        gunluk: "7-Tage-Vorhersage", saatlik: "Stündliche Vorhersage", bugun: "Heute", sonucYok: "Keine Ergebnisse gefunden.",
+        haberBaslik: "Gesundheitsmagazin & Aktuelles", tumHaberler: "Alle ansehen →", okuBtn: "Artikel lesen",
+        rssUrl: "https://www.spiegel.de/gesundheit/index.rss", // Spiegel Gesundheit (Almanya)
+        advice: {
+          ideal: "Das Wetter ist ideal für Spaziergänge nach der Operation und Reisen.",
+          sicak: "Sehr heiß. Trinken Sie viel und meiden Sie direkte Sonne.",
+          soguk: "Kaltes Wetter. Ziehen Sie sich warm an.",
+          yagmurlu: "Regen. Achten Sie auf rutschige Oberflächen.",
+          uvYuksek: "Hoher UV-Index! Schützen Sie Narben und Haut."
+        }
+      }
+    };
+
+    let currentLang = 'tr';
+    let currentLat = 41.0082; 
+    let currentLon = 28.9784; 
+    let currentCityName = "İstanbul";
+
+    // İkon Yardımcısı
+    const getIconName = (code, isDay = 1) => {
+      if (code <= 1) return isDay ? 'sun' : 'moon';
+      if (code === 2) return `cloud-sun`;
+      if (code === 3) return 'cloud';
+      if ([45, 48].includes(code)) return 'cloud-fog';
+      if ([51, 53, 55, 61, 63, 65].includes(code)) return 'cloud-rain';
+      if ([71, 73, 75].includes(code)) return 'cloud-snow';
+      if ([95, 96, 99].includes(code)) return 'cloud-lightning';
+      return 'cloud';
+    };
+
+    const elements = {
+      langSelector: document.getElementById('langSelector'),
+      searchInput: document.getElementById('citySearch'),
+      searchResults: document.getElementById('searchResults'),
+      dashboard: document.getElementById('weatherDashboard'),
+      loading: document.getElementById('loadingState'),
+      newsContainer: document.getElementById('newsContainer')
+    };
+
+    const updateLanguage = (lang) => {
+      currentLang = lang;
+      const d = dict[lang];
+      document.querySelector('.t-geri').innerText = d.geri;
+      document.querySelector('.t-baslik').innerText = d.baslik;
+      document.querySelector('.t-altbaslik').innerText = d.altbaslik;
+      document.querySelector('.t-hissedilen').innerText = d.hissedilen;
+      document.querySelector('.t-akilli').innerText = d.akilli;
+      document.querySelector('.t-uv').innerText = d.uv;
+      document.querySelector('.t-detaylar').innerText = d.detaylar;
+      document.querySelector('.t-nem').innerText = d.nem;
+      document.querySelector('.t-ruzgar').innerText = d.ruzgar;
+      document.querySelector('.t-gunluk').innerText = d.gunluk;
+      document.querySelector('.t-saatlik').innerText = d.saatlik;
+      document.querySelector('.t-haberBaslik').innerText = d.haberBaslik;
+      document.querySelector('.t-tumHaberler').innerText = d.tumHaberler;
+      elements.searchInput.placeholder = d.aramaPlaceholder;
+      fetchWeather(); 
+      fetchNews(); // Dili değişince o ülkenin haberlerini çek
+    };
+
+    elements.langSelector.addEventListener('change', (e) => updateLanguage(e.target.value));
+
+    // Canlı Şehir Arama (Open-Meteo Geocoding)
+    let searchTimeout;
+    elements.searchInput.addEventListener('input', (e) => {
+      clearTimeout(searchTimeout);
+      const query = e.target.value;
+      if (query.length < 3) { elements.searchResults.classList.add('hidden'); return; }
+      
+      searchTimeout = setTimeout(async () => {
+        try {
+          const res = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${query}&count=5&language=${currentLang}&format=json`);
+          const data = await res.json();
+          elements.searchResults.innerHTML = '';
+          
+          if (data.results) {
+            data.results.forEach(city => {
+              const div = document.createElement('div');
+              div.className = 'px-4 py-3 hover:bg-emerald-50 cursor-pointer border-b border-gray-50 flex items-center gap-3';
+              div.innerHTML = `<i data-lucide="map-pin" class="w-4 h-4 text-emerald-600"></i>
+                               <div><div class="text-sm font-bold text-gray-800">${city.name}</div>
+                               <div class="text-[11px] text-gray-400 font-medium">${city.country}</div></div>`;
+              div.onclick = () => {
+                currentLat = city.latitude; currentLon = city.longitude; currentCityName = city.name;
+                elements.searchInput.value = ''; elements.searchResults.classList.add('hidden');
+                fetchWeather();
+              };
+              elements.searchResults.appendChild(div);
+            });
+          } else {
+            elements.searchResults.innerHTML = `<div class="p-3 text-sm text-gray-500">${dict[currentLang].sonucYok}</div>`;
+          }
+          lucide.createIcons();
+          elements.searchResults.classList.remove('hidden');
+        } catch (err) {}
+      }, 500);
+    });
+
+    // 1. HAVA DURUMU SİSTEMİ
+    const fetchWeather = async () => {
+      elements.dashboard.classList.add('hidden');
+      elements.loading.classList.remove('hidden');
+      try {
+        const url = `https://api.open-meteo.com/v1/forecast?latitude=${currentLat}&longitude=${currentLon}&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m&hourly=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,uv_index_max&timezone=auto`;
+        const res = await fetch(url);
+        const data = await res.json();
+        
+        const d = dict[currentLang];
+        const cur = data.current;
+        const h = data.hourly;
+        const daily = data.daily;
+
+        document.getElementById('cityName').innerText = currentCityName;
+        document.getElementById('currentDate').innerText = new Date().toLocaleDateString(currentLang==='en'?'en-US':(currentLang==='de'?'de-DE':'tr-TR'), { weekday: 'long', month: 'long', day: 'numeric' });
+        document.getElementById('currentTemp').innerText = `${Math.round(cur.temperature_2m)}°`;
+        document.getElementById('feelsLike').innerText = `${Math.round(cur.apparent_temperature)}°`;
+        document.getElementById('currentIcon').setAttribute('data-lucide', getIconName(cur.weather_code, cur.is_day));
+        document.getElementById('humidity').innerText = `${cur.relative_humidity_2m}%`;
+        document.getElementById('windSpeed').innerText = `${Math.round(cur.wind_speed_10m)} km/s`;
+        
+        const maxUv = daily.uv_index_max[0];
+        document.getElementById('uvIndex').innerText = maxUv;
+        let adviceTxt = d.advice.ideal;
+        if (maxUv > 6) adviceTxt = d.advice.uvYuksek;
+        else if (cur.temperature_2m > 30) adviceTxt = d.advice.sicak;
+        else if (cur.temperature_2m < 10) adviceTxt = d.advice.soguk;
+        else if ([51,53,55,61,63,65,95].includes(cur.weather_code)) adviceTxt = d.advice.yagmurlu;
+        document.getElementById('healthAdvice').innerText = adviceTxt;
+
+        const hourlyContainer = document.getElementById('hourlyForecast');
+        hourlyContainer.innerHTML = '';
+        let hourStartIndex = h.time.findIndex(t => t >= new Date().toISOString().slice(0, 14) + "00");
+        if (hourStartIndex === -1) hourStartIndex = 0;
+        for (let i = hourStartIndex; i < hourStartIndex + 24; i++) {
+          const timeObj = new Date(h.time[i]);
+          const hourStr = timeObj.getHours().toString().padStart(2, '0') + ":00";
+          hourlyContainer.innerHTML += `
+            <div class="flex flex-col items-center justify-between bg-white/50 border border-white p-4 rounded-2xl min-w-[80px] snap-center hover:bg-white transition shadow-sm">
+              <span class="text-xs font-bold text-gray-500 mb-3">${i === hourStartIndex ? d.bugun : hourStr}</span>
+              <i data-lucide="${getIconName(h.weather_code[i], 1)}" class="w-7 h-7 text-gray-700 mb-3"></i>
+              <span class="text-lg font-extrabold text-gray-900">${Math.round(h.temperature_2m[i])}°</span>
+            </div>`;
+        }
+
+        const dailyContainer = document.getElementById('dailyForecast');
+        dailyContainer.innerHTML = '';
+        for (let i = 1; i < 7; i++) {
+          const dayName = new Date(daily.time[i]).toLocaleDateString(currentLang==='en'?'en-US':(currentLang==='de'?'de-DE':'tr-TR'), { weekday: 'short' });
+          dailyContainer.innerHTML += `
+            <div class="flex items-center justify-between p-3 rounded-xl hover:bg-white/60 transition">
+              <span class="text-sm font-bold text-gray-600 w-12">${dayName}</span>
+              <i data-lucide="${getIconName(daily.weather_code[i], 1)}" class="w-5 h-5 text-gray-500"></i>
+              <div class="flex items-center gap-2 text-sm font-bold justify-end">
+                <span class="text-gray-400">${Math.round(daily.temperature_2m_min[i])}°</span>
+                <span class="text-gray-900">${Math.round(daily.temperature_2m_max[i])}°</span>
+              </div>
+            </div>`;
+        }
+
+        elements.loading.classList.add('hidden');
+        elements.dashboard.classList.remove('hidden');
+        setTimeout(() => elements.dashboard.classList.remove('opacity-0'), 50);
+        lucide.createIcons();
+      } catch (err) {}
+    };
+
+    // 2. KÜRESEL SAĞLIK DERGİSİ SİSTEMİ (RSS to JSON)
+    const fetchNews = async () => {
+      elements.newsContainer.innerHTML = `<div class="col-span-full flex justify-center py-8"><i data-lucide="loader-2" class="w-8 h-8 text-[#00a859] animate-spin"></i></div>`;
+      lucide.createIcons();
+      
+      const rssUrl = dict[currentLang].rssUrl;
+      const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
+      
+      try {
+        const res = await fetch(apiUrl);
+        const data = await res.json();
+        elements.newsContainer.innerHTML = '';
+
+        if(data.items && data.items.length > 0) {
+          // İlk 4 haberi al
+          data.items.slice(0, 4).forEach(item => {
+            // Görseli yakalama mantığı (Farklı RSS yapıları için)
+            let imgUrl = item.thumbnail || item.enclosure?.link;
+            if(!imgUrl) {
+              const imgRegex = /<img[^>]+src="([^">]+)"/g;
+              const match = imgRegex.exec(item.content || item.description);
+              imgUrl = match ? match[1] : "https://images.unsplash.com/photo-1576091160550-2173ff9e5e3c?auto=format&fit=crop&w=500&q=80"; // Fallback medikal görsel
+            }
+
+            const cleanTitle = item.title.replace(/&quot;/g, '"').replace(/&#39;/g, "'");
+            const dateStr = new Date(item.pubDate).toLocaleDateString(currentLang==='en'?'en-US':(currentLang==='de'?'de-DE':'tr-TR'), { day: 'numeric', month: 'short' });
+
+            const card = `
+              <div class="news-card glass-card rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 flex flex-col group">
+                <div class="h-36 overflow-hidden relative bg-gray-100">
+                  <img src="${imgUrl}" class="w-full h-full object-cover news-card-img" alt="News Image">
+                  <span class="absolute top-3 left-3 bg-[#00a859] text-white text-[10px] font-bold px-2 py-1 rounded-md shadow-sm uppercase">${data.feed.title || "Health"}</span>
+                </div>
+                <div class="p-5 flex flex-col flex-grow justify-between bg-white/50">
+                  <div>
+                    <h3 class="text-sm font-bold text-gray-900 leading-snug line-clamp-3 mb-2 group-hover:text-[#00a859] transition">${cleanTitle}</h3>
+                    <p class="text-[11px] font-medium text-gray-500 mb-4 flex items-center gap-1.5"><i data-lucide="clock" class="w-3 h-3"></i> ${dateStr}</p>
+                  </div>
+                  <a href="${item.link}" target="_blank" class="w-full bg-emerald-50 hover:bg-[#00a859] text-[#00a859] hover:text-white font-bold py-2 px-4 rounded-xl text-xs transition duration-300 text-center flex items-center justify-center gap-1.5 border border-emerald-100 border-b-2">
+                    ${dict[currentLang].okuBtn} <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+                  </a>
+                </div>
+              </div>
+            `;
+            elements.newsContainer.innerHTML += card;
+          });
+        }
+        lucide.createIcons();
+      } catch (error) {
+        elements.newsContainer.innerHTML = `<div class="col-span-full text-center text-sm text-gray-500 py-4">Haberler şu an yüklenemiyor. Lütfen daha sonra tekrar deneyin.</div>`;
+      }
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      fetchWeather();
+      fetchNews();
+    });
+  </script>
+</body>
+</html>

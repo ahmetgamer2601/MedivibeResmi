@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akıllı Tıbbi Çeviri | Medivibe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    /* Yükleme animasyonu için pulse efekti */
+    .loader-logo { animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: .5; transform: scale(1.05); } }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <main class="pt-32 pb-16 px-4 md:px-8 max-w-[800px] mx-auto min-h-screen flex flex-col items-center">
+    
+    <div class="text-center mb-10">
+      <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-gray-900 mb-3">
+        Akıllı Tıbbi Belge <span class="text-[#00a859]">Çevirisi</span>
+      </h1>
+      <p class="text-gray-500 text-sm md:text-base">
+        Reçete, tahlil sonucu veya hastane tabelalarının fotoğrafını çekin, yapay zeka saniyeler içinde kendi dilinize çevirsin.
+      </p>
+    </div>
+
+    <div id="upload-area" class="w-full bg-white border-2 border-dashed border-gray-300 rounded-3xl p-10 flex flex-col items-center justify-center text-center hover:border-[#00a859] hover:bg-emerald-50/30 transition-colors cursor-pointer group">
+      
+      <div class="w-20 h-20 bg-emerald-100 text-[#00a859] rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+        <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+        </svg>
+      </div>
+      
+      <h3 class="text-lg font-bold text-gray-800 mb-2">Fotoğraf Çek veya Yükle</h3>
+      <p class="text-gray-500 text-sm mb-6">JPEG, PNG formatındaki tüm tıbbi belgeler desteklenir.</p>
+      
+      <input type="file" id="file-input" accept="image/*" capture="environment" class="hidden">
+      
+      <button onclick="document.getElementById('file-input').click()" class="bg-[#00a859] text-white px-8 py-3 rounded-full font-bold hover:bg-[#008f4c] hover:shadow-lg transition-all">
+        Kamerayı Aç
+      </button>
+    </div>
+
+    <div id="loading-area" class="hidden w-full flex-col items-center justify-center py-16">
+      <img src="logo.png" alt="Yükleniyor" class="h-16 object-contain loader-logo mb-6" onerror="this.src='https://via.placeholder.com/150x40?text=LOGO'">
+      <div class="flex items-center gap-3">
+        <svg class="animate-spin h-5 w-5 text-[#00a859]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <p class="text-gray-600 font-medium">Yapay Zeka belgeyi analiz ediyor...</p>
+      </div>
+    </div>
+
+<div id="result-area" class="hidden w-full bg-white border border-gray-200 rounded-3xl p-5 md:p-8 shadow-lg mt-8 mb-10 overflow-hidden">
+      <h3 class="text-lg md:text-xl font-bold text-gray-800 mb-6 border-b pb-3 flex items-center gap-2">
+        <span class="text-[#00a859]">✓</span> Analiz Tamamlandı
+      </h3>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <div class="flex flex-col w-full max-w-full">
+          <span class="text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Orijinal Belge</span>
+          <div id="original-text" class="text-gray-700 bg-gray-50 p-4 rounded-2xl text-sm min-h-[150px] border border-gray-100 whitespace-pre-wrap break-words overflow-y-auto max-h-[300px]"></div>
+        </div>
+        
+        <div class="flex flex-col w-full max-w-full">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-xs font-bold text-[#00a859] uppercase tracking-wider">Çeviri Sonucu</span>
+            <select id="hedef-dil" class="bg-emerald-50 border border-emerald-200 text-[#00a859] text-xs font-bold rounded-lg px-2 py-1 outline-none cursor-pointer hover:bg-emerald-100 transition-colors">
+              <option value="tr">🇹🇷 Türkçe</option>
+              <option value="en">🇬🇧 İngilizce</option>
+              <option value="ar">🇸🇦 Arapça</option>
+              <option value="ru">🇷🇺 Rusça</option>
+              <option value="de">🇩🇪 Almanca</option>
+              <option value="fr">🇫🇷 Fransızca</option>
+            </select>
+          </div>
+          <div id="translated-text" class="text-gray-900 font-medium bg-emerald-50/50 p-4 rounded-2xl text-sm min-h-[150px] border border-emerald-100 whitespace-pre-wrap break-words shadow-inner overflow-y-auto max-h-[300px]"></div>
+        </div>
+
+      </div>
+      
+      <div class="mt-8 flex flex-col sm:flex-row flex-wrap gap-3 justify-end border-t border-gray-100 pt-5">
+        <button id="btn-sesli-oku" class="flex-1 sm:flex-none items-center justify-center gap-2 bg-gray-100 text-gray-700 px-5 py-3 md:py-2.5 rounded-xl text-sm font-semibold hover:bg-gray-200 transition-colors">
+          🔊 Sesli Oku
+        </button>
+        <button id="btn-kopyala" class="flex-1 sm:flex-none items-center justify-center gap-2 bg-gray-100 text-gray-700 px-5 py-3 md:py-2.5 rounded-xl text-sm font-semibold hover:bg-gray-200 transition-colors">
+          📋 Kopyala
+        </button>
+        <button id="btn-pdf-indir" class="flex-1 sm:flex-none items-center justify-center gap-2 bg-[#00a859] text-white px-5 py-3 md:py-2.5 rounded-xl text-sm font-bold hover:bg-[#008f4c] hover:shadow-md transition-all">
+          📄 PDF Kaydet
+        </button>
+      </div>
+      
+      <button onclick="sifirla()" class="w-full mt-6 text-center text-sm font-medium text-gray-500 hover:text-[#00a859] underline transition-colors p-2">
+        Başka bir belge tara
+      </button>
+    </div>
+  </main>
+
+  <script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>
+  <script src="ceviri.js"></script>
+</body>
+</html>
+
+  </main>
+</body>
+</html>

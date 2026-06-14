@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hesap Ayarları — Medivibe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* ── Medivibe Renk Sistemi ── */
+    :root {
+      --mvi-navy:       #0a2540;
+      --mvi-navy-light: #0f3460;
+      --mvi-teal:       #1d9e75;
+      --mvi-teal-light: #e1f5ee;
+      --mvi-teal-dark:  #0f6e56;
+      --mvi-accent:     #2dd4a7;
+    }
+
+    /* Kenar çubuğu aktif nav öğesi */
+    .nav-item-active {
+      background: rgba(45, 212, 167, 0.15);
+      color: var(--mvi-accent) !important;
+    }
+
+    /* Toggle switch */
+    .toggle-switch {
+      position: relative;
+      width: 44px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+    .toggle-switch input { opacity: 0; width: 0; height: 0; }
+    .toggle-track {
+      position: absolute; inset: 0;
+      background: #d1d5db;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .toggle-track::before {
+      content: '';
+      position: absolute;
+      width: 18px; height: 18px;
+      left: 3px; top: 3px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+    .toggle-switch input:checked + .toggle-track {
+      background: var(--mvi-teal);
+    }
+    .toggle-switch input:checked + .toggle-track::before {
+      transform: translateX(20px);
+    }
+    .toggle-switch input:focus + .toggle-track {
+      outline: 2px solid var(--mvi-teal);
+      outline-offset: 2px;
+    }
+
+    /* Toast bildirimi */
+    #toast {
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    #toast.hide {
+      opacity: 0;
+      transform: translateY(12px);
+      pointer-events: none;
+    }
+
+    /* Skeleton yükleme animasyonu */
+    @keyframes shimmer {
+      0%   { background-position: -400px 0; }
+      100% { background-position: 400px 0; }
+    }
+    .skeleton {
+      background: linear-gradient(90deg, #e5e7eb 25%, #f3f4f6 50%, #e5e7eb 75%);
+      background-size: 800px 100%;
+      animation: shimmer 1.4s infinite;
+      border-radius: 6px;
+    }
+
+    /* Şifre gücü göstergesi */
+    .strength-bar {
+      height: 4px;
+      border-radius: 2px;
+      transition: width 0.3s, background 0.3s;
+    }
+
+    /* Sidebar nav hover */
+    .nav-item:hover {
+      background: rgba(255, 255, 255, 0.07);
+      color: rgba(255, 255, 255, 0.85) !important;
+    }
+
+    /* Kart hover efekti */
+    .settings-card {
+      transition: box-shadow 0.15s;
+    }
+    .settings-card:hover {
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    /* Avatar yükleme durumu */
+    .avatar-skeleton {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+    }
+
+    /* Mobil sidebar kapalıyken */
+    @media (max-width: 768px) {
+      #sidebar { transform: translateX(-100%); transition: transform 0.25s; }
+      #sidebar.open { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+
+<!-- ════════════════════════════════════════════
+     TOAST BİLDİRİMİ
+════════════════════════════════════════════ -->
+<div id="toast"
+     class="hide fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3 rounded-xl shadow-lg bg-white border border-gray-200 max-w-xs">
+  <span id="toastIcon" class="text-lg"></span>
+  <div>
+    <p id="toastTitle" class="text-sm font-medium text-gray-900"></p>
+    <p id="toastMsg"   class="text-xs text-gray-500 mt-0.5"></p>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     SAYFA YAPISI
+════════════════════════════════════════════ -->
+<div class="flex min-h-screen">
+
+  <!-- KENAR ÇUBUĞU -->
+  <aside id="sidebar"
+         class="fixed md:static z-40 flex flex-col w-56 min-h-screen shrink-0"
+         style="background: var(--mvi-navy);">
+
+    <!-- Logo -->
+    <div class="px-5 py-5 border-b border-white/10">
+      <a href="index.html" class="block">
+        <span class="text-white text-lg font-medium tracking-tight">
+          Medi<span style="color: var(--mvi-accent)">vibe</span>
+        </span>
+        <p class="text-white/30 text-xs mt-0.5">Yönetim Paneli</p>
+      </a>
+    </div>
+
+    <!-- Kullanıcı özeti -->
+    <div class="px-4 py-4 border-b border-white/10">
+      <div class="flex items-center gap-3">
+        <div id="sidebarAvatar"
+             class="w-9 h-9 rounded-full flex items-center justify-center text-sm font-medium shrink-0"
+             style="background: rgba(45,212,167,0.2); color: var(--mvi-accent);">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0"/>
+          </svg>
+        </div>
+        <div class="overflow-hidden">
+          <p id="sidebarName" class="text-white/90 text-sm font-medium truncate">Yükleniyor…</p>
+          <p id="sidebarEmail" class="text-white/35 text-xs truncate"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigasyon -->
+    <nav class="flex-1 px-3 py-4 space-y-0.5">
+      <p class="text-white/30 text-xs uppercase tracking-widest px-2 mb-2">Ana Menü</p>
+      <a href="index.html"
+         class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-white/50 text-sm cursor-pointer no-underline">
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M2.25 12l8.954-8.955a1.126 1.126 0 011.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"/>
+        </svg>
+        Anasayfa
+      </a>
+      <a href="hastaneler.html"
+         class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-white/50 text-sm cursor-pointer no-underline">
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/>
+        </svg>
+        Hastaneler
+      </a>
+      <a href="doktorlar.html"
+         class="nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-white/50 text-sm cursor-pointer no-underline">
+        <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"/>
+        </svg>
+        Doktorlar
+      </a>
+
+      <div class="pt-4 mt-2 border-t border-white/10">
+        <p class="text-white/30 text-xs uppercase tracking-widest px-2 mb-2">Hesap</p>
+        <div class="nav-item-active nav-item flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm cursor-pointer">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          Ayarlar
+        </div>
+        <button id="sidebarLogoutBtn"
+                class="nav-item w-full flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-white/50 text-sm cursor-pointer mt-0.5 text-left">
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75"/>
+          </svg>
+          Çıkış Yap
+        </button>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- MOBİL OVERLAY -->
+  <div id="mobileOverlay"
+       class="fixed inset-0 bg-black/50 z-30 hidden md:hidden"
+       onclick="toggleSidebar()"></div>
+
+  <!-- ANA İÇERİK -->
+  <main class="flex-1 overflow-y-auto">
+
+    <!-- Üst Bar -->
+    <header class="sticky top-0 z-20 bg-white border-b border-gray-100 px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <!-- Mobil hamburger -->
+        <button onclick="toggleSidebar()"
+                class="md:hidden p-1.5 rounded-lg text-gray-500 hover:bg-gray-100">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+          </svg>
+        </button>
+        <div>
+          <h1 class="text-base font-medium text-gray-900">Hesap Ayarları</h1>
+          <p class="text-xs text-gray-400">Profilinizi ve tercihlerinizi yönetin</p>
+        </div>
+      </div>
+
+      <!-- Başlık rozeti -->
+      <span class="hidden sm:inline-flex items-center gap-1.5 text-xs px-3 py-1 rounded-full font-medium"
+            style="background: var(--mvi-teal-light); color: var(--mvi-teal-dark);">
+        <span class="w-1.5 h-1.5 rounded-full" style="background: var(--mvi-teal);"></span>
+        Aktif Oturum
+      </span>
+    </header>
+
+    <div class="max-w-2xl mx-auto px-4 py-8 space-y-5">
+
+      <!-- ── 1. PROFİL YÖNETİMİ ── -->
+      <section class="settings-card bg-white rounded-2xl border border-gray-100 p-6">
+        <!-- Kart başlığı -->
+        <div class="flex items-center gap-3 mb-5 pb-4 border-b border-gray-100">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+               style="background: var(--mvi-teal-light);">
+            <svg class="w-4 h-4" style="color: var(--mvi-teal-dark);" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-sm font-medium text-gray-900">Profil Yönetimi</h2>
+            <p class="text-xs text-gray-400">Kişisel bilgilerinizi güncelleyin</p>
+          </div>
+        </div>
+
+        <!-- Avatar + E-posta -->
+        <div class="flex items-center gap-4 mb-5 pb-5 border-b border-gray-100">
+          <!-- Skeleton / Avatar -->
+          <div id="avatarSkeleton" class="skeleton avatar-skeleton w-14 h-14 rounded-full"></div>
+          <div id="avatarReal"
+               class="hidden w-14 h-14 rounded-full flex items-center justify-center text-xl font-medium shrink-0"
+               style="background: var(--mvi-navy); color: var(--mvi-accent);">
+          </div>
+          <div>
+            <!-- Skeleton -->
+            <div id="nameSkeleton" class="space-y-2">
+              <div class="skeleton h-4 w-36 rounded"></div>
+              <div class="skeleton h-3 w-48 rounded"></div>
+            </div>
+            <!-- Gerçek veri -->
+            <div id="nameReal" class="hidden">
+              <p id="displayFullName" class="text-sm font-medium text-gray-900"></p>
+              <p id="displayEmail"    class="text-xs text-gray-400 mt-0.5"></p>
+              <span class="inline-flex items-center gap-1 text-xs px-2 py-0.5 rounded-full mt-1.5 font-medium"
+                    style="background: var(--mvi-teal-light); color: var(--mvi-teal-dark);">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                Doğrulanmış Hesap
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+          <div>
+            <label class="block text-xs text-gray-500 mb-1.5" for="firstName">Ad</label>
+            <input id="firstName" type="text"
+                   class="w-full h-9 rounded-lg border border-gray-200 px-3 text-sm bg-gray-50 focus:outline-none focus:border-teal-500 focus:bg-white transition"
+                   placeholder="Yükleniyor…" disabled />
+          </div>
+          <div>
+            <label class="block text-xs text-gray-500 mb-1.5" for="lastName">Soyad</label>
+            <input id="lastName" type="text"
+                   class="w-full h-9 rounded-lg border border-gray-200 px-3 text-sm bg-gray-50 focus:outline-none focus:border-teal-500 focus:bg-white transition"
+                   placeholder="Yükleniyor…" disabled />
+          </div>
+        </div>
+
+        <!-- Kayıt tarihi -->
+        <p id="memberSince" class="text-xs text-gray-400 mb-4 hidden">
+          <svg class="w-3.5 h-3.5 inline-block mr-1 -mt-0.5 text-gray-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5"/>
+          </svg>
+          <span id="memberSinceText"></span>
+        </p>
+
+        <button id="updateProfileBtn"
+                class="flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium text-white transition disabled:opacity-50 disabled:cursor-not-allowed"
+                style="background: var(--mvi-navy);"
+                onmouseover="this.style.background='var(--mvi-navy-light)'"
+                onmouseout="this.style.background='var(--mvi-navy)'"
+                disabled>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931z"/>
+          </svg>
+          Bilgileri Güncelle
+        </button>
+      </section>
+
+      <!-- ── 2. GÜVENLİK MERKEZİ ── -->
+      <section class="settings-card bg-white rounded-2xl border border-gray-100 p-6">
+        <div class="flex items-center gap-3 mb-5 pb-4 border-b border-gray-100">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+               style="background: #e6f1fb;">
+            <svg class="w-4 h-4 text-blue-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-sm font-medium text-gray-900">Güvenlik Merkezi</h2>
+            <p class="text-xs text-gray-400">Şifrenizi güncelleyin ve hesabınızı koruyun</p>
+          </div>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Yeni şifre -->
+          <div>
+            <label class="block text-xs text-gray-500 mb-1.5" for="newPassword">Yeni Şifre</label>
+            <div class="relative">
+              <input id="newPassword" type="password"
+                     class="w-full h-9 rounded-lg border border-gray-200 px-3 pr-10 text-sm bg-gray-50 focus:outline-none focus:border-blue-400 focus:bg-white transition"
+                     placeholder="En az 8 karakter"
+                     oninput="updateStrength(this.value)" />
+              <button type="button" onclick="togglePw('newPassword', this)"
+                      class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.964-7.178z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </button>
+            </div>
+            <!-- Şifre gücü -->
+            <div id="strengthWrap" class="mt-2 hidden">
+              <div class="flex gap-1 mb-1">
+                <div id="s1" class="strength-bar h-1 flex-1 rounded bg-gray-200"></div>
+                <div id="s2" class="strength-bar h-1 flex-1 rounded bg-gray-200"></div>
+                <div id="s3" class="strength-bar h-1 flex-1 rounded bg-gray-200"></div>
+                <div id="s4" class="strength-bar h-1 flex-1 rounded bg-gray-200"></div>
+              </div>
+              <p id="strengthLabel" class="text-xs text-gray-400"></p>
+            </div>
+          </div>
+
+          <!-- Şifre onayla -->
+          <div>
+            <label class="block text-xs text-gray-500 mb-1.5" for="confirmPassword">Şifreyi Onayla</label>
+            <div class="relative">
+              <input id="confirmPassword" type="password"
+                     class="w-full h-9 rounded-lg border border-gray-200 px-3 pr-10 text-sm bg-gray-50 focus:outline-none focus:border-blue-400 focus:bg-white transition"
+                     placeholder="Şifreyi tekrar girin"
+                     oninput="checkMatch()" />
+              <button type="button" onclick="togglePw('confirmPassword', this)"
+                      class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.964-7.178z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </button>
+            </div>
+            <p id="matchError" class="hidden text-xs text-red-500 mt-1.5 flex items-center gap-1">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/>
+              </svg>
+              Şifreler eşleşmiyor
+            </p>
+            <p id="matchOk" class="hidden text-xs mt-1.5 flex items-center gap-1"
+               style="color: var(--mvi-teal-dark);">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Şifreler eşleşiyor
+            </p>
+          </div>
+        </div>
+
+        <button id="updatePasswordBtn"
+                class="mt-5 flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium text-white transition"
+                style="background: #185fa5;"
+                onmouseover="this.style.background='#0c447c'"
+                onmouseout="this.style.background='#185fa5'">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/>
+          </svg>
+          Şifreyi Güncelle
+        </button>
+      </section>
+
+      <!-- ── 3. TERCİHLER & BİLDİRİMLER ── -->
+      <section class="settings-card bg-white rounded-2xl border border-gray-100 p-6">
+        <div class="flex items-center gap-3 mb-5 pb-4 border-b border-gray-100">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+               style="background: #faeeda;">
+            <svg class="w-4 h-4 text-amber-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-sm font-medium text-gray-900">Tercihler & Bildirimler</h2>
+            <p class="text-xs text-gray-400">Bildirim ve uygulama ayarlarınızı özelleştirin</p>
+          </div>
+        </div>
+
+        <div class="space-y-1">
+          <!-- Toggle satırı bileşeni -->
+          <div class="flex items-center justify-between py-3 border-b border-gray-50">
+            <div>
+              <p class="text-sm font-medium text-gray-800">E-posta Bildirimleri</p>
+              <p class="text-xs text-gray-400 mt-0.5">Hesap aktiviteleri için e-posta al</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="toggleEmail" checked />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+
+          <div class="flex items-center justify-between py-3 border-b border-gray-50">
+            <div>
+              <p class="text-sm font-medium text-gray-800">Randevu Hatırlatıcıları</p>
+              <p class="text-xs text-gray-400 mt-0.5">Yaklaşan randevulardan 24 saat önce bildirim</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="toggleReminder" checked />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+
+          <div class="flex items-center justify-between py-3 border-b border-gray-50">
+            <div>
+              <p class="text-sm font-medium text-gray-800">Güvenlik Uyarıları</p>
+              <p class="text-xs text-gray-400 mt-0.5">Şüpheli giriş girişimlerinde anında uyar</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="toggleSecurity" />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+
+          <div class="flex items-center justify-between py-3 border-b border-gray-50">
+            <div>
+              <p class="text-sm font-medium text-gray-800">Haftalık Özet Raporu</p>
+              <p class="text-xs text-gray-400 mt-0.5">Haftalık istatistik özetini e-posta ile al</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="toggleWeekly" />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+
+          <div class="flex items-center justify-between py-3">
+            <div>
+              <p class="text-sm font-medium text-gray-800">Kampanya ve Duyurular</p>
+              <p class="text-xs text-gray-400 mt-0.5">Yeni özellik ve kampanyalar hakkında bilgilendirme</p>
+            </div>
+            <label class="toggle-switch">
+              <input type="checkbox" id="togglePromo" checked />
+              <span class="toggle-track"></span>
+            </label>
+          </div>
+        </div>
+
+        <button id="savePrefsBtn"
+                class="mt-5 flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium text-white transition"
+                style="background: #854f0b;"
+                onmouseover="this.style.background='#633806'"
+                onmouseout="this.style.background='#854f0b'">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"/>
+          </svg>
+          Tercihleri Kaydet
+        </button>
+      </section>
+
+      <!-- ── 4. OTURUM BİLGİSİ ── -->
+      <section class="settings-card bg-white rounded-2xl border border-gray-100 p-6">
+        <div class="flex items-center gap-3 mb-5 pb-4 border-b border-gray-100">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0"
+               style="background: #eeedfe;">
+            <svg class="w-4 h-4 text-violet-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-sm font-medium text-gray-900">Aktif Oturum</h2>
+            <p class="text-xs text-gray-400">Mevcut giriş bilgileriniz</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="rounded-xl p-4" style="background: #f8f9fa;">
+            <p class="text-xs text-gray-400 mb-1">Tarayıcı</p>
+            <p id="browserInfo" class="text-sm font-medium text-gray-800">—</p>
+          </div>
+          <div class="rounded-xl p-4" style="background: #f8f9fa;">
+            <p class="text-xs text-gray-400 mb-1">Giriş Zamanı</p>
+            <p id="loginTime" class="text-sm font-medium text-gray-800">—</p>
+          </div>
+          <div class="rounded-xl p-4" style="background: #f8f9fa;">
+            <p class="text-xs text-gray-400 mb-1">Son Aktivite</p>
+            <p class="text-sm font-medium text-gray-800">Az önce</p>
+          </div>
+        </div>
+
+        <button id="mainLogoutBtn"
+                class="mt-5 flex items-center gap-2 px-5 py-2 rounded-lg text-sm font-medium text-gray-600 border border-gray-200 hover:bg-gray-50 transition">
+          <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"/>
+          </svg>
+          Oturumu Kapat
+        </button>
+      </section>
+
+      <!-- ── 5. TEHLİKELİ BÖLGE ── -->
+      <section class="settings-card bg-white rounded-2xl border p-6" style="border-color: #f7c1c1;">
+        <div class="flex items-center gap-3 mb-5 pb-4 border-b" style="border-color: #fde8e8;">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0" style="background: #fcebeb;">
+            <svg class="w-4 h-4 text-red-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="text-sm font-medium text-red-700">Tehlikeli Bölge</h2>
+            <p class="text-xs text-gray-400">Bu işlemler kalıcıdır ve geri alınamaz</p>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-4 rounded-xl" style="background: #fff5f5;">
+          <div>
+            <p class="text-sm font-medium text-gray-800">Hesabı Sil</p>
+            <p class="text-xs text-gray-500 mt-0.5">Tüm verileriniz kalıcı olarak silinir. Bu işlem geri alınamaz.</p>
+          </div>
+          <button id="deleteAccountBtn"
+                  class="shrink-0 flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition"
+                  style="color: #a32d2d; border: 0.5px solid #f09595; background: transparent;"
+                  onmouseover="this.style.background='#fcebeb'"
+                  onmouseout="this.style.background='transparent'">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"/>
+            </svg>
+            Hesabı Sil
+          </button>
+        </div>
+      </section>
+
+    </div><!-- /max-w -->
+  </main>
+</div>
+
+<!-- Hesap silme onay modalı -->
+<div id="deleteModal"
+     class="hidden fixed inset-0 z-50 flex items-center justify-center p-4"
+     style="background: rgba(0,0,0,0.5);">
+  <div class="bg-white rounded-2xl shadow-xl max-w-sm w-full p-6">
+    <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4" style="background: #fcebeb;">
+      <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M12 9v3.75m9-.75a9 9 0 11-18 0 9 9 0 0118 0zm-9 3.75h.008v.008H12v-.008z"/>
+      </svg>
+    </div>
+    <h3 class="text-base font-medium text-gray-900 text-center mb-2">Hesabı silmek istediğinize emin misiniz?</h3>
+    <p class="text-sm text-gray-500 text-center mb-6">Bu işlem geri alınamaz. Tüm verileriniz kalıcı olarak silinecektir.</p>
+    <div class="flex gap-3">
+      <button onclick="document.getElementById('deleteModal').classList.add('hidden')"
+              class="flex-1 py-2 rounded-lg text-sm font-medium border border-gray-200 text-gray-600 hover:bg-gray-50 transition">
+        Vazgeç
+      </button>
+      <button id="confirmDeleteBtn"
+              class="flex-1 py-2 rounded-lg text-sm font-medium text-white transition"
+              style="background: #a32d2d;"
+              onmouseover="this.style.background='#791f1f'"
+              onmouseout="this.style.background='#a32d2d'">
+        Evet, Sil
+      </button>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="ayarlar.js"></script>
+</body>
+</html>

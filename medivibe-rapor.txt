@@ -1,0 +1,612 @@
+[05.06.2026 20:59:27] - 
+============================================================
+[05.06.2026 20:59:27] - 🚀 MEDIVIBE SİSTEMİ TETİKLENDİ: Tarama ve Veritabanı senkronizasyonu başlıyor...
+[05.06.2026 20:59:30] - ✅ BAŞARILI: GURLIFE HASTANESİ verileri çekildi. (44 doktor)
+[05.06.2026 20:59:30] - ☁️ BULUT AKTİF: GURLIFE HASTANESİ başarıyla Firestore'a yazıldı!
+[05.06.2026 20:59:30] - 🏁 İŞLEM BİTTİ: Medivibe veri havuzu tamamen güncel.
+[05.06.2026 20:59:30] - ============================================================
+
+[05.06.2026 21:09:09] - 
+============================================================
+[05.06.2026 21:09:09] - 🚀 MEDIVIBE SİSTEMİ TETİKLENDİ: Tarama ve Veritabanı senkronizasyonu başlıyor...
+[05.06.2026 21:09:11] - ✅ BAŞARILI: GURLIFE HASTANESİ verileri çekildi. (44 doktor)
+[05.06.2026 21:09:13] - ✅ BAŞARILI: ÖZEL ÜMİT HASTANESİ verileri çekildi. (0 doktor)
+[05.06.2026 21:09:14] - ☁️ BULUT AKTİF: GURLIFE HASTANESİ başarıyla Firestore'a yazıldı!
+[05.06.2026 21:09:14] - 🏁 İŞLEM BİTTİ: Medivibe veri havuzu tamamen güncel.
+[05.06.2026 21:09:14] - ============================================================
+
+[05.06.2026 21:10:26] - 
+============================================================
+[05.06.2026 21:10:26] - 🚀 MEDIVIBE SİSTEMİ TETİKLENDİ: Tarama ve Veritabanı senkronizasyonu başlıyor...
+[05.06.2026 21:10:30] - ✅ BAŞARILI: ÖZEL ÜMİT HASTANESİ verileri çekildi. (0 doktor)
+[05.06.2026 21:10:30] - ✅ BAŞARILI: GURLIFE HASTANESİ verileri çekildi. (44 doktor)
+[05.06.2026 21:10:31] - ☁️ BULUT AKTİF: GURLIFE HASTANESİ başarıyla Firestore'a yazıldı!
+[05.06.2026 21:10:31] - 🏁 İŞLEM BİTTİ: Medivibe veri havuzu tamamen güncel.
+[05.06.2026 21:10:31] - ============================================================
+
+[05.06.2026 21:12:50] - 
+============================================================
+[05.06.2026 21:12:50] - 🚀 MEDIVIBE HER YAPIYA UYGUN AKILLI MOTOR BAŞLADI...
+[05.06.2026 21:12:53] - ⚠️ UYARI: ÖZEL ÜMİT HASTANESİ için özel seçici sonuç vermedi. "Evrensel Akıllı Tarayıcı" tetikleniyor...
+[05.06.2026 21:12:53] - ✅ BAŞARILI: ÖZEL ÜMİT HASTANESİ bitti. Toplam: 14 doktor sisteme işlendi.
+[05.06.2026 21:12:53] - ✅ BAŞARILI: GURLIFE HASTANESİ bitti. Toplam: 44 doktor sisteme işlendi.
+[05.06.2026 21:12:54] - ☁️ BULUT AKTİF: GURLIFE HASTANESİ veritabanına başarıyla senkronize edildi!
+[05.06.2026 21:12:54] - ☁️ BULUT AKTİF: ÖZEL ÜMİT HASTANESİ veritabanına başarıyla senkronize edildi!
+[05.06.2026 21:12:54] - 🏁 İŞLEM BİTTİ: Tüm hastaneler tarandı, eksik gedik kalmadı.
+[05.06.2026 21:12:54] - ============================================================
+
+[05.06.2026 21:15:35] - 
+============================================================
+[05.06.2026 21:15:35] - 🚀 MEDIVIBE FİLTRE GÜNCELLEMELİ MOTOR BAŞLADI...
+[05.06.2026 21:15:38] - ⚠️ UYARI: ÖZEL ÜMİT HASTANESİ için "Evrensel Akıllı Tarayıcı" devrede...
+[05.06.2026 21:15:38] - ✅ BAŞARILI: ÖZEL ÜMİT HASTANESİ bitti. Toplam: 14 doktor sisteme işlendi.
+[05.06.2026 21:15:39] - ✅ BAŞARILI: GURLIFE HASTANESİ bitti. Toplam: 44 doktor sisteme işlendi.
+[05.06.2026 21:15:40] - ☁️ BULUT AKTİF: GURLIFE HASTANESİ veritabanına başarıyla senkronize edildi!
+[05.06.2026 21:15:40] - ☁️ BULUT AKTİF: ÖZEL ÜMİT HASTANESİ veritabanına başarıyla senkronize edildi!
+[05.06.2026 21:15:40] - 🏁 İŞLEM BİTTİ: Veritabanı kontrol edilebilir.
+[05.06.2026 21:15:40] - ============================================================
+
+[05.06.2026 21:17:22] - 
+============================================================
+[05.06.2026 21:17:22] - 🚀 MEDIVIBE PAGINATION (SAYFALAMA) DESTEKLİ MOTOR BAŞLADI...
+[05.06.2026 21:17:22] - 🚀 GURLIFE HASTANESİ tarama görevi başlatıldı...
+[05.06.2026 21:17:22] - 🚀 ÖZEL ÜMİT HASTANESİ tarama görevi başlatıldı...
+[05.06.2026 21:17:22] - 🔎 Sayfa 1 taranıyor: https://umithastanesi.com.tr/doctors?page=1
+[05.06.2026 21:17:25] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 44 yeni doktor eklendi.
+[05.06.2026 21:17:25] - ✅ BİTTİ: GURLIFE HASTANESİ toplam 44 doktor ile tamamlandı.
+[05.06.2026 21:17:26] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[05.06.2026 21:17:26] - 🔎 Sayfa 2 taranıyor: https://umithastanesi.com.tr/doctors?page=2
+[05.06.2026 21:17:31] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 15 yeni doktor eklendi.
+[05.06.2026 21:17:31] - 🔎 Sayfa 3 taranıyor: https://umithastanesi.com.tr/doctors?page=3
+[05.06.2026 21:17:35] - 📄 Sayfa 3 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[05.06.2026 21:17:35] - 🔎 Sayfa 4 taranıyor: https://umithastanesi.com.tr/doctors?page=4
+[05.06.2026 21:17:39] - 📄 Sayfa 4 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[05.06.2026 21:17:39] - 🔎 Sayfa 5 taranıyor: https://umithastanesi.com.tr/doctors?page=5
+[05.06.2026 21:17:44] - 📄 Sayfa 5 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[05.06.2026 21:17:44] - 🔎 Sayfa 6 taranıyor: https://umithastanesi.com.tr/doctors?page=6
+[05.06.2026 21:17:47] - 📄 Sayfa 6 tamamlandı. Bu sayfadan 2 yeni doktor eklendi.
+[05.06.2026 21:17:47] - 🔎 Sayfa 7 taranıyor: https://umithastanesi.com.tr/doctors?page=7
+[05.06.2026 21:17:52] - 📄 Sayfa 7 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[05.06.2026 21:17:52] - ✅ BİTTİ: ÖZEL ÜMİT HASTANESİ toplam 77 doktor ile tamamlandı.
+[05.06.2026 21:17:52] - ☁️ BULUT AKTİF: GURLIFE HASTANESİ veritabanına başarıyla senkronize edildi!
+[05.06.2026 21:17:52] - ☁️ BULUT AKTİF: ÖZEL ÜMİT HASTANESİ veritabanına başarıyla senkronize edildi!
+[05.06.2026 21:17:52] - 🏁 İŞLEM BİTTİ: Tüm sayfalar ve hastaneler tarandı.
+[05.06.2026 21:17:52] - ============================================================
+
+[05.06.2026 21:21:50] - 
+============================================================
+[05.06.2026 21:21:50] - 🚀 MEDIVIBE PAGINATION (SAYFALAMA) DESTEKLİ MOTOR BAŞLADI...
+[05.06.2026 21:21:50] - 🚀 GURLIFE HASTANESİ tarama görevi başlatıldı...
+[05.06.2026 21:21:50] - 🚀 ÖZEL ÜMİT HASTANESİ tarama görevi başlatıldı...
+[05.06.2026 21:21:50] - 🔎 Sayfa 1 taranıyor: https://umithastanesi.com.tr/doctors?page=1
+[05.06.2026 21:21:50] - 🚀 ÖZEL ESKİŞEHİR ANADOLU HASTANESİ tarama görevi başlatıldı...
+[05.06.2026 21:21:50] - 🔎 Sayfa 1 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=1
+[05.06.2026 21:21:53] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[05.06.2026 21:21:53] - 🔎 Sayfa 2 taranıyor: https://umithastanesi.com.tr/doctors?page=2
+[05.06.2026 21:21:54] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 44 yeni doktor eklendi.
+[05.06.2026 21:21:54] - ✅ BİTTİ: GURLIFE HASTANESİ toplam 44 doktor ile tamamlandı.
+[05.06.2026 21:21:56] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 53 yeni doktor eklendi.
+[05.06.2026 21:21:56] - 🔎 Sayfa 2 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=2
+[05.06.2026 21:21:57] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 15 yeni doktor eklendi.
+[05.06.2026 21:21:57] - 🔎 Sayfa 3 taranıyor: https://umithastanesi.com.tr/doctors?page=3
+[05.06.2026 21:22:00] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[05.06.2026 21:22:00] - ✅ BİTTİ: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ toplam 53 doktor ile tamamlandı.
+[05.06.2026 21:22:01] - 📄 Sayfa 3 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[05.06.2026 21:22:01] - 🔎 Sayfa 4 taranıyor: https://umithastanesi.com.tr/doctors?page=4
+[05.06.2026 21:22:06] - 📄 Sayfa 4 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[05.06.2026 21:22:06] - 🔎 Sayfa 5 taranıyor: https://umithastanesi.com.tr/doctors?page=5
+[05.06.2026 21:22:10] - 📄 Sayfa 5 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[05.06.2026 21:22:10] - 🔎 Sayfa 6 taranıyor: https://umithastanesi.com.tr/doctors?page=6
+[05.06.2026 21:22:13] - 📄 Sayfa 6 tamamlandı. Bu sayfadan 2 yeni doktor eklendi.
+[05.06.2026 21:22:13] - 🔎 Sayfa 7 taranıyor: https://umithastanesi.com.tr/doctors?page=7
+[05.06.2026 21:22:15] - 📄 Sayfa 7 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[05.06.2026 21:22:15] - ✅ BİTTİ: ÖZEL ÜMİT HASTANESİ toplam 77 doktor ile tamamlandı.
+[05.06.2026 21:22:16] - ☁️ BULUT AKTİF: GURLIFE HASTANESİ veritabanına başarıyla senkronize edildi!
+[05.06.2026 21:22:16] - ☁️ BULUT AKTİF: ÖZEL ÜMİT HASTANESİ veritabanına başarıyla senkronize edildi!
+[05.06.2026 21:22:16] - ☁️ BULUT AKTİF: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ veritabanına başarıyla senkronize edildi!
+[05.06.2026 21:22:16] - 🏁 İŞLEM BİTTİ: Tüm sayfalar ve hastaneler tarandı.
+[05.06.2026 21:22:16] - ============================================================
+
+[05.06.2026 21:26:14] - 
+============================================================
+[05.06.2026 21:26:14] - 🚀 MEDIVIBE PAGINATION (SAYFALAMA) DESTEKLİ MOTOR BAŞLADI...
+[05.06.2026 21:26:14] - 🚀 GURLIFE HASTANESİ tarama görevi başlatıldı...
+[05.06.2026 21:26:14] - 🚀 ÖZEL ÜMİT HASTANESİ tarama görevi başlatıldı...
+[05.06.2026 21:26:14] - 🔎 Sayfa 1 taranıyor: https://umithastanesi.com.tr/doctors?page=1
+[05.06.2026 21:26:14] - 🚀 ÖZEL ESKİŞEHİR ANADOLU HASTANESİ tarama görevi başlatıldı...
+[05.06.2026 21:26:14] - 🔎 Sayfa 1 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=1
+[05.06.2026 21:26:14] - 🚀 ACIBADEM ESKİŞEHİR HASTANESİ tarama görevi başlatıldı...
+[05.06.2026 21:26:14] - 🔎 Sayfa 1 taranıyor: https://www.acibadem.com.tr/hastaneler/eskisehir-hastanesi/doktorlarimiz/?page=1
+[05.06.2026 21:26:17] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 53 yeni doktor eklendi.
+[05.06.2026 21:26:17] - 🔎 Sayfa 2 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=2
+[05.06.2026 21:26:17] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[05.06.2026 21:26:17] - 🔎 Sayfa 2 taranıyor: https://umithastanesi.com.tr/doctors?page=2
+[05.06.2026 21:26:17] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 44 yeni doktor eklendi.
+[05.06.2026 21:26:17] - ✅ BİTTİ: GURLIFE HASTANESİ toplam 44 doktor ile tamamlandı.
+[05.06.2026 21:26:18] - ❌ HATA: ACIBADEM ESKİŞEHİR HASTANESİ Sayfa 1 çekilirken sorun çıktı: Request failed with status code 404
+[05.06.2026 21:26:18] - ✅ BİTTİ: ACIBADEM ESKİŞEHİR HASTANESİ toplam 0 doktor ile tamamlandı.
+[05.06.2026 21:26:20] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 15 yeni doktor eklendi.
+[05.06.2026 21:26:20] - 🔎 Sayfa 3 taranıyor: https://umithastanesi.com.tr/doctors?page=3
+[05.06.2026 21:26:20] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[05.06.2026 21:26:20] - ✅ BİTTİ: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ toplam 53 doktor ile tamamlandı.
+[05.06.2026 21:26:22] - 📄 Sayfa 3 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[05.06.2026 21:26:22] - 🔎 Sayfa 4 taranıyor: https://umithastanesi.com.tr/doctors?page=4
+[05.06.2026 21:26:25] - 📄 Sayfa 4 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[05.06.2026 21:26:25] - 🔎 Sayfa 5 taranıyor: https://umithastanesi.com.tr/doctors?page=5
+[05.06.2026 21:26:28] - 📄 Sayfa 5 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[05.06.2026 21:26:28] - 🔎 Sayfa 6 taranıyor: https://umithastanesi.com.tr/doctors?page=6
+[05.06.2026 21:26:31] - 📄 Sayfa 6 tamamlandı. Bu sayfadan 2 yeni doktor eklendi.
+[05.06.2026 21:26:31] - 🔎 Sayfa 7 taranıyor: https://umithastanesi.com.tr/doctors?page=7
+[05.06.2026 21:26:35] - 📄 Sayfa 7 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[05.06.2026 21:26:35] - ✅ BİTTİ: ÖZEL ÜMİT HASTANESİ toplam 77 doktor ile tamamlandı.
+[05.06.2026 21:26:35] - ☁️ BULUT AKTİF: GURLIFE HASTANESİ veritabanına başarıyla senkronize edildi!
+[05.06.2026 21:26:35] - ☁️ BULUT AKTİF: ÖZEL ÜMİT HASTANESİ veritabanına başarıyla senkronize edildi!
+[05.06.2026 21:26:36] - ☁️ BULUT AKTİF: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ veritabanına başarıyla senkronize edildi!
+[05.06.2026 21:26:36] - 🏁 İŞLEM BİTTİ: Tüm sayfalar ve hastaneler tarandı.
+[05.06.2026 21:26:36] - ============================================================
+
+[05.06.2026 22:16:26] - 
+============================================================
+[05.06.2026 22:16:26] - 🚀 MEDIVIBE PAGINATION (SAYFALAMA) DESTEKLİ MOTOR BAŞLADI...
+[05.06.2026 22:16:26] - 🚀 GURLIFE HASTANESİ tarama görevi başlatıldı...
+[05.06.2026 22:16:26] - 🚀 ÖZEL ÜMİT HASTANESİ tarama görevi başlatıldı...
+[05.06.2026 22:16:26] - 🔎 Sayfa 1 taranıyor: https://umithastanesi.com.tr/doctors?page=1
+[05.06.2026 22:16:26] - 🚀 ÖZEL ESKİŞEHİR ANADOLU HASTANESİ tarama görevi başlatıldı...
+[05.06.2026 22:16:26] - 🔎 Sayfa 1 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=1
+[05.06.2026 22:16:26] - 🚀 ACIBADEM ESKİŞEHİR HASTANESİ tarama görevi başlatıldı...
+[05.06.2026 22:16:26] - 🔎 Sayfa 1 taranıyor: https://www.acibadem.com.tr/hastaneler/eskisehir-hastanesi/doktorlarimiz/?page=1
+[05.06.2026 22:16:28] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[05.06.2026 22:16:28] - 🔎 Sayfa 2 taranıyor: https://umithastanesi.com.tr/doctors?page=2
+[05.06.2026 22:16:28] - ❌ HATA: ACIBADEM ESKİŞEHİR HASTANESİ Sayfa 1 çekilirken sorun çıktı: Request failed with status code 404
+[05.06.2026 22:16:28] - ✅ BİTTİ: ACIBADEM ESKİŞEHİR HASTANESİ toplam 0 doktor ile tamamlandı.
+[05.06.2026 22:16:29] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 44 yeni doktor eklendi.
+[05.06.2026 22:16:29] - ✅ BİTTİ: GURLIFE HASTANESİ toplam 44 doktor ile tamamlandı.
+[05.06.2026 22:16:30] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 53 yeni doktor eklendi.
+[05.06.2026 22:16:30] - 🔎 Sayfa 2 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=2
+[05.06.2026 22:16:32] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 15 yeni doktor eklendi.
+[05.06.2026 22:16:32] - 🔎 Sayfa 3 taranıyor: https://umithastanesi.com.tr/doctors?page=3
+[05.06.2026 22:16:33] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[05.06.2026 22:16:33] - ✅ BİTTİ: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ toplam 53 doktor ile tamamlandı.
+[05.06.2026 22:16:36] - 📄 Sayfa 3 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[05.06.2026 22:16:36] - 🔎 Sayfa 4 taranıyor: https://umithastanesi.com.tr/doctors?page=4
+[05.06.2026 22:16:40] - 📄 Sayfa 4 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[05.06.2026 22:16:40] - 🔎 Sayfa 5 taranıyor: https://umithastanesi.com.tr/doctors?page=5
+[05.06.2026 22:16:44] - 📄 Sayfa 5 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[05.06.2026 22:16:44] - 🔎 Sayfa 6 taranıyor: https://umithastanesi.com.tr/doctors?page=6
+[05.06.2026 22:16:46] - 📄 Sayfa 6 tamamlandı. Bu sayfadan 2 yeni doktor eklendi.
+[05.06.2026 22:16:46] - 🔎 Sayfa 7 taranıyor: https://umithastanesi.com.tr/doctors?page=7
+[05.06.2026 22:16:51] - 📄 Sayfa 7 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[05.06.2026 22:16:51] - ✅ BİTTİ: ÖZEL ÜMİT HASTANESİ toplam 77 doktor ile tamamlandı.
+[05.06.2026 22:16:51] - ☁️ BULUT AKTİF: GURLIFE HASTANESİ veritabanına başarıyla senkronize edildi!
+[05.06.2026 22:16:52] - ☁️ BULUT AKTİF: ÖZEL ÜMİT HASTANESİ veritabanına başarıyla senkronize edildi!
+[05.06.2026 22:16:52] - ☁️ BULUT AKTİF: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ veritabanına başarıyla senkronize edildi!
+[05.06.2026 22:16:52] - 🏁 İŞLEM BİTTİ: Tüm sayfalar ve hastaneler tarandı.
+[05.06.2026 22:16:52] - ============================================================
+
+[06.06.2026 09:16:17] - 
+============================================================
+[06.06.2026 09:16:17] - 🚀 MEDIVIBE PAGINATION (SAYFALAMA) DESTEKLİ MOTOR BAŞLADI...
+[06.06.2026 09:16:17] - 🚀 GURLIFE HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 09:16:17] - 🚀 ÖZEL ÜMİT HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 09:16:17] - 🔎 Sayfa 1 taranıyor: https://umithastanesi.com.tr/doctors?page=1
+[06.06.2026 09:16:17] - 🚀 ÖZEL ESKİŞEHİR ANADOLU HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 09:16:17] - 🔎 Sayfa 1 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=1
+[06.06.2026 09:16:17] - 🚀 ACIBADEM ESKİŞEHİR HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 09:16:17] - 🔎 Sayfa 1 taranıyor: https://www.acibadem.com.tr/hastaneler/eskisehir-hastanesi/doktorlarimiz/?page=1
+[06.06.2026 09:16:21] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 44 yeni doktor eklendi.
+[06.06.2026 09:16:21] - ✅ BİTTİ: GURLIFE HASTANESİ toplam 44 doktor ile tamamlandı.
+[06.06.2026 09:16:21] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 53 yeni doktor eklendi.
+[06.06.2026 09:16:21] - 🔎 Sayfa 2 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=2
+[06.06.2026 09:16:22] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[06.06.2026 09:16:22] - 🔎 Sayfa 2 taranıyor: https://umithastanesi.com.tr/doctors?page=2
+[06.06.2026 09:16:22] - ❌ HATA: ACIBADEM ESKİŞEHİR HASTANESİ Sayfa 1 çekilirken sorun çıktı: Request failed with status code 404
+[06.06.2026 09:16:22] - ✅ BİTTİ: ACIBADEM ESKİŞEHİR HASTANESİ toplam 0 doktor ile tamamlandı.
+[06.06.2026 09:16:24] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 15 yeni doktor eklendi.
+[06.06.2026 09:16:24] - 🔎 Sayfa 3 taranıyor: https://umithastanesi.com.tr/doctors?page=3
+[06.06.2026 09:16:27] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[06.06.2026 09:16:27] - ✅ BİTTİ: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ toplam 53 doktor ile tamamlandı.
+[06.06.2026 09:16:27] - 📄 Sayfa 3 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[06.06.2026 09:16:27] - 🔎 Sayfa 4 taranıyor: https://umithastanesi.com.tr/doctors?page=4
+[06.06.2026 09:16:30] - 📄 Sayfa 4 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[06.06.2026 09:16:30] - 🔎 Sayfa 5 taranıyor: https://umithastanesi.com.tr/doctors?page=5
+[06.06.2026 09:16:35] - 📄 Sayfa 5 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[06.06.2026 09:16:35] - 🔎 Sayfa 6 taranıyor: https://umithastanesi.com.tr/doctors?page=6
+[06.06.2026 09:16:39] - 📄 Sayfa 6 tamamlandı. Bu sayfadan 2 yeni doktor eklendi.
+[06.06.2026 09:16:39] - 🔎 Sayfa 7 taranıyor: https://umithastanesi.com.tr/doctors?page=7
+[06.06.2026 09:16:44] - 📄 Sayfa 7 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[06.06.2026 09:16:44] - ✅ BİTTİ: ÖZEL ÜMİT HASTANESİ toplam 77 doktor ile tamamlandı.
+[06.06.2026 09:16:45] - ☁️ BULUT AKTİF: GURLIFE HASTANESİ veritabanına başarıyla senkronize edildi!
+[06.06.2026 09:16:45] - ☁️ BULUT AKTİF: ÖZEL ÜMİT HASTANESİ veritabanına başarıyla senkronize edildi!
+[06.06.2026 09:16:45] - ☁️ BULUT AKTİF: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ veritabanına başarıyla senkronize edildi!
+[06.06.2026 09:16:45] - 🏁 İŞLEM BİTTİ: Tüm sayfalar ve hastaneler tarandı.
+[06.06.2026 09:16:45] - ============================================================
+
+[06.06.2026 12:05:19] - 
+============================================================
+[06.06.2026 12:05:19] - 🚀 MEDIVIBE PAGINATION (SAYFALAMA) DESTEKLİ MOTOR BAŞLADI...
+[06.06.2026 12:05:19] - 🚀 GURLIFE HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:05:19] - 🚀 ÖZEL ÜMİT HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:05:19] - 🔎 Sayfa 1 taranıyor: https://umithastanesi.com.tr/doctors?page=1
+[06.06.2026 12:05:19] - 🚀 ÖZEL ESKİŞEHİR ANADOLU HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:05:19] - 🔎 Sayfa 1 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=1
+[06.06.2026 12:05:19] - 🚀 ACIBADEM ESKİŞEHİR HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:05:19] - 🔎 Sayfa 1 taranıyor: https://www.acibadem.com.tr/hastaneler/eskisehir-hastanesi/doktorlarimiz/?page=1
+[06.06.2026 12:05:22] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 44 yeni doktor eklendi.
+[06.06.2026 12:05:22] - ✅ BİTTİ: GURLIFE HASTANESİ toplam 44 doktor ile tamamlandı.
+[06.06.2026 12:05:22] - ❌ HATA: ACIBADEM ESKİŞEHİR HASTANESİ Sayfa 1 çekilirken sorun çıktı: Request failed with status code 404
+[06.06.2026 12:05:22] - ✅ BİTTİ: ACIBADEM ESKİŞEHİR HASTANESİ toplam 0 doktor ile tamamlandı.
+[06.06.2026 12:05:22] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[06.06.2026 12:05:22] - 🔎 Sayfa 2 taranıyor: https://umithastanesi.com.tr/doctors?page=2
+[06.06.2026 12:05:24] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 53 yeni doktor eklendi.
+[06.06.2026 12:05:24] - 🔎 Sayfa 2 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=2
+[06.06.2026 12:05:26] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 15 yeni doktor eklendi.
+[06.06.2026 12:05:26] - 🔎 Sayfa 3 taranıyor: https://umithastanesi.com.tr/doctors?page=3
+[06.06.2026 12:05:27] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[06.06.2026 12:05:27] - ✅ BİTTİ: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ toplam 53 doktor ile tamamlandı.
+[06.06.2026 12:05:29] - 📄 Sayfa 3 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[06.06.2026 12:05:29] - 🔎 Sayfa 4 taranıyor: https://umithastanesi.com.tr/doctors?page=4
+[06.06.2026 12:05:33] - 📄 Sayfa 4 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[06.06.2026 12:05:33] - 🔎 Sayfa 5 taranıyor: https://umithastanesi.com.tr/doctors?page=5
+[06.06.2026 12:05:37] - 📄 Sayfa 5 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[06.06.2026 12:05:37] - 🔎 Sayfa 6 taranıyor: https://umithastanesi.com.tr/doctors?page=6
+[06.06.2026 12:05:41] - 📄 Sayfa 6 tamamlandı. Bu sayfadan 2 yeni doktor eklendi.
+[06.06.2026 12:05:41] - 🔎 Sayfa 7 taranıyor: https://umithastanesi.com.tr/doctors?page=7
+[06.06.2026 12:05:45] - 📄 Sayfa 7 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[06.06.2026 12:05:45] - ✅ BİTTİ: ÖZEL ÜMİT HASTANESİ toplam 77 doktor ile tamamlandı.
+[06.06.2026 12:05:46] - ☁️ BULUT AKTİF: GURLIFE HASTANESİ veritabanına başarıyla senkronize edildi!
+[06.06.2026 12:05:46] - ☁️ BULUT AKTİF: ÖZEL ÜMİT HASTANESİ veritabanına başarıyla senkronize edildi!
+[06.06.2026 12:05:47] - ☁️ BULUT AKTİF: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ veritabanına başarıyla senkronize edildi!
+[06.06.2026 12:05:47] - 🏁 İŞLEM BİTTİ: Tüm sayfalar ve hastaneler tarandı.
+[06.06.2026 12:05:47] - ============================================================
+
+[06.06.2026 12:09:12] - 
+============================================================
+[06.06.2026 12:09:12] - 🚀 MEDIVIBE PAGINATION (SAYFALAMA) DESTEKLİ MOTOR BAŞLADI...
+[06.06.2026 12:09:12] - 🚀 GURLIFE HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:09:12] - 🚀 ÖZEL ÜMİT HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:09:12] - 🔎 Sayfa 1 taranıyor: https://umithastanesi.com.tr/doctors?page=1
+[06.06.2026 12:09:12] - 🚀 ÖZEL ESKİŞEHİR ANADOLU HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:09:12] - 🔎 Sayfa 1 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=1
+[06.06.2026 12:09:12] - 🚀 ACIBADEM ESKİŞEHİR HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:09:12] - 🔎 Sayfa 1 taranıyor: https://www.acibadem.com.tr/hastaneler/eskisehir-hastanesi/doktorlarimiz/?page=1
+[06.06.2026 12:09:16] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 53 yeni doktor eklendi.
+[06.06.2026 12:09:16] - 🔎 Sayfa 2 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=2
+[06.06.2026 12:09:16] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 44 yeni doktor eklendi.
+[06.06.2026 12:09:16] - ✅ BİTTİ: GURLIFE HASTANESİ toplam 44 doktor ile tamamlandı.
+[06.06.2026 12:09:16] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[06.06.2026 12:09:16] - 🔎 Sayfa 2 taranıyor: https://umithastanesi.com.tr/doctors?page=2
+[06.06.2026 12:09:17] - ❌ HATA: ACIBADEM ESKİŞEHİR HASTANESİ Sayfa 1 çekilirken sorun çıktı: Request failed with status code 404
+[06.06.2026 12:09:17] - ✅ BİTTİ: ACIBADEM ESKİŞEHİR HASTANESİ toplam 0 doktor ile tamamlandı.
+[06.06.2026 12:09:19] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[06.06.2026 12:09:19] - ✅ BİTTİ: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ toplam 53 doktor ile tamamlandı.
+[06.06.2026 12:09:19] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 15 yeni doktor eklendi.
+[06.06.2026 12:09:19] - 🔎 Sayfa 3 taranıyor: https://umithastanesi.com.tr/doctors?page=3
+[06.06.2026 12:09:24] - 📄 Sayfa 3 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[06.06.2026 12:09:24] - 🔎 Sayfa 4 taranıyor: https://umithastanesi.com.tr/doctors?page=4
+[06.06.2026 12:09:27] - 📄 Sayfa 4 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[06.06.2026 12:09:27] - 🔎 Sayfa 5 taranıyor: https://umithastanesi.com.tr/doctors?page=5
+[06.06.2026 12:09:31] - 📄 Sayfa 5 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[06.06.2026 12:09:31] - 🔎 Sayfa 6 taranıyor: https://umithastanesi.com.tr/doctors?page=6
+[06.06.2026 12:09:35] - 📄 Sayfa 6 tamamlandı. Bu sayfadan 2 yeni doktor eklendi.
+[06.06.2026 12:09:35] - 🔎 Sayfa 7 taranıyor: https://umithastanesi.com.tr/doctors?page=7
+[06.06.2026 12:09:40] - 📄 Sayfa 7 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[06.06.2026 12:09:40] - ✅ BİTTİ: ÖZEL ÜMİT HASTANESİ toplam 77 doktor ile tamamlandı.
+[06.06.2026 12:09:41] - ✅ BAŞARILI: GURLIFE HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 12:09:41] - ✅ BAŞARILI: ÖZEL ÜMİT HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 12:09:41] - ✅ BAŞARILI: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 12:09:41] - ⚠️ UYARI: ACIBADEM ESKİŞEHİR HASTANESİ için veri bulunamadı, atlanıyor.
+[06.06.2026 12:09:41] - 🏁 İŞLEM TAMAMLANDI: Tüm taramalar ve senkronizasyonlar bitirildi.
+[06.06.2026 12:09:41] - ============================================================
+
+[06.06.2026 12:11:29] - 
+============================================================
+[06.06.2026 12:11:29] - 🚀 MEDIVIBE PAGINATION (SAYFALAMA) DESTEKLİ MOTOR BAŞLADI...
+[06.06.2026 12:11:29] - 🚀 GURLIFE HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:11:29] - 🚀 ÖZEL ÜMİT HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:11:29] - 🔎 Sayfa 1 taranıyor: https://umithastanesi.com.tr/doctors?page=1
+[06.06.2026 12:11:29] - 🚀 ÖZEL ESKİŞEHİR ANADOLU HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:11:29] - 🔎 Sayfa 1 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=1
+[06.06.2026 12:11:29] - 🚀 ACIBADEM ESKİŞEHİR HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:11:29] - 🔎 Sayfa 1 taranıyor: https://www.acibadem.com.tr/hastaneler/eskisehir-hastanesi/doktorlarimiz/?page=1
+[06.06.2026 12:11:32] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[06.06.2026 12:11:32] - 🔎 Sayfa 2 taranıyor: https://umithastanesi.com.tr/doctors?page=2
+[06.06.2026 12:11:32] - ❌ HATA: ACIBADEM ESKİŞEHİR HASTANESİ Sayfa 1 çekilirken sorun çıktı: Request failed with status code 404
+[06.06.2026 12:11:32] - ✅ BİTTİ: ACIBADEM ESKİŞEHİR HASTANESİ toplam 0 doktor ile tamamlandı.
+[06.06.2026 12:11:34] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 44 yeni doktor eklendi.
+[06.06.2026 12:11:34] - ✅ BİTTİ: GURLIFE HASTANESİ toplam 44 doktor ile tamamlandı.
+[06.06.2026 12:11:34] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 53 yeni doktor eklendi.
+[06.06.2026 12:11:34] - 🔎 Sayfa 2 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=2
+[06.06.2026 12:11:36] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 15 yeni doktor eklendi.
+[06.06.2026 12:11:36] - 🔎 Sayfa 3 taranıyor: https://umithastanesi.com.tr/doctors?page=3
+[06.06.2026 12:11:39] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[06.06.2026 12:11:39] - ✅ BİTTİ: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ toplam 53 doktor ile tamamlandı.
+[06.06.2026 12:11:41] - 📄 Sayfa 3 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[06.06.2026 12:11:41] - 🔎 Sayfa 4 taranıyor: https://umithastanesi.com.tr/doctors?page=4
+[06.06.2026 12:11:45] - 📄 Sayfa 4 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[06.06.2026 12:11:45] - 🔎 Sayfa 5 taranıyor: https://umithastanesi.com.tr/doctors?page=5
+[06.06.2026 12:11:48] - 📄 Sayfa 5 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[06.06.2026 12:11:48] - 🔎 Sayfa 6 taranıyor: https://umithastanesi.com.tr/doctors?page=6
+[06.06.2026 12:11:52] - 📄 Sayfa 6 tamamlandı. Bu sayfadan 2 yeni doktor eklendi.
+[06.06.2026 12:11:52] - 🔎 Sayfa 7 taranıyor: https://umithastanesi.com.tr/doctors?page=7
+[06.06.2026 12:11:55] - 📄 Sayfa 7 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[06.06.2026 12:11:55] - ✅ BİTTİ: ÖZEL ÜMİT HASTANESİ toplam 77 doktor ile tamamlandı.
+[06.06.2026 12:11:57] - ✅ BAŞARILI: GURLIFE HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 12:11:57] - ✅ BAŞARILI: ÖZEL ÜMİT HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 12:11:57] - ✅ BAŞARILI: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 12:11:57] - ⚠️ UYARI: ACIBADEM ESKİŞEHİR HASTANESİ için veri bulunamadı, atlanıyor.
+[06.06.2026 12:11:57] - 🏁 İŞLEM TAMAMLANDI: Tüm taramalar ve senkronizasyonlar bitirildi.
+[06.06.2026 12:11:57] - ============================================================
+
+[06.06.2026 12:17:30] - 
+============================================================
+[06.06.2026 12:17:30] - 🚀 MEDIVIBE PAGINATION (SAYFALAMA) DESTEKLİ MOTOR BAŞLADI...
+[06.06.2026 12:17:30] - 🚀 GURLIFE HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:17:30] - 🚀 ÖZEL ÜMİT HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:17:30] - 🔎 Sayfa 1 taranıyor: https://umithastanesi.com.tr/doctors?page=1
+[06.06.2026 12:17:30] - 🚀 ÖZEL ESKİŞEHİR ANADOLU HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:17:30] - 🔎 Sayfa 1 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=1
+[06.06.2026 12:17:30] - 🚀 ACIBADEM ESKİŞEHİR HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:17:30] - 🔎 Sayfa 1 taranıyor: https://www.acibadem.com.tr/hastaneler/eskisehir-hastanesi/doktorlarimiz/?page=1
+[06.06.2026 12:17:33] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 44 yeni doktor eklendi.
+[06.06.2026 12:17:33] - ✅ BİTTİ: GURLIFE HASTANESİ toplam 44 doktor ile tamamlandı.
+[06.06.2026 12:17:34] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[06.06.2026 12:17:34] - 🔎 Sayfa 2 taranıyor: https://umithastanesi.com.tr/doctors?page=2
+[06.06.2026 12:17:35] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 53 yeni doktor eklendi.
+[06.06.2026 12:17:35] - 🔎 Sayfa 2 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=2
+[06.06.2026 12:17:35] - ❌ HATA: ACIBADEM ESKİŞEHİR HASTANESİ Sayfa 1 çekilirken sorun çıktı: Request failed with status code 404
+[06.06.2026 12:17:35] - ✅ BİTTİ: ACIBADEM ESKİŞEHİR HASTANESİ toplam 0 doktor ile tamamlandı.
+[06.06.2026 12:17:38] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 15 yeni doktor eklendi.
+[06.06.2026 12:17:38] - 🔎 Sayfa 3 taranıyor: https://umithastanesi.com.tr/doctors?page=3
+[06.06.2026 12:17:39] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[06.06.2026 12:17:39] - ✅ BİTTİ: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ toplam 53 doktor ile tamamlandı.
+[06.06.2026 12:17:42] - 📄 Sayfa 3 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[06.06.2026 12:17:42] - 🔎 Sayfa 4 taranıyor: https://umithastanesi.com.tr/doctors?page=4
+[06.06.2026 12:17:47] - 📄 Sayfa 4 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[06.06.2026 12:17:47] - 🔎 Sayfa 5 taranıyor: https://umithastanesi.com.tr/doctors?page=5
+[06.06.2026 12:17:52] - 📄 Sayfa 5 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[06.06.2026 12:17:52] - 🔎 Sayfa 6 taranıyor: https://umithastanesi.com.tr/doctors?page=6
+[06.06.2026 12:17:56] - 📄 Sayfa 6 tamamlandı. Bu sayfadan 2 yeni doktor eklendi.
+[06.06.2026 12:17:56] - 🔎 Sayfa 7 taranıyor: https://umithastanesi.com.tr/doctors?page=7
+[06.06.2026 12:18:01] - 📄 Sayfa 7 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[06.06.2026 12:18:01] - ✅ BİTTİ: ÖZEL ÜMİT HASTANESİ toplam 77 doktor ile tamamlandı.
+[06.06.2026 12:18:01] - ✅ BAŞARILI: GURLIFE HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 12:18:01] - ✅ BAŞARILI: ÖZEL ÜMİT HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 12:18:02] - ✅ BAŞARILI: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 12:18:02] - ⚠️ UYARI: ACIBADEM ESKİŞEHİR HASTANESİ için veri bulunamadı, atlanıyor.
+[06.06.2026 12:18:02] - 🏁 İŞLEM TAMAMLANDI: Tüm taramalar ve senkronizasyonlar bitirildi.
+[06.06.2026 12:18:02] - ============================================================
+
+[06.06.2026 12:18:29] - 
+============================================================
+[06.06.2026 12:18:29] - 🚀 MEDIVIBE PAGINATION (SAYFALAMA) DESTEKLİ MOTOR BAŞLADI...
+[06.06.2026 12:18:29] - 🚀 GURLIFE HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:18:29] - 🚀 ÖZEL ÜMİT HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:18:29] - 🔎 Sayfa 1 taranıyor: https://umithastanesi.com.tr/doctors?page=1
+[06.06.2026 12:18:29] - 🚀 ÖZEL ESKİŞEHİR ANADOLU HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:18:29] - 🔎 Sayfa 1 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=1
+[06.06.2026 12:18:29] - 🚀 ACIBADEM ESKİŞEHİR HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 12:18:29] - 🔎 Sayfa 1 taranıyor: https://www.acibadem.com.tr/hastaneler/eskisehir-hastanesi/doktorlarimiz/?page=1
+[06.06.2026 12:18:32] - ❌ HATA: ACIBADEM ESKİŞEHİR HASTANESİ Sayfa 1 çekilirken sorun çıktı: Request failed with status code 404
+[06.06.2026 12:18:32] - ✅ BİTTİ: ACIBADEM ESKİŞEHİR HASTANESİ toplam 0 doktor ile tamamlandı.
+[06.06.2026 12:18:33] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 44 yeni doktor eklendi.
+[06.06.2026 12:18:33] - ✅ BİTTİ: GURLIFE HASTANESİ toplam 44 doktor ile tamamlandı.
+[06.06.2026 12:18:34] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[06.06.2026 12:18:34] - 🔎 Sayfa 2 taranıyor: https://umithastanesi.com.tr/doctors?page=2
+[06.06.2026 12:18:35] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 53 yeni doktor eklendi.
+[06.06.2026 12:18:35] - 🔎 Sayfa 2 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=2
+[06.06.2026 12:18:39] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 15 yeni doktor eklendi.
+[06.06.2026 12:18:39] - 🔎 Sayfa 3 taranıyor: https://umithastanesi.com.tr/doctors?page=3
+[06.06.2026 12:18:39] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[06.06.2026 12:18:39] - ✅ BİTTİ: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ toplam 53 doktor ile tamamlandı.
+[06.06.2026 12:18:44] - 📄 Sayfa 3 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[06.06.2026 12:18:44] - 🔎 Sayfa 4 taranıyor: https://umithastanesi.com.tr/doctors?page=4
+[06.06.2026 12:18:46] - 📄 Sayfa 4 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[06.06.2026 12:18:46] - 🔎 Sayfa 5 taranıyor: https://umithastanesi.com.tr/doctors?page=5
+[06.06.2026 12:18:51] - 📄 Sayfa 5 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[06.06.2026 12:18:51] - 🔎 Sayfa 6 taranıyor: https://umithastanesi.com.tr/doctors?page=6
+[06.06.2026 12:18:56] - 📄 Sayfa 6 tamamlandı. Bu sayfadan 2 yeni doktor eklendi.
+[06.06.2026 12:18:56] - 🔎 Sayfa 7 taranıyor: https://umithastanesi.com.tr/doctors?page=7
+[06.06.2026 12:19:01] - 📄 Sayfa 7 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[06.06.2026 12:19:01] - ✅ BİTTİ: ÖZEL ÜMİT HASTANESİ toplam 77 doktor ile tamamlandı.
+[06.06.2026 12:19:02] - ✅ BAŞARILI: GURLIFE HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 12:19:02] - ✅ BAŞARILI: ÖZEL ÜMİT HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 12:19:02] - ✅ BAŞARILI: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 12:19:02] - ⚠️ UYARI: ACIBADEM ESKİŞEHİR HASTANESİ için veri bulunamadı, atlanıyor.
+[06.06.2026 12:19:02] - 🏁 İŞLEM TAMAMLANDI: Tüm taramalar ve senkronizasyonlar bitirildi.
+[06.06.2026 12:19:02] - ============================================================
+
+[06.06.2026 16:23:34] - 
+============================================================
+[06.06.2026 16:23:34] - 🚀 MEDIVIBE PAGINATION (SAYFALAMA) DESTEKLİ MOTOR BAŞLADI...
+[06.06.2026 16:23:34] - 🚀 GURLIFE HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 16:23:34] - 🚀 ÖZEL ÜMİT HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 16:23:34] - 🔎 Sayfa 1 taranıyor: https://umithastanesi.com.tr/doctors?page=1
+[06.06.2026 16:23:34] - 🚀 ÖZEL ESKİŞEHİR ANADOLU HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 16:23:34] - 🔎 Sayfa 1 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=1
+[06.06.2026 16:23:34] - 🚀 ACIBADEM ESKİŞEHİR HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 16:23:34] - 🔎 Sayfa 1 taranıyor: https://www.acibadem.com.tr/hastaneler/eskisehir-hastanesi/doktorlarimiz/?page=1
+[06.06.2026 16:23:37] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 44 yeni doktor eklendi.
+[06.06.2026 16:23:37] - ✅ BİTTİ: GURLIFE HASTANESİ toplam 44 doktor ile tamamlandı.
+[06.06.2026 16:23:38] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[06.06.2026 16:23:38] - 🔎 Sayfa 2 taranıyor: https://umithastanesi.com.tr/doctors?page=2
+[06.06.2026 16:23:39] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 53 yeni doktor eklendi.
+[06.06.2026 16:23:39] - 🔎 Sayfa 2 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=2
+[06.06.2026 16:23:39] - ❌ HATA: ACIBADEM ESKİŞEHİR HASTANESİ Sayfa 1 çekilirken sorun çıktı: Request failed with status code 404
+[06.06.2026 16:23:39] - ✅ BİTTİ: ACIBADEM ESKİŞEHİR HASTANESİ toplam 0 doktor ile tamamlandı.
+[06.06.2026 16:23:43] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 15 yeni doktor eklendi.
+[06.06.2026 16:23:43] - 🔎 Sayfa 3 taranıyor: https://umithastanesi.com.tr/doctors?page=3
+[06.06.2026 16:23:44] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[06.06.2026 16:23:44] - ✅ BİTTİ: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ toplam 53 doktor ile tamamlandı.
+[06.06.2026 16:23:46] - 📄 Sayfa 3 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[06.06.2026 16:23:46] - 🔎 Sayfa 4 taranıyor: https://umithastanesi.com.tr/doctors?page=4
+[06.06.2026 16:23:49] - 📄 Sayfa 4 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[06.06.2026 16:23:49] - 🔎 Sayfa 5 taranıyor: https://umithastanesi.com.tr/doctors?page=5
+[06.06.2026 16:23:52] - 📄 Sayfa 5 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[06.06.2026 16:23:52] - 🔎 Sayfa 6 taranıyor: https://umithastanesi.com.tr/doctors?page=6
+[06.06.2026 16:23:55] - 📄 Sayfa 6 tamamlandı. Bu sayfadan 2 yeni doktor eklendi.
+[06.06.2026 16:23:55] - 🔎 Sayfa 7 taranıyor: https://umithastanesi.com.tr/doctors?page=7
+[06.06.2026 16:23:58] - 📄 Sayfa 7 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[06.06.2026 16:23:58] - ✅ BİTTİ: ÖZEL ÜMİT HASTANESİ toplam 77 doktor ile tamamlandı.
+[06.06.2026 16:23:59] - ✅ BAŞARILI: GURLIFE HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 16:23:59] - ✅ BAŞARILI: ÖZEL ÜMİT HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 16:23:59] - ✅ BAŞARILI: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 16:23:59] - ⚠️ UYARI: ACIBADEM ESKİŞEHİR HASTANESİ için veri bulunamadı, atlanıyor.
+[06.06.2026 16:23:59] - 🏁 İŞLEM TAMAMLANDI: Tüm taramalar ve senkronizasyonlar bitirildi.
+[06.06.2026 16:23:59] - ============================================================
+
+[06.06.2026 21:21:28] - 
+============================================================
+[06.06.2026 21:21:28] - 🚀 MEDIVIBE PAGINATION (SAYFALAMA) DESTEKLİ MOTOR BAŞLADI...
+[06.06.2026 21:21:28] - 🚀 GURLIFE HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 21:21:28] - 🚀 ÖZEL ÜMİT HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 21:21:28] - 🔎 Sayfa 1 taranıyor: https://umithastanesi.com.tr/doctors?page=1
+[06.06.2026 21:21:28] - 🚀 ÖZEL ESKİŞEHİR ANADOLU HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 21:21:28] - 🔎 Sayfa 1 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=1
+[06.06.2026 21:21:28] - 🚀 ACIBADEM ESKİŞEHİR HASTANESİ tarama görevi başlatıldı...
+[06.06.2026 21:21:28] - 🔎 Sayfa 1 taranıyor: https://www.acibadem.com.tr/hastaneler/eskisehir-hastanesi/doktorlarimiz/?page=1
+[06.06.2026 21:21:31] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[06.06.2026 21:21:31] - 🔎 Sayfa 2 taranıyor: https://umithastanesi.com.tr/doctors?page=2
+[06.06.2026 21:21:31] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 53 yeni doktor eklendi.
+[06.06.2026 21:21:31] - 🔎 Sayfa 2 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=2
+[06.06.2026 21:21:33] - ❌ HATA: ACIBADEM ESKİŞEHİR HASTANESİ Sayfa 1 çekilirken sorun çıktı: Request failed with status code 404
+[06.06.2026 21:21:33] - ✅ BİTTİ: ACIBADEM ESKİŞEHİR HASTANESİ toplam 0 doktor ile tamamlandı.
+[06.06.2026 21:21:33] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 44 yeni doktor eklendi.
+[06.06.2026 21:21:33] - ✅ BİTTİ: GURLIFE HASTANESİ toplam 44 doktor ile tamamlandı.
+[06.06.2026 21:21:35] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[06.06.2026 21:21:35] - ✅ BİTTİ: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ toplam 53 doktor ile tamamlandı.
+[06.06.2026 21:21:36] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 15 yeni doktor eklendi.
+[06.06.2026 21:21:36] - 🔎 Sayfa 3 taranıyor: https://umithastanesi.com.tr/doctors?page=3
+[06.06.2026 21:21:39] - 📄 Sayfa 3 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[06.06.2026 21:21:39] - 🔎 Sayfa 4 taranıyor: https://umithastanesi.com.tr/doctors?page=4
+[06.06.2026 21:21:44] - 📄 Sayfa 4 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[06.06.2026 21:21:44] - 🔎 Sayfa 5 taranıyor: https://umithastanesi.com.tr/doctors?page=5
+[06.06.2026 21:21:49] - 📄 Sayfa 5 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[06.06.2026 21:21:49] - 🔎 Sayfa 6 taranıyor: https://umithastanesi.com.tr/doctors?page=6
+[06.06.2026 21:21:53] - 📄 Sayfa 6 tamamlandı. Bu sayfadan 2 yeni doktor eklendi.
+[06.06.2026 21:21:53] - 🔎 Sayfa 7 taranıyor: https://umithastanesi.com.tr/doctors?page=7
+[06.06.2026 21:21:58] - 📄 Sayfa 7 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[06.06.2026 21:21:58] - ✅ BİTTİ: ÖZEL ÜMİT HASTANESİ toplam 77 doktor ile tamamlandı.
+[06.06.2026 21:21:59] - ✅ BAŞARILI: GURLIFE HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 21:21:59] - ✅ BAŞARILI: ÖZEL ÜMİT HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 21:21:59] - ✅ BAŞARILI: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ veritabanına senkronize edildi.
+[06.06.2026 21:21:59] - ⚠️ UYARI: ACIBADEM ESKİŞEHİR HASTANESİ için veri bulunamadı, atlanıyor.
+[06.06.2026 21:21:59] - 🏁 İŞLEM TAMAMLANDI: Tüm taramalar ve senkronizasyonlar bitirildi.
+[06.06.2026 21:21:59] - ============================================================
+
+[09.06.2026 18:26:25] - 
+============================================================
+[09.06.2026 18:26:25] - 🚀 MEDIVIBE PAGINATION (SAYFALAMA) DESTEKLİ MOTOR BAŞLADI...
+[09.06.2026 18:26:25] - 🚀 GURLIFE HASTANESİ tarama görevi başlatıldı...
+[09.06.2026 18:26:25] - 🚀 ÖZEL ÜMİT HASTANESİ tarama görevi başlatıldı...
+[09.06.2026 18:26:25] - 🔎 Sayfa 1 taranıyor: https://umithastanesi.com.tr/doctors?page=1
+[09.06.2026 18:26:25] - 🚀 ÖZEL ESKİŞEHİR ANADOLU HASTANESİ tarama görevi başlatıldı...
+[09.06.2026 18:26:25] - 🔎 Sayfa 1 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=1
+[09.06.2026 18:26:25] - 🚀 ACIBADEM ESKİŞEHİR HASTANESİ tarama görevi başlatıldı...
+[09.06.2026 18:26:25] - 🔎 Sayfa 1 taranıyor: https://www.acibadem.com.tr/hastaneler/eskisehir-hastanesi/doktorlarimiz/?page=1
+[09.06.2026 18:26:28] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[09.06.2026 18:26:28] - 🔎 Sayfa 2 taranıyor: https://umithastanesi.com.tr/doctors?page=2
+[09.06.2026 18:26:28] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 53 yeni doktor eklendi.
+[09.06.2026 18:26:28] - 🔎 Sayfa 2 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=2
+[09.06.2026 18:26:29] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 44 yeni doktor eklendi.
+[09.06.2026 18:26:29] - ✅ BİTTİ: GURLIFE HASTANESİ toplam 44 doktor ile tamamlandı.
+[09.06.2026 18:26:29] - ❌ HATA: ACIBADEM ESKİŞEHİR HASTANESİ Sayfa 1 çekilirken sorun çıktı: Request failed with status code 404
+[09.06.2026 18:26:29] - ✅ BİTTİ: ACIBADEM ESKİŞEHİR HASTANESİ toplam 0 doktor ile tamamlandı.
+[09.06.2026 18:26:33] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 15 yeni doktor eklendi.
+[09.06.2026 18:26:33] - 🔎 Sayfa 3 taranıyor: https://umithastanesi.com.tr/doctors?page=3
+[09.06.2026 18:26:34] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[09.06.2026 18:26:34] - ✅ BİTTİ: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ toplam 53 doktor ile tamamlandı.
+[09.06.2026 18:26:36] - 📄 Sayfa 3 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[09.06.2026 18:26:36] - 🔎 Sayfa 4 taranıyor: https://umithastanesi.com.tr/doctors?page=4
+[09.06.2026 18:26:39] - 📄 Sayfa 4 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[09.06.2026 18:26:39] - 🔎 Sayfa 5 taranıyor: https://umithastanesi.com.tr/doctors?page=5
+[09.06.2026 18:26:43] - 📄 Sayfa 5 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[09.06.2026 18:26:43] - 🔎 Sayfa 6 taranıyor: https://umithastanesi.com.tr/doctors?page=6
+[09.06.2026 18:26:46] - 📄 Sayfa 6 tamamlandı. Bu sayfadan 2 yeni doktor eklendi.
+[09.06.2026 18:26:46] - 🔎 Sayfa 7 taranıyor: https://umithastanesi.com.tr/doctors?page=7
+[09.06.2026 18:26:50] - 📄 Sayfa 7 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[09.06.2026 18:26:50] - ✅ BİTTİ: ÖZEL ÜMİT HASTANESİ toplam 77 doktor ile tamamlandı.
+[09.06.2026 18:26:50] - ✅ BAŞARILI: GURLIFE HASTANESİ veritabanına senkronize edildi.
+[09.06.2026 18:26:51] - ✅ BAŞARILI: ÖZEL ÜMİT HASTANESİ veritabanına senkronize edildi.
+[09.06.2026 18:26:51] - ✅ BAŞARILI: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ veritabanına senkronize edildi.
+[09.06.2026 18:26:51] - ⚠️ UYARI: ACIBADEM ESKİŞEHİR HASTANESİ için veri bulunamadı, atlanıyor.
+[09.06.2026 18:26:51] - 🏁 İŞLEM TAMAMLANDI: Tüm taramalar ve senkronizasyonlar bitirildi.
+[09.06.2026 18:26:51] - ============================================================
+
+[11.06.2026 20:27:40] - 
+============================================================
+[11.06.2026 20:27:40] - 🚀 MEDIVIBE PAGINATION (SAYFALAMA) DESTEKLİ MOTOR BAŞLADI...
+[11.06.2026 20:27:40] - 🚀 GURLIFE HASTANESİ tarama görevi başlatıldı...
+[11.06.2026 20:27:40] - 🚀 ÖZEL ÜMİT HASTANESİ tarama görevi başlatıldı...
+[11.06.2026 20:27:40] - 🔎 Sayfa 1 taranıyor: https://umithastanesi.com.tr/doctors?page=1
+[11.06.2026 20:27:40] - 🚀 ÖZEL ESKİŞEHİR ANADOLU HASTANESİ tarama görevi başlatıldı...
+[11.06.2026 20:27:40] - 🔎 Sayfa 1 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=1
+[11.06.2026 20:27:40] - 🚀 ACIBADEM ESKİŞEHİR HASTANESİ tarama görevi başlatıldı...
+[11.06.2026 20:27:40] - 🔎 Sayfa 1 taranıyor: https://www.acibadem.com.tr/hastaneler/eskisehir-hastanesi/doktorlarimiz/?page=1
+[11.06.2026 20:27:43] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[11.06.2026 20:27:43] - 🔎 Sayfa 2 taranıyor: https://umithastanesi.com.tr/doctors?page=2
+[11.06.2026 20:27:44] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 44 yeni doktor eklendi.
+[11.06.2026 20:27:44] - ✅ BİTTİ: GURLIFE HASTANESİ toplam 44 doktor ile tamamlandı.
+[11.06.2026 20:27:45] - ❌ HATA: ACIBADEM ESKİŞEHİR HASTANESİ Sayfa 1 çekilirken sorun çıktı: Request failed with status code 404
+[11.06.2026 20:27:45] - ✅ BİTTİ: ACIBADEM ESKİŞEHİR HASTANESİ toplam 0 doktor ile tamamlandı.
+[11.06.2026 20:27:47] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 53 yeni doktor eklendi.
+[11.06.2026 20:27:47] - 🔎 Sayfa 2 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=2
+[11.06.2026 20:27:47] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 15 yeni doktor eklendi.
+[11.06.2026 20:27:47] - 🔎 Sayfa 3 taranıyor: https://umithastanesi.com.tr/doctors?page=3
+[11.06.2026 20:27:52] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[11.06.2026 20:27:52] - ✅ BİTTİ: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ toplam 53 doktor ile tamamlandı.
+[11.06.2026 20:27:52] - 📄 Sayfa 3 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[11.06.2026 20:27:52] - 🔎 Sayfa 4 taranıyor: https://umithastanesi.com.tr/doctors?page=4
+[11.06.2026 20:27:56] - 📄 Sayfa 4 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[11.06.2026 20:27:56] - 🔎 Sayfa 5 taranıyor: https://umithastanesi.com.tr/doctors?page=5
+[11.06.2026 20:28:00] - 📄 Sayfa 5 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[11.06.2026 20:28:00] - 🔎 Sayfa 6 taranıyor: https://umithastanesi.com.tr/doctors?page=6
+[11.06.2026 20:28:04] - 📄 Sayfa 6 tamamlandı. Bu sayfadan 2 yeni doktor eklendi.
+[11.06.2026 20:28:04] - 🔎 Sayfa 7 taranıyor: https://umithastanesi.com.tr/doctors?page=7
+[11.06.2026 20:28:08] - 📄 Sayfa 7 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[11.06.2026 20:28:08] - ✅ BİTTİ: ÖZEL ÜMİT HASTANESİ toplam 77 doktor ile tamamlandı.
+[11.06.2026 20:28:09] - ✅ BAŞARILI: GURLIFE HASTANESİ veritabanına senkronize edildi.
+[11.06.2026 20:28:09] - ✅ BAŞARILI: ÖZEL ÜMİT HASTANESİ veritabanına senkronize edildi.
+[11.06.2026 20:28:10] - ✅ BAŞARILI: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ veritabanına senkronize edildi.
+[11.06.2026 20:28:10] - ⚠️ UYARI: ACIBADEM ESKİŞEHİR HASTANESİ için veri bulunamadı, atlanıyor.
+[11.06.2026 20:28:10] - 🏁 İŞLEM TAMAMLANDI: Tüm taramalar ve senkronizasyonlar bitirildi.
+[11.06.2026 20:28:10] - ============================================================
+
+[12.06.2026 20:45:30] - 
+============================================================
+[12.06.2026 20:45:30] - 🚀 MEDIVIBE PAGINATION (SAYFALAMA) DESTEKLİ MOTOR BAŞLADI...
+[12.06.2026 20:45:30] - 🚀 GURLIFE HASTANESİ tarama görevi başlatıldı...
+[12.06.2026 20:45:30] - 🚀 ÖZEL ÜMİT HASTANESİ tarama görevi başlatıldı...
+[12.06.2026 20:45:30] - 🔎 Sayfa 1 taranıyor: https://umithastanesi.com.tr/doctors?page=1
+[12.06.2026 20:45:30] - 🚀 ÖZEL ESKİŞEHİR ANADOLU HASTANESİ tarama görevi başlatıldı...
+[12.06.2026 20:45:30] - 🔎 Sayfa 1 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=1
+[12.06.2026 20:45:30] - 🚀 ACIBADEM ESKİŞEHİR HASTANESİ tarama görevi başlatıldı...
+[12.06.2026 20:45:30] - 🔎 Sayfa 1 taranıyor: https://www.acibadem.com.tr/hastaneler/eskisehir-hastanesi/doktorlarimiz/?page=1
+[12.06.2026 20:45:33] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 44 yeni doktor eklendi.
+[12.06.2026 20:45:33] - ✅ BİTTİ: GURLIFE HASTANESİ toplam 44 doktor ile tamamlandı.
+[12.06.2026 20:45:33] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[12.06.2026 20:45:33] - 🔎 Sayfa 2 taranıyor: https://umithastanesi.com.tr/doctors?page=2
+[12.06.2026 20:45:34] - 📄 Sayfa 1 tamamlandı. Bu sayfadan 53 yeni doktor eklendi.
+[12.06.2026 20:45:34] - 🔎 Sayfa 2 taranıyor: https://ozelanadoluhastanesi.com/tr/doktorlarimiz?lang=tr&page=2
+[12.06.2026 20:45:35] - ❌ HATA: ACIBADEM ESKİŞEHİR HASTANESİ Sayfa 1 çekilirken sorun çıktı: Request failed with status code 404
+[12.06.2026 20:45:35] - ✅ BİTTİ: ACIBADEM ESKİŞEHİR HASTANESİ toplam 0 doktor ile tamamlandı.
+[12.06.2026 20:45:37] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[12.06.2026 20:45:37] - ✅ BİTTİ: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ toplam 53 doktor ile tamamlandı.
+[12.06.2026 20:45:37] - 📄 Sayfa 2 tamamlandı. Bu sayfadan 15 yeni doktor eklendi.
+[12.06.2026 20:45:37] - 🔎 Sayfa 3 taranıyor: https://umithastanesi.com.tr/doctors?page=3
+[12.06.2026 20:45:41] - 📄 Sayfa 3 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[12.06.2026 20:45:41] - 🔎 Sayfa 4 taranıyor: https://umithastanesi.com.tr/doctors?page=4
+[12.06.2026 20:45:45] - 📄 Sayfa 4 tamamlandı. Bu sayfadan 14 yeni doktor eklendi.
+[12.06.2026 20:45:45] - 🔎 Sayfa 5 taranıyor: https://umithastanesi.com.tr/doctors?page=5
+[12.06.2026 20:45:49] - 📄 Sayfa 5 tamamlandı. Bu sayfadan 16 yeni doktor eklendi.
+[12.06.2026 20:45:49] - 🔎 Sayfa 6 taranıyor: https://umithastanesi.com.tr/doctors?page=6
+[12.06.2026 20:45:53] - 📄 Sayfa 6 tamamlandı. Bu sayfadan 2 yeni doktor eklendi.
+[12.06.2026 20:45:53] - 🔎 Sayfa 7 taranıyor: https://umithastanesi.com.tr/doctors?page=7
+[12.06.2026 20:45:57] - 📄 Sayfa 7 tamamlandı. Bu sayfadan 0 yeni doktor eklendi.
+[12.06.2026 20:45:57] - ✅ BİTTİ: ÖZEL ÜMİT HASTANESİ toplam 77 doktor ile tamamlandı.
+[12.06.2026 20:45:57] - ✅ BAŞARILI: GURLIFE HASTANESİ veritabanına senkronize edildi.
+[12.06.2026 20:45:58] - ✅ BAŞARILI: ÖZEL ÜMİT HASTANESİ veritabanına senkronize edildi.
+[12.06.2026 20:45:58] - ✅ BAŞARILI: ÖZEL ESKİŞEHİR ANADOLU HASTANESİ veritabanına senkronize edildi.
+[12.06.2026 20:45:58] - ⚠️ UYARI: ACIBADEM ESKİŞEHİR HASTANESİ için veri bulunamadı, atlanıyor.
+[12.06.2026 20:45:58] - 🏁 İŞLEM TAMAMLANDI: Tüm taramalar ve senkronizasyonlar bitirildi.
+[12.06.2026 20:45:58] - ============================================================
+

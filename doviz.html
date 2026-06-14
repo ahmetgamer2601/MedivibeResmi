@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canlı Döviz Çevirici | MediVibe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+  </style>
+</head>
+<body class="text-gray-800 antialiased pt-24 pb-12">
+
+  <nav class="bg-white px-6 md:px-12 py-4 flex justify-between items-center fixed w-full top-0 z-50 shadow-sm">
+    
+    <div class="flex items-center gap-10">
+      <a href="index.html" class="flex items-center gap-3 transition transform hover:opacity-90 active:scale-95">
+        <img src="logo.png" alt="Medivibe" class="h-10 object-contain" onerror="this.src='https://via.placeholder.com/150x40?text=LOGO'">
+        <span class="hidden md:block text-2xl font-extrabold tracking-tight text-gray-800 ml-[-24px]">
+          Medi<span class="text-[#00a859]">vibe</span>
+        </span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="hastaneler.html" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300">Hastanelerimiz</a>
+        <a href="tesisler.html" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300">Tesisler</a>
+        <a href="bakim.html" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300">Bakım Merkezleri</a>
+        
+        <a href="otel.html" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300">Oteller</a>
+
+        <div class="relative group py-2">
+          <button class="text-sm font-semibold text-[#00a859] transition duration-300 flex items-center gap-1.5 outline-none">
+            Araçlar
+            <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180 text-[#00a859]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+            </svg>
+          </button>
+          
+          <div class="absolute left-0 top-full pt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-3 group-hover:translate-y-0 z-50">
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-2 space-y-0.5">
+              
+              <a href="takip.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-emerald-50/60 group/item transition-all duration-200">
+                <div class="w-9 h-9 bg-[#00a859] text-white flex items-center justify-center rounded-xl text-lg shadow-sm">💊</div>
+                <div>
+                  <div class="text-xs font-bold text-gray-800 group-hover/item:text-[#00a859] transition-colors">İlaç Takip Sistemi</div>
+                  <div class="text-[10px] text-gray-500 mt-0.5 font-medium">Tedavi ve hatırlatıcı paneli</div>
+                </div>
+              </a>
+
+              <a href="doviz.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-emerald-50/60 group/item transition-all duration-200">
+                <div class="w-9 h-9 bg-emerald-100/70 text-[#00a859] flex items-center justify-center rounded-xl text-lg shadow-sm">💱</div>
+                <div>
+                  <div class="text-xs font-bold text-gray-800 group-hover/item:text-[#00a859] transition-colors">Canlı Döviz Çevirici</div>
+                  <div class="text-[10px] text-gray-400 mt-0.5 font-medium">Anlık borsa kur hesaplayıcı</div>
+                </div>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden md:flex items-center gap-6 shrink-0">
+      <a href="iletisim.html" class="bg-[#00a859] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-[#008f4c] hover:shadow-lg transition-all duration-300 whitespace-nowrap">
+        İletişime Geç
+      </a>
+
+      <a href="ceviri.html" class="flex items-center justify-center w-10 h-10 bg-gray-50 text-gray-600 rounded-full hover:bg-emerald-50 hover:text-[#00a859] transition-all duration-300 shadow-sm border border-gray-100 group shrink-0" title="Akıllı Tıbbi Belge Çevirisi">
+        <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"></path>
+        </svg>
+      </a>
+
+      <div class="flex flex-col items-end whitespace-nowrap">
+        <span class="text-xs text-gray-500 font-medium lang-iletisim">İletişim</span>
+        <a href="tel:+905551234567" class="font-bold text-gray-800 hover:text-[#00a859] transition flex items-center gap-2">
+          🇹🇷 +90 555 123 45 67
+        </a>
+      </div>
+      
+      <select id="languageSelector" class="bg-gray-100 border-none text-gray-800 text-sm font-semibold rounded-lg px-3 py-2 outline-none cursor-pointer hover:bg-gray-200 transition shrink-0">
+        <option value="tr">TR</option>
+        <option value="en">EN</option>
+      </select>
+    </div>
+
+    <button id="hamburgerBtn" class="block md:hidden text-gray-800 p-2 focus:outline-none">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <main class="max-w-xl mx-auto px-4 mt-6">
+    
+    <div class="text-center mb-8">
+      <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-full">
+        <i class="fa-solid fa-calculator mr-1"></i> Finansal Yardımcı Araçlar
+      </span>
+      <h1 class="text-3xl font-extrabold text-gray-900 tracking-tight mt-3">Döviz <span class="text-[#00a859]">Çevirici</span></h1>
+      <p class="mt-2 text-sm text-gray-500">Borsa kurlarıyla anlık çapraz hesaplama yapın.</p>
+    </div>
+
+    <div class="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm mb-6 grid grid-cols-2 gap-4 text-center">
+      <div class="bg-gray-50 p-3 rounded-xl">
+        <div class="text-xs text-gray-400 font-bold uppercase tracking-wider">USD / TRY</div>
+        <div id="kurUSD" class="text-lg font-black text-gray-800 mt-1">--.-- ₺</div>
+      </div>
+      <div class="bg-gray-50 p-3 rounded-xl">
+        <div class="text-xs text-gray-400 font-bold uppercase tracking-wider">EUR / TRY</div>
+        <div id="kurEUR" class="text-lg font-black text-gray-800 mt-1">--.-- ₺</div>
+      </div>
+    </div>
+
+    <div class="bg-white p-6 rounded-3xl border border-gray-100 shadow-sm space-y-5 relative">
+      
+      <div>
+        <div class="flex justify-between items-center mb-2">
+          <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider">Çevrilecek Tutar</label>
+          <button onclick="tutariTemizle()" class="text-xs text-red-500 hover:text-red-700 font-medium transition flex items-center gap-1"><i class="fa-solid fa-circle-xmark"></i> Temizle</button>
+        </div>
+        <div class="relative">
+          <input type="number" id="tutarInput" value="1000" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-base font-bold focus:outline-none focus:border-[#00a859] transition shadow-inner">
+          <span id="kaynakSimge" class="absolute inset-y-0 right-4 flex items-center text-gray-400 font-bold">₺</span>
+        </div>
+        
+        <div class="flex gap-1.5 mt-2">
+          <button onclick="tutarEkle(100)" class="bg-gray-100 hover:bg-gray-200 text-gray-600 text-[11px] font-bold px-2.5 py-1 rounded-md transition">+100</button>
+          <button onclick="tutarEkle(500)" class="bg-gray-100 hover:bg-gray-200 text-gray-600 text-[11px] font-bold px-2.5 py-1 rounded-md transition">+500</button>
+          <button onclick="tutarEkle(1000)" class="bg-gray-100 hover:bg-gray-200 text-gray-600 text-[11px] font-bold px-2.5 py-1 rounded-md transition">+1000</button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 relative">
+        <div>
+          <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Kaynak Birim</label>
+          <select id="kaynakBirim" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3.5 text-sm font-semibold focus:outline-none focus:border-[#00a859] transition cursor-pointer">
+            <option value="TRY">TRY - Türk Lirası</option>
+            <option value="USD">USD - Amerikan Doları</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="GBP">GBP - İngiliz Sterlini</option>
+          </select>
+        </div>
+
+        <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 mt-2 sm:mt-3">
+          <button onclick="birimleriTersCevir()" class="bg-white hover:bg-[#00a859] text-gray-400 hover:text-white w-9 h-9 rounded-full shadow-md border border-gray-100 flex items-center justify-center transition active:scale-90" title="Birimlerin Yerini Değiştir">
+            <i class="fa-solid fa-arrows-rotate rotate-90 sm:rotate-0"></i>
+          </button>
+        </div>
+
+        <div class="mt-4 sm:mt-0">
+          <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Hedef Birim</label>
+          <select id="hedefBirim" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3.5 text-sm font-semibold focus:outline-none focus:border-[#00a859] transition cursor-pointer">
+            <option value="TRY">TRY - Türk Lirası</option>
+            <option value="USD">USD - Amerikan Doları</option>
+            <option value="EUR">EUR - Euro</option>
+            <option value="GBP">GBP - İngiliz Sterlini</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="bg-emerald-50/60 border border-emerald-100 p-5 rounded-2xl flex justify-between items-center">
+        <div>
+          <div class="text-xs font-bold text-emerald-700 uppercase tracking-wider">Hesaplanan Tutar</div>
+          <div id="sonucEkranı" class="text-2xl font-black text-emerald-600 mt-1">0.00 USD</div>
+        </div>
+        <button onclick="sonucuKopyala()" class="bg-white hover:bg-emerald-100 text-emerald-600 p-3 rounded-xl border border-emerald-200/60 shadow-sm transition active:scale-95" title="Sonucu Kopyala">
+          <i id="kopyalaIkon" class="fa-regular fa-copy text-base"></i>
+        </button>
+      </div>
+
+      <div id="gecmisKutusu" class="hidden border-t border-gray-100 pt-4">
+        <div class="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2"><i class="fa-solid fa-clock-rotate-left"></i> Son Hesaplamalarınız</div>
+        <div id="gecmisListesi" class="flex flex-wrap gap-2">
+        </div>
+      </div>
+
+      <div id="guncellemeZamani" class="text-[10px] text-center text-gray-400 font-medium mt-2">Borsa verileri alınıyor...</div>
+
+    </div>
+
+  </main>
+  <script>
+    const API_URL = "https://open.er-api.com/v6/latest/TRY";
+    let DOVIZ_VERILERI = null;
+    let ISLEM_GECMISI = [];
+
+    const simgeler = { "TRY": "₺", "USD": "$", "EUR": "€", "GBP": "£" };
+
+    async function kurlariGuncelle() {
+      try {
+        const response = await fetch(API_URL);
+        const data = await response.json();
+        
+        if (data && data.result === "success") {
+          DOVIZ_VERILERI = data.rates;
+          
+          // Mini kur göstergeleri
+          document.getElementById('kurUSD').innerText = `${(1 / data.rates.USD).toFixed(2)} ₺`;
+          document.getElementById('kurEUR').innerText = `${(1 / data.rates.EUR).toFixed(2)} ₺`;
+          
+          document.getElementById('guncellemeZamani').innerText = `Piyasa Canlı Verisi: ${new Date(data.time_last_update_utc).toLocaleTimeString('tr-TR')}`;
+          
+          // Akıllı Özellik: LocalStorage'dan son seçilen para birimlerini geri yükleme
+          if (localStorage.getItem('medivibe_kaynak')) {
+            document.getElementById('kaynakBirim').value = localStorage.getItem('medivibe_kaynak');
+          } else {
+            document.getElementById('kaynakBirim').value = "USD";
+          }
+
+          if (localStorage.getItem('medivibe_hedef')) {
+            document.getElementById('hedefBirim').value = localStorage.getItem('medivibe_hedef');
+          } else {
+            document.getElementById('hedefBirim').value = "TRY";
+          }
+          
+          hesapla(false); // İlk açılışta geçmişe yazmasın diye false gönderiyoruz
+        }
+      } catch (error) {
+        console.error("Borsa API hatası:", error);
+        document.getElementById('guncellemeZamani').innerText = "Hata: Canlı borsa verileri yüklenemedi.";
+      }
+    }
+
+    function hesapla(gecmiseEkle = true) {
+      if (!DOVIZ_VERILERI) return;
+
+      const tutar = parseFloat(document.getElementById('tutarInput').value) || 0;
+      const kaynak = document.getElementById('kaynakBirim').value;
+      const hedef = document.getElementById('hedefBirim').value;
+
+      document.getElementById('kaynakSimge').innerText = simgeler[kaynak] || "";
+
+      // Akıllı Özellik: Seçimleri Hafızaya Kaydet (LocalStorage)
+      localStorage.setItem('medivibe_kaynak', kaynak);
+      localStorage.setItem('medivibe_hedef', hedef);
+
+      // Çapraz Borsa Hesaplama Formülü
+      const kaynakKur = DOVIZ_VERILERI[kaynak];
+      const hedefKur = DOVIZ_VERILERI[hedef];
+      const sonuc = (tutar / kaynakKur) * hedefKur;
+
+      const sonucMetni = `${sonuc.toLocaleString('tr-TR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ${hedef}`;
+      document.getElementById('sonucEkranı').innerText = sonucMetni;
+
+      // Akıllı Özellik: Son yapılan işlemleri hafızada listeleme (Sadece input değiştikçe)
+      if (gecmiseEkle && tutar > 0) {
+        gecmiseYaz(`${tutar} ${kaynak} ➔ ${sonuc.toLocaleString('tr-TR', {maximumFractionDigits:1})} ${hedef}`);
+      }
+    }
+
+    // Akıllı Özellik: Birimleri Tersine Çevirme (Swap)
+    function birimleriTersCevir() {
+      const kaynakSef = document.getElementById('kaynakBirim');
+      const hedefSef = document.getElementById('hedefBirim');
+      
+      const gecici = kaynakSef.value;
+      kaynakSef.value = hedefSef.value;
+      hedefSef.value = gecici;
+      
+      hesapla(true);
+    }
+
+    // Akıllı Özellik: Tek tıkla temizleme
+    function tutariTemizle() {
+      document.getElementById('tutarInput').value = "";
+      document.getElementById('sonucEkranı').innerText = `0.00 ${document.getElementById('hedefBirim').value}`;
+      document.getElementById('tutarInput').focus();
+    }
+
+    // Akıllı Özellik: Hızlı pedal butonları
+    function tutarEkle(miktar) {
+      const input = document.getElementById('tutarInput');
+      const mevcut = parseFloat(input.value) || 0;
+      input.value = mevcut + miktar;
+      hesapla(true);
+    }
+
+    // Akıllı Özellik: Sonucu kopyalama motoru
+    function sonucuKopyala() {
+      const text = document.getElementById('sonucEkranı').innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        const ikon = document.getElementById('kopyalaIkon');
+        ikon.className = "fa-solid fa-check text-emerald-600"; // Tik işaretine dönüştür
+        setTimeout(() => {
+          ikon.className = "fa-regular fa-copy text-base"; // 1.5 sn sonra eski haline döndür
+        }, 1500);
+      });
+    }
+
+    // Akıllı Özellik: Geçmiş mekanizması dizilimi (Maksimum 3 adet kayıt tutar)
+    function gecmiseYaz(metin) {
+      if (ISLEM_GECMISI[0] === metin) return; // Aynısını üst üste ekleme
+      
+      ISLEM_GECMISI.unshift(metin);
+      if (ISLEM_GECMISI.length > 3) ISLEM_GECMISI.pop();
+
+      const konteyner = document.getElementById('gecmisKutusu');
+      const liste = document.getElementById('gecmisListesi');
+      
+      konteyner.classList.remove('hidden');
+      liste.innerHTML = ISLEM_GECMISI.map(item => `
+        <span class="bg-gray-100 border border-gray-200 text-gray-600 text-[10px] font-bold px-2.5 py-1 rounded-lg shadow-sm">${item}</span>
+      `).join('');
+    }
+
+    // Inputları dinleme tetikleyicileri (Kullanıcı durunca geçmişe atsın diye hafif bir bekleme)
+    let yaziTimer;
+    document.getElementById('tutarInput').addEventListener('input', () => {
+      clearTimeout(yaziTimer);
+      hesapla(false); // Yazarken anlık hesaplasın ama geçmişi kirletmesin diye false
+      yaziTimer = setTimeout(() => { hesapla(true); }, 800); // Kullanıcı yazmayı bırakınca geçmişe ekler
+    });
+
+    document.getElementById('kaynakBirim').addEventListener('change', () => hesapla(true));
+    document.getElementById('hedefBirim').addEventListener('change', () => hesapla(true));
+
+    window.addEventListener('DOMContentLoaded', kurlariGuncelle);
+  </script>
+
+</body>
+</html>

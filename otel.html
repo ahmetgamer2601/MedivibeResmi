@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anlaşmalı Oteller | MediVibe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+    .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; rounded: 10px; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #00a859; border-radius: 10px; }
+    /* Görsel Slider Yumuşak Geçiş */
+    .slider-img { transition: opacity 0.8s ease-in-out; }
+  </style>
+</head>
+<body class="text-gray-800 antialiased pt-24 pb-12">
+
+  <nav class="bg-white px-6 md:px-12 py-4 flex justify-between items-center fixed w-full top-0 z-50 shadow-sm">
+    
+    <div class="flex items-center gap-10">
+      <a href="index.html" class="flex items-center gap-3 transition transform hover:opacity-90 active:scale-95">
+        <img src="logo.png" alt="Medivibe" class="h-10 object-contain" onerror="this.src='https://via.placeholder.com/150x40?text=LOGO'">
+        <span class="hidden md:block text-2xl font-extrabold tracking-tight text-gray-800 ml-[-24px]">
+          Medi<span class="text-[#00a859]">vibe</span>
+        </span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="hastaneler.html" id="nav_hastaneler" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300">Hastanelerimiz</a>
+        <a href="tesisler.html" id="nav_tesisler" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300">Tesisler</a>
+        <a href="bakim.html" id="nav_bakim" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300">Bakım Merkezleri</a>
+        
+        <a href="otel.html" id="nav_oteller" class="text-sm font-semibold text-[#00a859] transition duration-300">Oteller</a>
+
+        <div class="relative group py-2">
+          <button id="nav_araclar" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300 flex items-center gap-1.5 outline-none">
+            Araçlar
+            <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180 text-gray-500 group-hover:text-[#00a859]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+            </svg>
+          </button>
+          
+          <div class="absolute left-0 top-full pt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-3 group-hover:translate-y-0 z-50">
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-2 space-y-0.5">
+              
+              <a href="takip.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-emerald-50/60 group/item transition-all duration-200">
+                <div class="w-9 h-9 bg-[#00a859] text-white flex items-center justify-center rounded-xl text-lg shadow-sm">💊</div>
+                <div>
+                  <div id="nav_ilac_baslik" class="text-xs font-bold text-gray-800 group-hover/item:text-[#00a859] transition-colors">İlaç Takip Sistemi</div>
+                  <div id="nav_ilac_alt" class="text-[10px] text-gray-500 mt-0.5 font-medium">Tedavi ve hatırlatıcı paneli</div>
+                </div>
+              </a>
+
+              <a href="doviz.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-emerald-50/60 group/item transition-all duration-200">
+                <div class="w-9 h-9 bg-emerald-100/70 text-[#00a859] flex items-center justify-center rounded-xl text-lg shadow-sm">💱</div>
+                <div>
+                  <div id="nav_doviz_baslik" class="text-xs font-bold text-gray-800 group-hover/item:text-[#00a859] transition-colors">Canlı Döviz Çevirici</div>
+                  <div id="nav_doviz_alt" class="text-[10px] text-gray-400 mt-0.5 font-medium">Anlık borsa kur hesaplayıcı</div>
+                </div>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden md:flex items-center gap-6 shrink-0">
+      <a href="iletisim.html" id="nav_iletisim_btn" class="bg-[#00a859] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-[#008f4c] hover:shadow-lg transition-all duration-300 whitespace-nowrap">
+        İletişime Geç
+      </a>
+
+      <a href="ceviri.html" class="flex items-center justify-center w-10 h-10 bg-gray-50 text-gray-600 rounded-full hover:bg-emerald-50 hover:text-[#00a859] transition-all duration-300 shadow-sm border border-gray-100 group shrink-0" title="Akıllı Tıbbi Belge Çevirisi">
+        <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"></path>
+        </svg>
+      </a>
+
+      <div class="flex flex-col items-end whitespace-nowrap">
+        <span class="text-xs text-gray-500 font-medium" id="lbl_iletisim">İletişim</span>
+        <a href="tel:+905551234567" class="font-bold text-gray-800 hover:text-[#00a859] transition flex items-center gap-2">
+          🇹🇷 +90 555 123 45 67
+        </a>
+      </div>
+      
+      <select id="languageSelector" class="bg-gray-100 border-none text-gray-800 text-sm font-semibold rounded-lg px-3 py-2 outline-none cursor-pointer hover:bg-gray-200 transition shrink-0">
+        <option value="tr">TR</option>
+        <option value="en">EN</option>
+        <option value="de">DE</option>
+      </select>
+    </div>
+
+    <button id="hamburgerBtn" class="block md:hidden text-gray-800 p-2 focus:outline-none">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </nav>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+    
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span id="sayfa_rozet" class="text-xs font-bold uppercase tracking-wider text-amber-600 bg-amber-50 px-3 py-1.5 rounded-full"><i class="fa-solid fa-bed mr-1"></i> Global Konaklama Ağı</span>
+      <h1 id="sayfa_baslik" class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight mt-4">Anlaşmalı <span class="text-[#00a859]">Otellerimiz</span></h1>
+      <p id="sayfa_aciklama" class="mt-3 text-base text-gray-500 leading-relaxed">Sağlık turizmi sürecinizde konforunuzu garanti altına alan, AI destekli değerlendirme motorumuzdan geçmiş premium konaklama tesisleri.</p>
+    </div>
+
+    <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 max-w-5xl mx-auto mb-12 flex flex-col lg:flex-row gap-3 items-center">
+      <div class="relative w-full flex-1">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-gray-400"><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input type="text" id="aramaInput" class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-10 pr-4 py-3 text-sm focus:outline-none focus:border-[#00a859] transition" placeholder="Otel adı, ilçe veya konsept (Örn: Spa, Tepebaşı) ara...">
+      </div>
+      <div class="w-full lg:w-auto flex flex-col sm:flex-row gap-2">
+        <select id="filtreSehir" class="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#00a859] font-medium text-gray-600 transition w-full sm:w-auto cursor-pointer">
+          <option value="hepsi">Tüm Lokasyonlar</option>
+          <option value="tepebaşı">Tepebaşı / Eskişehir</option>
+          <option value="odunpazarı">Odunpazarı / Eskişehir</option>
+        </select>
+        <button id="btnAra" class="bg-[#00a859] hover:bg-[#008f4c] text-white px-6 py-3 rounded-xl text-sm font-bold transition shadow-sm w-full sm:w-auto flex justify-center items-center gap-2"><i class="fa-solid fa-filter"></i> <span id="btn_ara_text">Sonuçları Süz</span></button>
+      </div>
+    </div>
+
+    <div id="otellerGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+      <div id="yukleniyorGörünümü" class="col-span-full text-center py-16 text-gray-500 font-medium">
+        <div class="animate-spin inline-block w-10 h-10 border-[3px] border-current border-t-transparent text-[#00a859] rounded-full mb-3" role="status"></div>
+        <div id="yukleniyor_baslik" class="text-lg text-gray-700 font-bold">Oteller Yükleniyor...</div>
+        <div id="yukleniyor_alt" class="text-sm">Veritabanından en güncel tesis bilgileri çekiliyor.</div>
+      </div>
+    </div>
+
+    <div id="bulunamadiAlani" class="hidden text-center py-16">
+      <div class="text-5xl mb-4 text-gray-300"><i class="fa-solid fa-hotel"></i></div>
+      <h3 id="hata_baslik" class="text-lg font-bold text-gray-800">Kriterlerinize Uygun Otel Bulunamadı</h3>
+      <p id="hata_alt" class="text-sm text-gray-500 mt-1">Lütfen farklı anahtar kelimeler kullanarak tekrar deneyin.</p>
+    </div>
+
+  </main>
+
+  <div id="detayModal" class="fixed inset-0 bg-gray-900/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4 md:p-6 opacity-0 invisible transition-all duration-300">
+    <div class="bg-white rounded-[2rem] max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl animate-fade-in flex flex-col">
+      
+      <div class="px-6 py-4 border-b border-gray-100 flex justify-between items-center bg-white z-10">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center text-[#00a859]"><i class="fa-solid fa-building"></i></div>
+          <div>
+            <h2 id="modalOtelAdi" class="text-lg font-extrabold text-gray-900 tracking-tight leading-none">Otel Detayları</h2>
+            <div id="modalPuanYildiz" class="text-xs font-bold text-amber-500 mt-1"></div>
+          </div>
+        </div>
+        <button id="modalKapatBtn" class="bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-800 w-9 h-9 rounded-full flex items-center justify-center transition font-bold text-sm"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      
+      <div class="p-6 overflow-y-auto custom-scrollbar bg-gray-50/50">
+        
+        <div id="modalSliderContainer" class="relative w-full h-64 sm:h-80 rounded-2xl overflow-hidden bg-gray-200 shadow-inner mb-6">
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          
+          <div class="lg:col-span-2 space-y-6">
+            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
+              <h4 id="lbl_tesis_hakkinda" class="text-xs font-extrabold text-gray-400 uppercase tracking-wider mb-2"><i class="fa-solid fa-circle-info mr-1"></i> Tesis Hakkında</h4>
+              <p id="modalAciklama" class="text-sm text-gray-600 leading-relaxed"></p>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+              <div>
+                <h4 id="lbl_tam_adres" class="text-xs font-extrabold text-gray-400 uppercase tracking-wider mb-1"><i class="fa-solid fa-location-dot mr-1"></i> Tam Adres</h4>
+                <p id="modalAdres" class="text-sm font-medium text-gray-700"></p>
+              </div>
+              <a id="btnHarita" href="#" target="_blank" class="shrink-0 bg-blue-50 hover:bg-blue-100 text-blue-600 font-bold py-2 px-4 rounded-xl text-xs transition flex items-center gap-2">
+                <i class="fa-solid fa-map-location-dot"></i> <span id="btn_yol_tarifi">Yol Tarifi</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="space-y-6">
+            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
+              <h4 id="lbl_kurallar" class="text-xs font-extrabold text-gray-400 uppercase tracking-wider mb-3"><i class="fa-solid fa-clock mr-1"></i> Konaklama Kuralları</h4>
+              <div class="flex justify-between items-center text-sm mb-2 pb-2 border-b border-gray-50">
+                <span class="text-gray-500 font-medium">Check-in:</span>
+                <span id="modalCheckIn" class="font-bold text-gray-800"></span>
+              </div>
+              <div class="flex justify-between items-center text-sm">
+                <span class="text-gray-500 font-medium">Check-out:</span>
+                <span id="modalCheckOut" class="font-bold text-gray-800"></span>
+              </div>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
+              <h4 id="lbl_olanaklar" class="text-xs font-extrabold text-gray-400 uppercase tracking-wider mb-3"><i class="fa-solid fa-bell-concierge mr-1"></i> Popüler Olanaklar</h4>
+              <div id="modalOlanaklar" class="flex flex-wrap gap-2"></div>
+            </div>
+            
+            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
+              <h4 id="lbl_yeme_icme" class="text-xs font-extrabold text-gray-400 uppercase tracking-wider mb-3"><i class="fa-solid fa-utensils mr-1"></i> Yeme - İçme</h4>
+              <div id="modalYiyecek" class="flex flex-wrap gap-2"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="p-6 border-t border-gray-100 bg-white flex flex-col sm:flex-row justify-between items-center gap-4 z-10">
+        <p id="lbl_onay" class="text-xs text-gray-400 font-medium"><i class="fa-solid fa-shield-halved text-[#00a859]"></i> MediVibe onaylı ve doğrulanmış tesistir.</p>
+        <button id="btnRezervasyon" class="w-full sm:w-auto bg-[#00a859] hover:bg-[#008f4c] text-white font-bold py-3.5 px-8 rounded-xl text-sm shadow-lg shadow-green-500/20 transition flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-lg"></i> <span id="btn_wp_text">Danışman ile İletişime Geç</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+    const firebaseConfig = { 
+      apiKey: "AIzaSyD-mksVUYTyFLfRb1O0TBZoHVjkWAeSjwQ",
+      authDomain: "medivibe-resmi.firebaseapp.com",
+      projectId: "medivibe-resmi",
+      storageBucket: "medivibe-resmi.firebasestorage.app",
+      messagingSenderId: "486046453284",
+      appId: "1:486046453284:web:efb5c976322e3f6bf512b1",
+      measurementId: "G-9WMY2W05DJ"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    let TUM_OTELLER = [];
+    let sliderTimers = [];
+    let SEÇİLİ_DİL = localStorage.getItem('medivibe_lang') || 'tr';
+
+    // ─────────────────────────────────────────────
+    // ÇOK DİLLİ SÖZLÜK (TR, EN, DE)
+    // ─────────────────────────────────────────────
+    const SÖZLÜK = {
+      tr: {
+        nav_hastaneler: "Hastanelerimiz", nav_tesisler: "Tesisler", nav_bakim: "Bakım Merkezleri", nav_oteller: "Oteller",
+        nav_araclar: "Araçlar", nav_ilac_baslik: "İlaç Takip Sistemi", nav_ilac_alt: "Tedavi ve hatırlatıcı paneli",
+        nav_doviz_baslik: "Canlı Döviz Çevirici", nav_doviz_alt: "Anlık borsa kur hesaplayıcı", nav_iletisim_btn: "İletişime Geç", lbl_iletisim: "İletişim",
+        sayfa_rozet: "<i class='fa-solid fa-bed mr-1'></i> Global Konaklama Ağı",
+        sayfa_baslik: "Anlaşmalı <span class='text-[#00a859]'>Otellerimiz</span>",
+        sayfa_aciklama: "Sağlık turizmi sürecinizde konforunuzu garanti altına alan, AI destekli değerlendirme motorumuzdan geçmiş premium konaklama tesisleri.",
+        aramaInput: "Otel adı, ilçe veya konsept (Örn: Spa) ara...",
+        optTumLokasyonlar: "Tüm Lokasyonlar", btn_ara_text: "Sonuçları Süz",
+        yukleniyor_baslik: "Oteller Yükleniyor...", yukleniyor_alt: "Veritabanından en güncel tesis bilgileri çekiliyor.",
+        hata_baslik: "Kriterlerinize Uygun Otel Bulunamadı", hata_alt: "Lütfen farklı anahtar kelimeler kullanarak tekrar deneyin.",
+        btn_kart_detay: "Detayları ve Odaları Gör", lbl_tesis_hakkinda: "<i class='fa-solid fa-circle-info mr-1'></i> Tesis Hakkında",
+        lbl_tam_adres: "<i class='fa-solid fa-location-dot mr-1'></i> Tam Adres", btn_yol_tarifi: "Yol Tarifi",
+        lbl_kurallar: "<i class='fa-solid fa-clock mr-1'></i> Konaklama Kuralları", lbl_olanaklar: "<i class='fa-solid fa-bell-concierge mr-1'></i> Popüler Olanaklar",
+        lbl_yeme_icme: "<i class='fa-solid fa-utensils mr-1'></i> Yeme - İçme", lbl_onay: "<i class='fa-solid fa-shield-halved text-[#00a859]'></i> MediVibe onaylı ve doğrulanmış tesistir.",
+        btn_wp_text: "Danışman ile İletişime Geç", txtBilinmiyor: "Bilinmiyor"
+      },
+      en: {
+        nav_hastaneler: "Our Hospitals", nav_tesisler: "Facilities", nav_bakim: "Care Centers", nav_oteller: "Hotels",
+        nav_araclar: "Tools", nav_ilac_baslik: "Medication Tracker", nav_ilac_alt: "Treatment & reminder panel",
+        nav_doviz_baslik: "Live Currency", nav_doviz_alt: "Instant exchange calculator", nav_iletisim_btn: "Contact Us", lbl_iletisim: "Contact",
+        sayfa_rozet: "<i class='fa-solid fa-bed mr-1'></i> Global Accommodation Network",
+        sayfa_baslik: "Contracted <span class='text-[#00a859]'>Hotels</span>",
+        sayfa_aciklama: "Premium accommodation facilities passed through our AI-powered evaluation engine, guaranteeing your comfort.",
+        aramaInput: "Search hotel name, district or concept (e.g., Spa)...",
+        optTumLokasyonlar: "All Locations", btn_ara_text: "Filter Results",
+        yukleniyor_baslik: "Loading Hotels...", yukleniyor_alt: "Fetching the latest facility data from the database.",
+        hata_baslik: "No Hotel Found Matching Your Criteria", hata_alt: "Please try again using different keywords.",
+        btn_kart_detay: "View Details & Rooms", lbl_tesis_hakkinda: "<i class='fa-solid fa-circle-info mr-1'></i> About Facility",
+        lbl_tam_adres: "<i class='fa-solid fa-location-dot mr-1'></i> Full Address", btn_yol_tarifi: "Directions",
+        lbl_kurallar: "<i class='fa-solid fa-clock mr-1'></i> Accommodation Rules", lbl_olanaklar: "<i class='fa-solid fa-bell-concierge mr-1'></i> Popular Amenities",
+        lbl_yeme_icme: "<i class='fa-solid fa-utensils mr-1'></i> Food & Drink", lbl_onay: "<i class='fa-solid fa-shield-halved text-[#00a859]'></i> MediVibe approved and verified facility.",
+        btn_wp_text: "Contact a Consultant", txtBilinmiyor: "Unknown"
+      },
+      de: {
+        nav_hastaneler: "Unsere Krankenhäuser", nav_tesisler: "Einrichtungen", nav_bakim: "Pflegezentren", nav_oteller: "Hotels",
+        nav_araclar: "Werkzeuge", nav_ilac_baslik: "Medikamenten-Tracker", nav_ilac_alt: "Behandlungs- und Erinnerungspanel",
+        nav_doviz_baslik: "Live-Währungsrechner", nav_doviz_alt: "Sofortiger Wechselkursrechner", nav_iletisim_btn: "Kontaktieren", lbl_iletisim: "Kontakt",
+        sayfa_rozet: "<i class='fa-solid fa-bed mr-1'></i> Globales Unterkunftsnetzwerk",
+        sayfa_baslik: "Vertraglich vereinbarte <span class='text-[#00a859]'>Hotels</span>",
+        sayfa_aciklama: "Premium-Unterkünfte, die unsere KI-gestützte Bewertungsmaschine durchlaufen haben und Ihren Komfort garantieren.",
+        aramaInput: "Suchen Sie nach Hotelname, Bezirk oder Konzept (z. B. Spa)...",
+        optTumLokasyonlar: "Alle Standorte", btn_ara_text: "Ergebnisse filtern",
+        yukleniyor_baslik: "Hotels werden geladen...", yukleniyor_alt: "Aktuellste Einrichtungsdaten werden aus der Datenbank abgerufen.",
+        hata_baslik: "Kein Hotel für Ihre Kriterien gefunden", hata_alt: "Bitte versuchen Sie es erneut mit anderen Schlüsselwörtern.",
+        btn_kart_detay: "Details & Zimmer ansehen", lbl_tesis_hakkinda: "<i class='fa-solid fa-circle-info mr-1'></i> Über die Einrichtung",
+        lbl_tam_adres: "<i class='fa-solid fa-location-dot mr-1'></i> Vollständige Adresse", btn_yol_tarifi: "Wegbeschreibung",
+        lbl_kurallar: "<i class='fa-solid fa-clock mr-1'></i> Unterkunftsregeln", lbl_olanaklar: "<i class='fa-solid fa-bell-concierge mr-1'></i> Beliebte Annehmlichkeiten",
+        lbl_yeme_icme: "<i class='fa-solid fa-utensils mr-1'></i> Essen & Trinken", lbl_onay: "<i class='fa-solid fa-shield-halved text-[#00a859]'></i> Von MediVibe genehmigte und verifizierte Einrichtung.",
+        btn_wp_text: "Berater kontaktieren", txtBilinmiyor: "Unbekannt"
+      }
+    };
+
+    const grid = document.getElementById('otellerGrid');
+    const aramaInput = document.getElementById('aramaInput');
+    const filtreSehir = document.getElementById('filtreSehir');
+    const btnAra = document.getElementById('btnAra');
+    const bulunamadiAlani = document.getElementById('bulunamadiAlani');
+    const yukleniyor = document.getElementById('yukleniyorGörünümü');
+    const detayModal = document.getElementById('detayModal');
+
+    // ─────────────────────────────────────────────
+    // UI METİNLERİNİ GÜNCELLEME
+    // ─────────────────────────────────────────────
+    function arayuzMetinleriniGuncelle() {
+      const d = SÖZLÜK[SEÇİLİ_DİL];
+      
+      document.getElementById('nav_hastaneler').innerText = d.nav_hastaneler;
+      document.getElementById('nav_tesisler').innerText = d.nav_tesisler;
+      document.getElementById('nav_bakim').innerText = d.nav_bakim;
+      document.getElementById('nav_oteller').innerText = d.nav_oteller;
+      document.getElementById('nav_araclar').innerHTML = `${d.nav_araclar} <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180 text-gray-500 group-hover:text-[#00a859]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path></svg>`;
+      document.getElementById('nav_ilac_baslik').innerText = d.nav_ilac_baslik;
+      document.getElementById('nav_ilac_alt').innerText = d.nav_ilac_alt;
+      document.getElementById('nav_doviz_baslik').innerText = d.nav_doviz_baslik;
+      document.getElementById('nav_doviz_alt').innerText = d.nav_doviz_alt;
+      document.getElementById('nav_iletisim_btn').innerText = d.nav_iletisim_btn;
+      document.getElementById('lbl_iletisim').innerText = d.lbl_iletisim;
+      
+      document.getElementById('sayfa_rozet').innerHTML = d.sayfa_rozet;
+      document.getElementById('sayfa_baslik').innerHTML = d.sayfa_baslik;
+      document.getElementById('sayfa_aciklama').innerText = d.sayfa_aciklama;
+      
+      aramaInput.placeholder = d.aramaInput;
+      filtreSehir.options[0].text = d.optTumLokasyonlar;
+      document.getElementById('btn_ara_text').innerText = d.btn_ara_text;
+      
+      if(document.getElementById('yukleniyor_baslik')) {
+        document.getElementById('yukleniyor_baslik').innerText = d.yukleniyor_baslik;
+        document.getElementById('yukleniyor_alt').innerText = d.yukleniyor_alt;
+      }
+      
+      document.getElementById('hata_baslik').innerText = d.hata_baslik;
+      document.getElementById('hata_alt').innerText = d.hata_alt;
+
+      document.getElementById('lbl_tesis_hakkinda').innerHTML = d.lbl_tesis_hakkinda;
+      document.getElementById('lbl_tam_adres').innerHTML = d.lbl_tam_adres;
+      document.getElementById('btn_yol_tarifi').innerText = d.btn_yol_tarifi;
+      document.getElementById('lbl_kurallar').innerHTML = d.lbl_kurallar;
+      document.getElementById('lbl_olanaklar').innerHTML = d.lbl_olanaklar;
+      document.getElementById('lbl_yeme_icme').innerHTML = d.lbl_yeme_icme;
+      document.getElementById('lbl_onay').innerHTML = d.lbl_onay;
+      document.getElementById('btn_wp_text').innerText = d.btn_wp_text;
+
+      document.getElementById('languageSelector').value = SEÇİLİ_DİL;
+    }
+
+    // Akıllı AI Rozet Üretici (Çok Dilli)
+    function yapayZekaRozetUret(olanaklarMetni, dil) {
+        let txt = olanaklarMetni.toLowerCase();
+        if(dil === 'en') {
+            if(txt.includes("spa") || txt.includes("massage")) return "✨ AI: Spa & Wellness Pick";
+            if(txt.includes("center") || txt.includes("central")) return "✨ AI: Central Location Pick";
+            if(txt.includes("business") || txt.includes("meeting")) return "✨ AI: Business Travel Pick";
+            return "✨ AI: Comfortable Facility Pick";
+        } else if (dil === 'de') {
+            if(txt.includes("spa") || txt.includes("massage")) return "✨ AI: Spa & Wellness Tipp";
+            if(txt.includes("zentrum") || txt.includes("zentral")) return "✨ AI: Zentrale Lage";
+            if(txt.includes("geschäft") || txt.includes("meeting")) return "✨ AI: Geschäftsreise Tipp";
+            return "✨ AI: Komfortable Einrichtung";
+        } else {
+            if(txt.includes("spa") || txt.includes("masaj")) return "✨ AI: Spa & Wellness Önerisi";
+            if(txt.includes("merkez")) return "✨ AI: Merkezi Konum Önerisi";
+            if(txt.includes("iş") || txt.includes("toplantı")) return "✨ AI: İş Gezisine Uygun";
+            return "✨ AI: Konforlu Tesis Seçimi";
+        }
+    }
+
+    // Sliderları Başlatma Fonksiyonu (Orijinali Kusursuz Korundu)
+    function baslatOtomatikSlider() {
+      sliderTimers.forEach(t => clearInterval(t));
+      sliderTimers = [];
+
+      document.querySelectorAll('.gorsel-kapsayici').forEach(kapsayici => {
+        let imgs = kapsayici.querySelectorAll('img');
+        let noktalar = kapsayici.querySelectorAll('.nokta-gosterge > div');
+        if(imgs.length <= 1) return;
+
+        let activeIdx = 0;
+        let timer = setInterval(() => {
+          imgs[activeIdx].classList.remove('opacity-100', 'z-10');
+          imgs[activeIdx].classList.add('opacity-0', 'z-0');
+          if(noktalar[activeIdx]) noktalar[activeIdx].classList.replace('bg-white', 'bg-white/40');
+          
+          activeIdx = (activeIdx + 1) % imgs.length;
+          
+          imgs[activeIdx].classList.remove('opacity-0', 'z-0');
+          imgs[activeIdx].classList.add('opacity-100', 'z-10');
+          if(noktalar[activeIdx]) noktalar[activeIdx].classList.replace('bg-white/40', 'bg-white');
+        }, 3500);
+        sliderTimers.push(timer);
+      });
+    }
+
+    async function veritabanindanCek() {
+      try {
+        const querySnapshot = await getDocs(collection(db, "oteller"));
+        TUM_OTELLER = [];
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          data.id = doc.id;
+          TUM_OTELLER.push(data);
+        });
+        if(yukleniyor) yukleniyor.remove();
+        kartlariCiz(TUM_OTELLER);
+      } catch (error) {
+        console.error("Veri çekilirken hata: ", error);
+        grid.innerHTML = `<div class="col-span-full text-center text-red-500 font-bold p-8 bg-red-50 rounded-xl">Veritabanına bağlanılamadı. Lütfen internet bağlantınızı kontrol edin.</div>`;
+      }
+    }
+
+    function kartlariCiz(liste) {
+      grid.innerHTML = "";
+      const d = SÖZLÜK[SEÇİLİ_DİL];
+
+      if(liste.length === 0) {
+        bulunamadiAlani.classList.remove('hidden');
+        return;
+      }
+      bulunamadiAlani.classList.add('hidden');
+
+      liste.forEach((otel) => {
+        // DİNAMİK DİL VERİLERİNİ ÇEK
+        const otelAdi = SEÇİLİ_DİL === 'en' ? (otel.otel_adi_en || otel.otel_adi) :
+                        SEÇİLİ_DİL === 'de' ? (otel.otel_adi_de || otel.otel_adi) : (otel.otel_adi || "Bilinmeyen Otel");
+        
+        const aciklama = SEÇİLİ_DİL === 'en' ? (otel.genel_bilgi?.aciklama_en || otel.genel_bilgi?.aciklama) :
+                         SEÇİLİ_DİL === 'de' ? (otel.genel_bilgi?.aciklama_de || otel.genel_bilgi?.aciklama) : (otel.genel_bilgi?.aciklama || "");
+        
+        const olanaklar = SEÇİLİ_DİL === 'en' ? (otel.olanaklar_en || otel.olanaklar || []) :
+                          SEÇİLİ_DİL === 'de' ? (otel.olanaklar_de || otel.olanaklar || []) : (otel.olanaklar || []);
+
+        const adresBilgisi = otel.adres || {};
+        const sehir = adresBilgisi.sehir || "";
+        const ilce = adresBilgisi.ilce || "";
+        const lokasyon = ilce ? `${ilce}, ${sehir}` : sehir;
+
+        // Puan Çıkarımı
+        const puanStr = (otel.derecelendirme && otel.derecelendirme.puan) ? otel.derecelendirme.puan : "";
+        let puanBadge = "";
+        if(puanStr) {
+            puanBadge = `<span class="absolute top-4 right-4 bg-[#00a859] text-white text-[11px] font-black px-2.5 py-1.5 rounded-lg z-20 shadow-md flex items-center gap-1.5 backdrop-blur-sm"><i class="fa-solid fa-star"></i> ${puanStr}</span>`;
+        }
+
+        // Görsel Dizisini Ayıklama
+        let fotolar = [];
+        if(Array.isArray(otel.gorseller)) {
+            fotolar = otel.gorseller.map(g => typeof g === 'string' ? g : g.url).filter(u => u);
+        }
+        if(fotolar.length === 0) fotolar = ["https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80"];
+
+        // Slider HTML Üretimi
+        let sliderHtml = fotolar.map((url, index) => {
+            let activeClass = index === 0 ? "opacity-100 z-10" : "opacity-0 z-0";
+            return `<img src="${url}" class="slider-img absolute inset-0 w-full h-full object-cover ${activeClass}" onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80'">`;
+        }).join('');
+
+        // Nokta (Indicator) Üretimi
+        let noktalarHtml = "";
+        if(fotolar.length > 1) {
+            noktalarHtml = `<div class="nokta-gosterge absolute bottom-3 left-1/2 transform -translate-x-1/2 flex gap-1.5 z-20">` +
+                           fotolar.map((_, i) => `<div class="w-1.5 h-1.5 rounded-full transition-colors duration-300 ${i===0 ? 'bg-white' : 'bg-white/40'}"></div>`).join('') +
+                           `</div>`;
+        }
+
+        const kisaOlanaklar = olanaklar.slice(0, 3).map(o => `<span class="text-[10px] font-bold bg-blue-50 text-blue-600 px-2 py-1 rounded-md line-clamp-1 break-all">${o}</span>`).join('');
+        const aiRozet = yapayZekaRozetUret(olanaklar.join(' '), SEÇİLİ_DİL);
+
+        const kartHtml = `
+          <div data-id="${otel.id}" class="otel-kart bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 flex flex-col justify-between h-[460px] animate-fade-in cursor-pointer group">
+            
+            <div class="relative w-full h-52 bg-gray-100 gorsel-kapsayici">
+                ${sliderHtml}
+                ${noktalarHtml}
+                <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-gray-800 font-bold text-[11px] px-3 py-1.5 rounded-lg z-20 shadow-sm uppercase tracking-wide">
+                  📍 ${lokasyon}
+                </span>
+                ${puanBadge}
+            </div>
+
+            <div class="p-6 flex flex-col flex-grow">
+              <span class="text-[10px] font-bold text-amber-500 mb-2 block">${aiRozet}</span>
+              <h3 class="text-lg font-extrabold text-gray-900 tracking-tight group-hover:text-[#00a859] transition line-clamp-1">${otelAdi}</h3>
+              <p class="text-xs text-gray-500 mt-2 line-clamp-2 leading-relaxed flex-grow">${aciklama}</p>
+              
+              <div class="flex flex-wrap gap-1 mt-4 h-[24px] overflow-hidden">${kisaOlanaklar}</div>
+            </div>
+
+            <div class="p-6 pt-0">
+              <button class="w-full bg-gray-50 group-hover:bg-[#00a859] group-hover:text-white text-gray-700 font-bold py-3 px-4 rounded-xl text-xs transition duration-300 text-center flex items-center justify-center gap-2">
+                ${d.btn_kart_detay} <i class="fa-solid fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        `;
+        grid.insertAdjacentHTML('beforeend', kartHtml);
+      });
+
+      baslatOtomatikSlider();
+
+      document.querySelectorAll('.otel-kart').forEach(kart => {
+        kart.addEventListener('click', () => {
+          const otelId = kart.getAttribute('data-id');
+          const secilen = TUM_OTELLER.find(o => o.id === otelId);
+          if(secilen) modalAc(secilen);
+        });
+      });
+    }
+
+    function modalAc(otel) {
+      const d = SÖZLÜK[SEÇİLİ_DİL];
+
+      const otelAdi = SEÇİLİ_DİL === 'en' ? (otel.otel_adi_en || otel.otel_adi) :
+                      SEÇİLİ_DİL === 'de' ? (otel.otel_adi_de || otel.otel_adi) : (otel.otel_adi || "");
+      
+      const aciklama = SEÇİLİ_DİL === 'en' ? (otel.genel_bilgi?.aciklama_en || otel.genel_bilgi?.aciklama) :
+                       SEÇİLİ_DİL === 'de' ? (otel.genel_bilgi?.aciklama_de || otel.genel_bilgi?.aciklama) : (otel.genel_bilgi?.aciklama || "");
+
+      const tamAdres = SEÇİLİ_DİL === 'en' ? (otel.adres?.tam_adres_en || otel.adres?.tam_adres) :
+                       SEÇİLİ_DİL === 'de' ? (otel.adres?.tam_adres_de || otel.adres?.tam_adres) : (otel.adres?.tam_adres || "");
+
+      const olanaklarDizi = SEÇİLİ_DİL === 'en' ? (otel.olanaklar_en || otel.olanaklar) :
+                            SEÇİLİ_DİL === 'de' ? (otel.olanaklar_de || otel.olanaklar) : (otel.olanaklar || []);
+
+      const yiyecekDizi = SEÇİLİ_DİL === 'en' ? (otel.yiyecek_icecek_en || otel.yiyecek_icecek) :
+                          SEÇİLİ_DİL === 'de' ? (otel.yiyecek_icecek_de || otel.yiyecek_icecek) : (otel.yiyecek_icecek || []);
+
+      document.getElementById('modalOtelAdi').innerText = otelAdi || d.txtBilinmiyor;
+      
+      const puan = otel.derecelendirme?.puan || "";
+      document.getElementById('modalPuanYildiz').innerHTML = puan ? `<i class="fa-solid fa-star"></i> Booking: ${puan}` : "";
+      
+      const sehirIlce = `${otel.adres?.ilce || ''} ${otel.adres?.sehir || ''}`.trim();
+      document.getElementById('modalAdres').innerText = tamAdres || sehirIlce || d.txtBilinmiyor;
+      document.getElementById('btnHarita').href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((otel.otel_adi || "") + " " + tamAdres)}`;
+      
+      document.getElementById('modalAciklama').innerText = aciklama || d.txtBilinmiyor;
+      document.getElementById('modalCheckIn').innerText = otel.genel_bilgi?.check_in || d.txtBilinmiyor;
+      document.getElementById('modalCheckOut').innerText = otel.genel_bilgi?.check_out || d.txtBilinmiyor;
+
+      // Modal Görsel Slider
+      let fotolar = [];
+      if(Array.isArray(otel.gorseller)) {
+          fotolar = otel.gorseller.map(g => typeof g === 'string' ? g : g.url).filter(u => u);
+      }
+      if(fotolar.length === 0) fotolar = ["https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80"];
+      
+      const modalSlider = document.getElementById('modalSliderContainer');
+      modalSlider.innerHTML = `<div class="gorsel-kapsayici w-full h-full relative">` + 
+        fotolar.map((url, index) => {
+            let ac = index === 0 ? "opacity-100 z-10" : "opacity-0 z-0";
+            return `<img src="${url}" class="slider-img absolute inset-0 w-full h-full object-cover ${ac}" onerror="this.src='https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80'">`;
+        }).join('') + 
+      `</div>`;
+
+      const oKonteyner = document.getElementById('modalOlanaklar');
+      oKonteyner.innerHTML = "";
+      if(Array.isArray(olanaklarDizi)) {
+        olanaklarDizi.forEach(o => {
+          oKonteyner.insertAdjacentHTML('beforeend', `<span class="text-[11px] font-bold bg-blue-50 text-blue-600 px-3 py-1.5 rounded-lg shadow-sm border border-blue-100">${o}</span>`);
+        });
+      }
+
+      const yKonteyner = document.getElementById('modalYiyecek');
+      yKonteyner.innerHTML = "";
+      if(Array.isArray(yiyecekDizi)) {
+        yiyecekDizi.forEach(y => {
+          yKonteyner.insertAdjacentHTML('beforeend', `<span class="text-[11px] font-bold bg-amber-50 text-amber-600 px-3 py-1.5 rounded-lg shadow-sm border border-amber-100"><i class="fa-solid fa-mug-hot mr-1"></i> ${y}</span>`);
+        });
+      }
+
+      detayModal.classList.remove('opacity-0', 'invisible');
+      baslatOtomatikSlider();
+    }
+
+    function modalKapat() {
+      detayModal.classList.add('opacity-0', 'invisible');
+    }
+
+    document.getElementById('modalKapatBtn').addEventListener('click', modalKapat);
+    detayModal.addEventListener('click', (e) => { if(e.target === detayModal) modalKapat(); });
+
+    // DİL SEÇİM AKSİYONU
+    document.getElementById('languageSelector').addEventListener('change', (e) => {
+      SEÇİLİ_DİL = e.target.value;
+      localStorage.setItem('medivibe_lang', SEÇİLİ_DİL);
+      arayuzMetinleriniGuncelle();
+      kartlariCiz(TUM_OTELLER);
+    });
+
+    // ZIRHLI ARAMA VE FİLTRELEME MOTORU (TÜM DİLLERDE)
+    function filtreleVeAra() {
+      const kelime = aramaInput.value.toLocaleLowerCase(SEÇİLİ_DİL === 'tr' ? 'tr-TR' : 'en-US').trim();
+      const secilenSehir = filtreSehir.value.toLocaleLowerCase('tr-TR');
+
+      const filtrelenmis = TUM_OTELLER.filter(otel => {
+        const adTR = (otel.otel_adi || "").toLocaleLowerCase('tr-TR');
+        const adEN = (otel.otel_adi_en || "").toLocaleLowerCase('tr-TR');
+        const adDE = (otel.otel_adi_de || "").toLocaleLowerCase('tr-TR');
+        
+        const aciklamaTR = (otel.genel_bilgi?.aciklama || "").toLocaleLowerCase('tr-TR');
+        const aciklamaEN = (otel.genel_bilgi?.aciklama_en || "").toLocaleLowerCase('tr-TR');
+        const aciklamaDE = (otel.genel_bilgi?.aciklama_de || "").toLocaleLowerCase('tr-TR');
+        
+        const ilce = (otel.adres?.ilce || "").toLocaleLowerCase('tr-TR');
+        const sehir = (otel.adres?.sehir || "").toLocaleLowerCase('tr-TR');
+        
+        const olanaklarStr = [
+          ...(otel.olanaklar || []),
+          ...(otel.olanaklar_en || []),
+          ...(otel.olanaklar_de || [])
+        ].join(" ").toLocaleLowerCase('tr-TR');
+        
+        const metinEslesmesi = adTR.includes(kelime) || adEN.includes(kelime) || adDE.includes(kelime) ||
+                               aciklamaTR.includes(kelime) || aciklamaEN.includes(kelime) || aciklamaDE.includes(kelime) ||
+                               ilce.includes(kelime) || sehir.includes(kelime) || olanaklarStr.includes(kelime);
+        
+        const sehirEslesmesi = secilenSehir === 'hepsi' || ilce.includes(secilenSehir) || sehir.includes(secilenSehir);
+
+        return metinEslesmesi && sehirEslesmesi;
+      });
+
+      kartlariCiz(filtrelenmis);
+    }
+
+    btnAra.addEventListener('click', filtreleVeAra);
+    aramaInput.addEventListener('keyup', (e) => { if(e.key === 'Enter') filtreleVeAra(); });
+    filtreSehir.addEventListener('change', filtreleVeAra);
+
+    // BAŞLAT
+    window.addEventListener('DOMContentLoaded', () => {
+      arayuzMetinleriniGuncelle();
+      veritabanindanCek();
+    });
+  </script>
+
+</body>
+</html>

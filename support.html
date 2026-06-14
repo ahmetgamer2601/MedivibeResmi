@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medivibe - Admin Destek Yönetimi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- EmailJS Kütüphanesi (Mail Gönderimi İçin) -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased min-h-screen">
+
+  <!-- Üst Bar / Nav -->
+  <nav class="bg-white px-6 md:px-12 py-4 flex justify-between items-center shadow-sm sticky top-0 z-50">
+    <div class="flex items-center gap-3">
+      <img src="logo.png" alt="Medivibe" class="h-9 object-contain" onerror="this.src='https://via.placeholder.com/150x40?text=LOGO'">
+      <span class="text-xl font-extrabold tracking-tight text-gray-800">
+        Medi<span class="text-[#00a859]">vibe</span> <span class="text-xs bg-emerald-100 text-[#00a859] px-2 py-0.5 rounded-md ml-2">Admin Panel</span>
+      </span>
+    </div>
+    <a href="index.html" class="text-sm font-semibold text-gray-600 hover:text-gray-900 transition">Anasayfa'ya Dön</a>
+  </nav>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    
+    <!-- İstatistik Kartları -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between">
+        <div>
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Toplam Mesaj</p>
+          <h3 id="statTotal" class="text-3xl font-bold text-gray-800 mt-1">0</h3>
+        </div>
+        <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl">✉️</div>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between">
+        <div>
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Cevap Bekleyen</p>
+          <h3 id="statPending" class="text-3xl font-bold text-red-600 mt-1">0</h3>
+        </div>
+        <div class="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center text-xl">⏳</div>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between">
+        <div>
+          <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Çözülen / Okunan</p>
+          <h3 id="statCompleted" class="text-3xl font-bold text-emerald-600 mt-1">0</h3>
+        </div>
+        <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-xl">✅</div>
+      </div>
+    </div>
+
+    <!-- Filtreleme Butonları -->
+    <div class="flex gap-2 mb-6">
+      <button onclick="filterMessages('all')" id="btnFilterAll" class="px-4 py-2 text-xs font-bold rounded-xl bg-gray-800 text-white shadow-sm transition">Tümü</button>
+      <button onclick="filterMessages('unread')" id="btnFilterUnread" class="px-4 py-2 text-xs font-bold rounded-xl bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 transition">Cevap Bekleyenler</button>
+      <button onclick="filterMessages('read')" id="btnFilterRead" class="px-4 py-2 text-xs font-bold rounded-xl bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 transition">Okunanlar</button>
+    </div>
+
+    <!-- Ana Panel İçeriği (İkiye Bölünmüş Ekran) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- Sol Taraf: Gelen Mesaj Listesi -->
+      <div class="lg:col-span-5 bg-white rounded-2xl shadow-sm border border-gray-100 p-4 h-[650px] flex flex-col">
+        <h2 class="text-sm font-bold text-gray-700 px-2 mb-3">Mesaj Listesi</h2>
+        <div id="messageListContainer" class="flex-1 overflow-y-auto space-y-3 pr-1">
+          <!-- Dinamik mesaj kartları buraya gelecek -->
+          <div class="text-center py-8 text-gray-400 text-sm">Mesajlar yükleniyor...</div>
+        </div>
+      </div>
+
+      <!-- Sağ Taraf: Detay ve Detaylı Cevaplama Alanı -->
+      <div class="lg:col-span-7 bg-white rounded-2xl shadow-sm border border-gray-100 p-6 h-[650px] flex flex-col justify-between">
+        <div id="emptyDetailView" class="h-full flex flex-col items-center justify-center text-gray-400">
+          <span class="text-4xl mb-2">📥</span>
+          <p class="text-sm font-medium">Detayları görmek ve cevaplamak için sol taraftan bir mesaj seçin.</p>
+        </div>
+
+        <div id="activeDetailView" class="hidden h-full flex flex-col justify-between">
+          <!-- Üst Kısım: Gönderen Bilgileri -->
+          <div>
+            <div class="flex justify-between items-start border-b border-gray-100 pb-4 mb-4">
+              <div>
+                <h3 id="detailName" class="text-lg font-bold text-gray-800">-</h3>
+                <p id="detailMeta" class="text-xs text-gray-500 mt-1">-</p>
+              </div>
+              <div class="flex gap-2">
+                <button id="markReadBtn" class="bg-gray-100 text-gray-700 text-xs font-bold px-3 py-1.5 rounded-lg hover:bg-emerald-50 hover:text-[#00a859] transition"></button>
+              </div>
+            </div>
+
+            <!-- Kullanıcının Mesaj Metni -->
+            <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100 mb-4 max-h-40 overflow-y-auto">
+              <span class="text-[10px] font-bold text-[#00a859] uppercase tracking-wider block mb-1">Kullanıcı Mesajı:</span>
+              <p id="detailContent" class="text-sm text-gray-700 leading-relaxed whitespace-pre-line">-</p>
+            </div>
+          </div>
+
+          <!-- Alt Kısım: Cevap Yazma Modülü -->
+          <div class="border-t border-gray-100 pt-4">
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-xs font-bold text-gray-600 block">Kurumsal Cevabınız (supportmedivibe@gmail.com üzerinden iletilecektir)</label>
+              <!-- Hazır Taslak Butonları -->
+              <div class="flex gap-1">
+                <button onclick="insertTemplate('thanks')" class="text-[10px] bg-emerald-50 text-[#00a859] px-2 py-1 rounded font-semibold hover:bg-emerald-100 transition">Teşekkür Şablonu</button>
+                <button onclick="insertTemplate('info')" class="text-[10px] bg-blue-50 text-blue-600 px-2 py-1 rounded font-semibold hover:bg-blue-100 transition">Bilgi Şablonu</button>
+              </div>
+            </div>
+            
+            <textarea id="replyTextArea" rows="6" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#00a859] focus:bg-white transition resize-none" placeholder="Kullanıcıya gönderilecek e-posta içeriğini buraya yazın..."></textarea>
+            
+            <div class="flex justify-end mt-3">
+              <button id="sendReplyBtn" class="bg-[#00a859] text-white text-xs font-bold px-6 py-3 rounded-xl hover:bg-[#008f4c] shadow-sm transition flex items-center gap-2">
+                <span>🚀 E-Posta Gönder ve Kapat</span>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Firebase ve Panel Mantığı Scriptleri -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, onSnapshot, doc, updateDoc, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+    // Kendi firebaseConfig verilerini buraya yapıştır abicim
+    const firebaseConfig = {
+      apiKey: "AIzaSyD-mksVUYTyFLfRb1O0TBZoHVjkWAeSjwQ",
+  authDomain: "medivibe-resmi.firebaseapp.com",
+  projectId: "medivibe-resmi",
+  storageBucket: "medivibe-resmi.firebasestorage.app",
+  messagingSenderId: "486046453284",
+  appId: "1:486046453284:web:efb5c976322e3f6bf512b1",
+  measurementId: "G-9WMY2W05DJ"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+
+    // EmailJS Ayarı (Gmail entegrasyonu için)
+    // Önce emailjs.com'dan ücretsiz hesap açıp public key'ini buraya giriyorsun
+    emailjs.init("N64KQLQfmm5OZvH3-");
+
+    let allMessages = [];
+    let currentFilter = 'all';
+    let selectedMessageId = null;
+
+    // Sadece admin erişebilsin koruması
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        window.location.href = "giris.html";
+      }
+      // Not: Admin rol kontrolünü istersen buraya da ekleyebilirsin, index.html'deki mantıkla aynı.
+    });
+
+    // Verileri Firestore'dan Canlı Dinle (Realtime)
+    const messagesQuery = query(collection(db, "mesajlar"), orderBy("tarih", "desc"));
+    onSnapshot(messagesQuery, (snapshot) => {
+      allMessages = [];
+      snapshot.forEach(doc => {
+        allMessages.push({ id: doc.id, ...doc.data() });
+      });
+      calculateStats();
+      renderMessageList();
+      
+      // Eğer bir mesaj seçiliyse verilerini sağ tarafta taze tut
+      if (selectedMessageId) {
+        const updatedMsg = allMessages.find(m => m.id === selectedMessageId);
+        if (updatedMsg) selectMessage(updatedMsg);
+      }
+    });
+
+    // İstatistik Hesaplama
+    function calculateStats() {
+      const total = allMessages.length;
+      const unread = allMessages.filter(m => !m.okunduMu).length;
+      const read = allMessages.filter(m => m.okunduMu).length;
+
+      document.getElementById('statTotal').innerText = total;
+      document.getElementById('statPending').innerText = unread;
+      document.getElementById('statCompleted').innerText = read;
+    }
+
+    // Listeyi Ekrana Basma
+    window.renderMessageList = function() {
+      const container = document.getElementById('messageListContainer');
+      container.innerHTML = '';
+
+      let filtered = allMessages;
+      if (currentFilter === 'unread') filtered = allMessages.filter(m => !m.okunduMu);
+      if (currentFilter === 'read') filtered = allMessages.filter(m => m.okunduMu);
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div class="text-center py-8 text-gray-400 text-sm">Gösterilecek mesaj bulunamadı.</div>`;
+        return;
+      }
+
+      filtered.forEach(msg => {
+        const dateStr = msg.tarih ? new Date(msg.tarih.seconds * 1000).toLocaleDateString('tr-TR') : '-';
+        const isSelected = msg.id === selectedMessageId;
+        
+        const card = document.createElement('div');
+        card.className = `p-4 rounded-xl border cursor-pointer transition-all ${
+          isSelected 
+            ? 'bg-emerald-50/60 border-[#00a859] ring-1 ring-[#00a859]' 
+            : msg.okunduMu ? 'bg-white border-gray-100 opacity-60 hover:opacity-100' : 'bg-white border-gray-200 font-semibold shadow-sm hover:border-gray-300'
+        }`;
+
+        card.innerHTML = `
+          <div class="flex justify-between items-start mb-1">
+            <span class="text-xs text-gray-800 truncate max-w-[150px]">${msg.adSoyad}</span>
+            <span class="text-[10px] text-gray-400 font-normal">${dateStr}</span>
+          </div>
+          <div class="text-xs text-gray-900 font-bold truncate">${msg.konu || 'Konu Yok'}</div>
+          <div class="text-[11px] text-gray-500 truncate mt-1">${msg.mesaj}</div>
+          <div class="flex justify-between items-center mt-2.5">
+            <span class="text-[10px] text-gray-400 font-mono">${msg.telefon || ''}</span>
+            ${msg.okunduMu 
+              ? '<span class="text-[9px] bg-gray-100 text-gray-500 px-1.5 py-0.5 rounded">Okundu</span>' 
+              : '<span class="text-[9px] bg-red-50 text-red-600 px-1.5 py-0.5 rounded">Cevap Bekliyor</span>'}
+          </div>
+        `;
+
+        card.onclick = () => selectMessage(msg);
+        container.appendChild(card);
+      });
+    }
+
+    // Mesaj Seçildiğinde Sağ Paneli Doldur
+    window.selectMessage = function(msg) {
+      selectedMessageId = msg.id;
+      
+      document.getElementById('emptyDetailView').classList.add('hidden');
+      document.getElementById('activeDetailView').classList.remove('hidden');
+
+      document.getElementById('detailName').innerText = msg.adSoyad;
+      document.getElementById('detailMeta').innerText = `E-posta: ${msg.email} | Tel: ${msg.telefon || '-'} `;
+      document.getElementById('detailContent').innerText = msg.mesaj;
+
+      const markBtn = document.getElementById('markReadBtn');
+      if (msg.okunduMu) {
+        markBtn.innerText = "❌ Okunmadı İşaretle";
+        markBtn.onclick = () => toggleReadStatus(msg.id, false);
+      } else {
+        markBtn.innerText = "✓ Okundu İşaretle";
+        markBtn.onclick = () => toggleReadStatus(msg.id, true);
+      }
+
+      // Mail Gönderme Buton Event'ini Güncelle
+      const sendBtn = document.getElementById('sendReplyBtn');
+      sendBtn.onclick = () => sendEmailAndClose(msg);
+
+      // Listeyi tazele ki seçili kartın rengi güncellensin
+      window.renderMessageList();
+    }
+
+    // Okundu / Okunmadı Durum Değişikliği
+    async function toggleReadStatus(id, status) {
+      try {
+        await updateDoc(doc(db, "mesajlar", id), { okunduMu: status });
+      } catch (err) {
+        console.error("Durum güncellenemedi:", err);
+      }
+    }
+
+    // Filtreleme Tetikleyicileri
+    window.filterMessages = function(type) {
+      currentFilter = type;
+      ['btnFilterAll', 'btnFilterUnread', 'btnFilterRead'].forEach(id => {
+        document.getElementById(id).className = "px-4 py-2 text-xs font-bold rounded-xl bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 transition";
+      });
+
+      if (type === 'all') document.getElementById('btnFilterAll').className = "px-4 py-2 text-xs font-bold rounded-xl bg-gray-800 text-white shadow-sm transition";
+      if (type === 'unread') document.getElementById('btnFilterUnread').className = "px-4 py-2 text-xs font-bold rounded-xl bg-red-600 text-white shadow-sm transition";
+      if (type === 'read') document.getElementById('btnFilterRead').className = "px-4 py-2 text-xs font-bold rounded-xl bg-emerald-600 text-white shadow-sm transition";
+
+      window.renderMessageList();
+    }
+
+    // Hazır Taslak Doldurucu
+    window.insertTemplate = function(type) {
+      const txtArea = document.getElementById('replyTextArea');
+      const name = document.getElementById('detailName').innerText;
+      
+      if (type === 'thanks') {
+        txtArea.value = `Sayın ${name},\n\nMedivibe Global Health Network üzerinden iletmiş olduğunuz mesajınız sistemimize ulaşmıştır. Bizimle iletişime geçtiğiniz için teşekkür ederiz.\n\nTalebiniz uzman ekiplerimiz tarafından değerlendirilmeye alınmıştır. En kısa sürede size daha detaylı bilgi aktaracağız.\n\nSağlıklı günler dileriz,\nMedivibe Destek Ekibi`;
+      } else if (type === 'info') {
+        txtArea.value = `Sayın ${name},\n\nTalebinizle ilgili olarak Eskişehir bünyesindeki anlaşmalı sağlık tesislerimiz, bakım merkezlerimiz ve konaklama çözümlerimiz hakkında detaylı bir planlama süreci başlatılmıştır. \n\nSüreç hakkında güncel detayları ve fiyatlandırma politikalarını bu e-posta adresi üzerinden takip edebilirsiniz.\n\nSaygılarımızla,\nMedivibe Sağlık Turizmi Yönetimi`;
+      }
+    }
+
+    // EmailJS ile Canlı Mail Gönderme ve Firebase'de Okundu Yapma
+    async function sendEmailAndClose(msg) {
+      const replyMessage = document.getElementById('replyTextArea').value;
+
+      if (!replyMessage.trim()) {
+        alert("Lütfen kullanıcıya gönderilecek bir cevap metni yazın.");
+        return;
+      }
+
+      const sendBtn = document.getElementById('sendReplyBtn');
+      sendBtn.innerText = "Gönderiliyor... ⏳";
+      sendBtn.disabled = true;
+
+      // EmailJS Parametreleri (EmailJS template içindeki değişkenlerle aynı olmalı)
+      const templateParams = {
+        to_name: msg.adSoyad,
+        to_email: msg.email, // Kullanıcının girdiği mail
+        user_message: msg.mesaj,
+        reply_message: replyMessage,
+        from_name: "Medivibe Destek Ekibi"
+      };
+
+      // EmailJS Gönderim Tetikleyici
+      // "YOUR_SERVICE_ID" ve "YOUR_TEMPLATE_ID" kısımlarını EmailJS panelinden alacaksın abicim
+    emailjs.send("service_544dl1u", "template_fynwspy", templateParams)
+        .then(async function(response) {
+            console.log('BAŞARILI!', response.status, response.text);
+            
+            // Mail başarıyla giderse Firebase'de bu dokümanı otomatik okundu yapıyoruz
+            await updateDoc(doc(db, "mesajlar", msg.id), { okunduMu: true });
+            
+            alert(`Cevap e-postası başarıyla ${msg.email} adresine gönderildi ve okundu olarak işaretlendi!`);
+            
+            // Temizlik ve Sıfırlama
+            document.getElementById('replyTextArea').value = '';
+            document.getElementById('emptyDetailView').classList.remove('hidden');
+            document.getElementById('activeDetailView').classList.add('hidden');
+            selectedMessageId = null;
+            window.renderMessageList();
+            
+        }, function(error) {
+            console.error('MAIL GÖNDERİMİ BAŞARISIZ...', error);
+            alert("E-posta gönderilirken bir hata oluştu. Lütfen EmailJS ayarlarınızı kontrol edin.");
+            sendBtn.innerText = "🚀 E-Posta Gönder ve Kapat";
+            sendBtn.disabled = false;
+        });
+    }
+
+  </script>
+</body>
+</html>
