@@ -3,20 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rehabilitasyon Merkezleri | MediVibe</title>
+  <title>MediVibe — Rehabilitasyon Merkezleri</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
-    .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
-    .gorsel-alan { position: relative; height: 14rem; width: 100%; background-color: #f1f5f9; overflow: hidden; }
-    .carousel-container { display: flex; transition: transform 0.5s ease-in-out; height: 100%; width: 100%; }
-    .carousel-slide { min-width: 100%; height: 100%; object-fit: cover; }
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', sans-serif; }
+    .slider-img { transition: opacity 0.8s ease-in-out; }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #00a859; border-radius: 4px; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn { animation: fadeIn 0.4s ease-out forwards; }
   </style>
 </head>
-<body class="text-gray-800 antialiased pt-24 pb-12">
+<body class="bg-gray-50 text-gray-800 antialiased pt-20">
 
+  <!-- Üst Navigasyon -->
   <nav class="bg-white px-6 md:px-12 py-4 flex justify-between items-center fixed w-full top-0 z-50 shadow-sm">
     <div class="flex items-center gap-10">
       <a href="index.html" class="flex items-center gap-3 transition transform hover:opacity-90 active:scale-95">
@@ -27,40 +33,39 @@
       </a>
 
       <div class="hidden md:flex items-center gap-8">
-        <a href="hastaneler.html" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300 lang-hastaneler">Hastanelerimiz</a>
-        <a href="tesisler.html" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300 lang-tesisler">Tesisler</a>
-        <a href="bakim.html" class="text-sm font-semibold text-[#00a859] transition duration-300 lang-bakim">Bakım Merkezleri</a>
-        <a href="otel.html" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300 lang-oteller">Oteller</a>
+        <a href="hastaneler.html" data-i18n="nav-hastaneler" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300">Hastanelerimiz</a>
+        <a href="tesisler.html" data-i18n="nav-tesisler" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300">Tesisler</a>
+        <a href="bakim.html" data-i18n="nav-bakim" class="text-sm font-semibold text-[#00a859] transition duration-300">Bakım Merkezleri</a>
+        <a href="otel.html" data-i18n="nav-oteller" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300">Oteller</a>
 
         <div class="relative group py-2">
           <button class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300 flex items-center gap-1.5 outline-none">
-            <span class="lang-araclar">Araçlar</span>
+            <span data-i18n="nav-araclar">Araçlar</span>
             <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180 text-gray-500 group-hover:text-[#00a859]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
             </svg>
           </button>
-          
           <div class="absolute left-0 top-full pt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-3 group-hover:translate-y-0 z-50">
             <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-2 space-y-0.5">
               <a href="takip.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-emerald-50/60 group/item transition-all duration-200">
                 <div class="w-9 h-9 bg-emerald-100/70 text-[#00a859] flex items-center justify-center rounded-xl text-lg shadow-sm">💊</div>
                 <div>
-                  <div class="text-xs font-bold text-gray-800 group-hover/item:text-[#00a859] transition-colors lang-ilac-takip-baslik">İlaç Takip Sistemi</div>
-                  <div class="text-[10px] text-gray-400 mt-0.5 font-medium lang-ilac-takip-alt">Tedavi ve hatırlatıcı paneli</div>
+                  <div data-i18n="nav-ilac-baslik" class="text-xs font-bold text-gray-800 group-hover/item:text-[#00a859] transition-colors">İlaç Takip Sistemi</div>
+                  <div data-i18n="nav-ilac-ozet" class="text-[10px] text-gray-400 mt-0.5 font-medium">Tedavi ve hatırlatıcı paneli</div>
                 </div>
               </a>
               <a href="doviz.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-emerald-50/60 group/item transition-all duration-200">
                 <div class="w-9 h-9 bg-emerald-100/70 text-[#00a859] flex items-center justify-center rounded-xl text-lg shadow-sm">💱</div>
                 <div>
-                  <div class="text-xs font-bold text-gray-800 group-hover/item:text-[#00a859] transition-colors lang-doviz-baslik">Canlı Döviz Çevirici</div>
-                  <div class="text-[10px] text-gray-400 mt-0.5 font-medium lang-doviz-alt">Anlık borsa kur hesaplayıcı</div>
+                  <div data-i18n="nav-doviz-baslik" class="text-xs font-bold text-gray-800 group-hover/item:text-[#00a859] transition-colors">Canlı Döviz Çevirici</div>
+                  <div data-i18n="nav-doviz-ozet" class="text-[10px] text-gray-400 mt-0.5 font-medium">Anlık borsa kur hesaplayıcı</div>
                 </div>
               </a>
               <a href="hava.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-emerald-50/60 group/item transition-all duration-200">
                 <div class="w-9 h-9 bg-emerald-100/70 text-[#00a859] flex items-center justify-center rounded-xl text-lg shadow-sm">☀️</div>
                 <div>
-                  <div class="text-xs font-bold text-gray-800 group-hover/item:text-[#00a859] transition-colors lang-hava-durumu-baslik">Küresel Hava Durumu</div>
-                  <div class="text-[10px] text-gray-400 mt-0.5 font-medium lang-hava-durumu-alt">Seyahat ve anlık tahminler</div>
+                  <div data-i18n="nav-hava-baslik" class="text-xs font-bold text-gray-800 group-hover/item:text-[#00a859] transition-colors">Küresel Hava Durumu</div>
+                  <div data-i18n="nav-hava-ozet" class="text-[10px] text-gray-400 mt-0.5 font-medium">Seyahat ve anlık tahminler</div>
                 </div>
               </a>
             </div>
@@ -68,9 +73,9 @@
         </div>
       </div>
     </div>
-    
+
     <div class="hidden md:flex items-center gap-6 shrink-0">
-      <a href="iletisim.html" class="bg-[#00a859] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-[#008f4c] hover:shadow-lg transition-all duration-300 whitespace-nowrap lang-iletisim-btn">
+      <a href="iletisim.html" data-i18n="nav-iletisime-gec" class="bg-[#00a859] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-[#008f4c] hover:shadow-lg transition-all duration-300 whitespace-nowrap">
         İletişime Geç
       </a>
 
@@ -82,12 +87,12 @@
       </a>
 
       <div class="flex flex-col items-end whitespace-nowrap">
-        <span class="text-xs text-gray-500 font-medium lang-iletisim">İletişim</span>
+        <span data-i18n="nav-iletisim-etiket" class="text-xs text-gray-500 font-medium">İletişim</span>
         <a href="tel:+905551234567" class="font-bold text-gray-800 hover:text-[#00a859] transition flex items-center gap-2">
           🇹🇷 +90 555 123 45 67
         </a>
       </div>
-      
+
       <select id="languageSelector" class="bg-gray-100 border-none text-gray-800 text-sm font-semibold rounded-lg px-3 py-2 outline-none cursor-pointer hover:bg-gray-200 transition shrink-0">
         <option value="tr">TR</option>
         <option value="en">EN</option>
@@ -96,16 +101,19 @@
     </div>
 
     <button id="hamburgerBtn" class="block md:hidden text-gray-800 p-2 focus:outline-none">
-      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
     </button>
   </nav>
 
+  <!-- Mobil Menü -->
   <div id="mobilMenu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col pt-24 px-8 pb-8 shadow-2xl overflow-y-auto">
     <div class="flex flex-col gap-5 text-lg font-bold text-gray-800">
-      <a href="hastaneler.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859] lang-hastaneler">Hastanelerimiz</a>
-      <a href="tesisler.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859] lang-tesisler">Tesisler</a>
-      <a href="bakim.html" class="border-b border-gray-100 pb-3 text-[#00a859] lang-bakim">Bakım Merkezleri</a>
-      <a href="otel.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859] lang-oteller">Oteller</a>
+      <a href="hastaneler.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859]" data-i18n="nav-hastaneler">Hastanelerimiz</a>
+      <a href="tesisler.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859]" data-i18n="nav-tesisler">Tesisler</a>
+      <a href="bakim.html" class="border-b border-gray-100 pb-3 text-[#00a859]" data-i18n="nav-bakim">Bakım Merkezleri</a>
+      <a href="otel.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859]" data-i18n="nav-oteller">Oteller</a>
       <div class="flex items-center justify-between border-b border-gray-100 pb-3">
         <span class="text-gray-600 text-sm">Dil Seçimi</span>
         <select id="mobilLanguageSelector" class="bg-gray-100 border-none text-gray-800 text-sm font-semibold rounded-lg px-3 py-2 outline-none">
@@ -117,88 +125,96 @@
     </div>
   </div>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
-    <div class="text-center max-w-3xl mx-auto mb-10">
-      <span id="uiPanelBadge" class="text-xs font-bold uppercase tracking-wider text-[#00a859] bg-emerald-50 px-3 py-1.5 rounded-full">Medivibe sağlıklı günler diler.</span>
-      <h1 id="uiMainTitle" class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight mt-3">Anlaşmalı <span class="text-[#00a859]">Rehabilitasyon Merkezleri</span></h1>
-      <p id="uiSubTitle" class="mt-3 text-base text-gray-500 leading-relaxed">Merkezlerin üzerine tıklayarak detaylı hizmet protokollerine, konum verlerine og kapasitelere anında erişebilirsiniz.</p>
+  <!-- Ana İçerik -->
+  <main class="container mx-auto px-6 md:px-12 pt-28 pb-12">
+    <div class="mb-10 text-center md:text-left">
+      <h1 data-i18n="sayfa-baslik" class="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight mb-3">Anlaşmalı Rehabilitasyon Merkezleri</h1>
+      <p data-i18n="sayfa-alt-metin" class="text-gray-500 max-w-2xl text-sm">Merkezlerin üzerine tıklayarak detaylı hizmet protokollerine, konum verilerine ve kapasitelere anında erişebilirsiniz.</p>
     </div>
 
-    <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 max-w-5xl mx-auto mb-12 flex flex-col lg:flex-row gap-3 items-center">
-      <div class="relative w-full flex-1">
-        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-gray-400 text-lg">🔍</span>
-        <input type="text" id="bakimAramaInput" class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:border-[#00a859] transition" placeholder="Şehir, ilçe, merkez adı veya anahtar kelime ara...">
+    <!-- Filtreleme Paneli -->
+    <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-4 top-4 text-gray-400"></i>
+        <input type="text" id="aramaInput" data-i18n-placeholder="arama-placeholder" class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-11 pr-4 h-12 focus:outline-none focus:border-[#00a859] transition text-sm" placeholder="Merkez adı veya hizmet arayın...">
       </div>
-      <div class="w-full lg:w-auto flex flex-col sm:flex-row gap-2">
-        <select id="filtreIlce" class="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#00a859] font-medium text-gray-600 transition w-full sm:w-auto">
-          <option value="hepsi">Tüm Konumlar</option>
-          <option value="kartal">Kartal</option>
-          <option value="tepebaşı">Tepebaşı</option>
-          <option value="odunpazarı">Odunpazarı</option>
+      <div class="relative">
+        <i class="fa-solid fa-location-dot absolute left-4 top-4 text-gray-400"></i>
+        <select id="ilceFiltre" class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-11 pr-4 h-12 focus:outline-none focus:border-[#00a859] transition text-sm appearance-none">
         </select>
-        <button id="btnAra" class="bg-[#00a859] hover:bg-[#008f4c] text-white px-6 py-3 rounded-xl text-sm font-bold transition shadow-sm w-full sm:w-auto">Sonuçları Süz</button>
+      </div>
+      <div class="relative">
+        <i class="fa-solid fa-hand-holding-medical absolute left-4 top-4 text-gray-400"></i>
+        <select id="hizmetFiltre" class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-11 pr-4 h-12 focus:outline-none focus:border-[#00a859] transition text-sm appearance-none">
+        </select>
       </div>
     </div>
 
-    <div id="bakimMerkezleriGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
-      <div id="yukleniyorGörünümü" class="col-span-full text-center py-12 text-gray-500 font-medium">
-        <div class="animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#00a859] rounded-full mb-2"></div>
-        <div id="uiLoadingText">Veritabanına güvenli bağlantı kuruluyor...</div>
-      </div>
-    </div>
-
-    <div id="bulunamadiAlani" class="hidden text-center py-16">
-      <div class="text-5xl mb-4">📭</div>
-      <h3 id="uiNotFoundTitle" class="text-lg font-bold text-gray-800">Kriterlere Uygun Merkez Bulunamadı</h3>
-      <p id="uiNotFoundSub" class="text-sm text-gray-500 mt-1">Lütfen farklı anahtar kelimeler veya lokasyonlar deneyin.</p>
-    </div>
+    <!-- Kart Grid -->
+    <div id="merkezlerGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </main>
 
-  <div id="detayModal" class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 invisible transition-all duration-300">
-    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100 animate-fade-in flex flex-col">
-      <div class="p-6 border-b border-gray-100 flex justify-between items-start sticky top-0 bg-white z-10">
+  <!-- Detay Modal -->
+  <div id="detayModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden opacity-0 transition-opacity duration-300">
+    <div class="bg-white w-full max-w-2xl rounded-3xl shadow-2xl max-h-[90vh] flex flex-col overflow-hidden transform scale-95 transition-transform duration-300">
+
+      <!-- Modal Başlık -->
+      <div class="p-6 border-b border-gray-100 flex items-center justify-between bg-gray-50">
         <div>
-          <span id="modalSehirIlce" class="text-[11px] font-bold uppercase tracking-wider text-[#00a859] bg-emerald-50 px-2.5 py-1 rounded-md">📍 LOKASYON</span>
-          <h2 id="modalMerkezAdi" class="text-xl font-extrabold text-gray-900 mt-1.5 tracking-tight">Merkez Detayları</h2>
+          <span id="modalIlceBadge" class="text-[11px] font-bold uppercase tracking-wider text-[#00a859] bg-emerald-50 px-2.5 py-1 rounded-md">📍 LOKASYON</span>
+          <h2 id="modalMerkezAdi" class="text-xl font-extrabold text-gray-900 mt-1.5 tracking-tight">Merkez Adı</h2>
         </div>
-        <button id="modalKapatBtn" class="bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-800 w-8 h-8 rounded-full flex items-center justify-center transition font-bold text-sm">✕</button>
+        <button onclick="modalKapat()" class="w-10 h-10 rounded-full bg-white shadow-sm flex items-center justify-center border border-gray-200 text-gray-500 hover:text-gray-800 transition">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
       </div>
-      
-      <div class="p-6 space-y-6">
-        <div class="gorsel-alan rounded-2xl relative h-64 shadow-inner">
-          <div id="modalCarouselContainer" class="carousel-container"></div>
-          <div id="modalCarouselDots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10"></div>
-        </div>
-        
-        <div>
-          <h4 id="uiModalAboutLabel" class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Kurum Hakkında Açıklama</h4>
-          <p id="modalAciklama" class="text-sm text-gray-600 leading-relaxed bg-gray-50/50 p-4 rounded-xl border border-gray-100"></p>
+
+      <!-- Modal Gövde -->
+      <div class="flex-1 overflow-y-auto p-6 custom-scrollbar space-y-6">
+
+        <!-- Görsel Slider -->
+        <div class="relative h-56 w-full overflow-hidden bg-gray-100 rounded-2xl" id="modalSliderContainer">
+          <!-- Görseller JS ile eklenir -->
+          <div id="modalSliderDots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10"></div>
         </div>
 
+        <!-- Açıklama -->
+        <div>
+          <h4 data-i18n="modal-hakkinda-baslik" class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Kurum Hakkında Açıklama</h4>
+          <p id="modalAciklama" class="text-gray-600 leading-relaxed text-sm bg-gray-50 p-4 rounded-xl border border-gray-100">Açıklama yükleniyor...</p>
+        </div>
+
+        <!-- Kategoriler & Fiyat -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
-            <h4 id="uiModalProtocolsLabel" class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Kategoriler / Etiketler</h4>
-            <div id="modalBakimTurleri" class="flex flex-wrap gap-1.5"><span class="text-xs text-gray-500 font-medium">Rehabilitasyon</span></div>
+            <h4 data-i18n="modal-kategoriler-baslik" class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Kategoriler / Hizmetler</h4>
+            <div id="modalKategoriler" class="flex flex-wrap gap-1.5"></div>
           </div>
           <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
-            <h4 id="uiModalPricingLabel" class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Fiyatlandırma & Destek</h4>
+            <h4 data-i18n="modal-fiyat-baslik" class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Fiyatlandırma & Destek</h4>
             <span id="modalFiyat" class="text-sm font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-md inline-block"></span>
           </div>
         </div>
 
-        <div class="border border-gray-100 p-4 rounded-2xl space-y-2.5 text-xs text-gray-600 bg-white">
-          <div class="flex flex-col gap-1">
-            <strong id="uiModalAddressLabel" class="text-gray-400 uppercase text-[10px]">Adres</strong>
+        <!-- İletişim & Adres -->
+        <div class="border border-gray-100 p-4 rounded-2xl space-y-3 bg-white">
+          <div>
+            <strong data-i18n="modal-adres-etiket" class="text-gray-400 uppercase text-[10px] block mb-1">Adres</strong>
             <span id="modalAdres" class="text-sm text-gray-700 font-medium"></span>
           </div>
-          <div class="flex flex-col gap-1 pt-2 border-t border-gray-50">
-            <strong id="uiModalPhoneLabel" class="text-gray-400 uppercase text-[10px]">Telefon</strong>
-            <div id="modalTel" class="text-sm text-gray-700 font-medium"></div>
+          <div class="pt-2 border-t border-gray-100">
+            <strong data-i18n="modal-tel-etiket" class="text-gray-400 uppercase text-[10px] block mb-1">Telefon</strong>
+            <div id="modalTelefon" class="text-sm text-gray-700 font-medium"></div>
+          </div>
+          <div class="pt-2 border-t border-gray-100">
+            <strong data-i18n="modal-web-etiket" class="text-gray-400 uppercase text-[10px] block mb-1">Web</strong>
+            <a id="modalWeb" href="#" target="_blank" class="text-sm text-[#00a859] hover:underline font-medium" data-i18n="modal-web-link">Bağlantıya Git</a>
           </div>
         </div>
       </div>
 
-      <div class="p-6 border-t border-gray-100 bg-gray-50 flex gap-3 rounded-b-3xl" id="modalAksiyonAlani"></div>
+      <!-- Modal Footer -->
+      <div class="p-5 border-t border-gray-100 bg-gray-50 flex gap-3 rounded-b-3xl" id="modalAksiyonAlani"></div>
     </div>
   </div>
 
@@ -206,7 +222,7 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
     import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-    const firebaseConfig = { 
+    const firebaseConfig = {
       apiKey: "AIzaSyD-mksVUYTyFLfRb1O0TBZoHVjkWAeSjwQ",
       authDomain: "medivibe-resmi.firebaseapp.com",
       projectId: "medivibe-resmi",
@@ -219,408 +235,515 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    let TUM_MERKEZLER = [];
-    let aktifDil = 'tr';
-    let sliderIntervals = [];
-
+    // ─── DİL PAKETİ ─────────────────────────────────────────────────────────────
     const dilPaketi = {
       tr: {
-        badge: "Medivibe sağlıklı günler diler.",
-        titleMain: "Anlaşmalı",
-        titleSub: "Rehabilitasyon Merkezleri",
-        subText: "Merkezlerin üzerine tıklayarak detaylı hizmet protokollerine, konum verilerine ve kapasitelere anında erişebilirsiniz.",
-        searchPlace: "Şehir, ilçe, merkez adı veya anahtar kelime ara...",
-        allLocations: "Tüm Konumlar",
-        btnFilter: "Sonuçları Süz",
-        loading: "Veritabanına güvenli bağlantı kuruluyor...",
-        notFoundTitle: "Kriterlere Uygun Merkez Bulunamadı",
-        notFoundSub: "Lütfen farklı anahtar kelimeler veya lokasyonlar deneyin.",
-        btnInspect: "Detayları ve Hizmetleri Gör →",
-        aboutLabel: "Kurum Hakkında Açıklama",
-        protocolsLabel: "Kategoriler / Etiketler",
-        pricingLabel: "Fiyatlandırma & Destek",
-        addressLabel: "Adres",
-        phoneLabel: "Telefon",
-        callDirectly: "📞 Doğrudan Kurumu Ara",
-        wpPreApp: "💬 WhatsApp Ön Başvuru Hattı",
-        negotiable: "Ön Görüşme Gerekli / Yapılandırılıyor",
-        noPhone: "Telefon Belirtilmemiş",
-        aiRec: "Rehabilitasyon Merkezi"
+        "nav-hastaneler": "Hastanelerimiz", "nav-tesisler": "Tesisler",
+        "nav-bakim": "Bakım Merkezleri", "nav-oteller": "Oteller", "nav-araclar": "Araçlar",
+        "nav-ilac-baslik": "İlaç Takip Sistemi", "nav-ilac-ozet": "Tedavi ve hatırlatıcı paneli",
+        "nav-doviz-baslik": "Canlı Döviz Çevirici", "nav-doviz-ozet": "Anlık borsa kur hesaplayıcı",
+        "nav-hava-baslik": "Küresel Hava Durumu", "nav-hava-ozet": "Seyahat ve anlık tahminler",
+        "nav-iletisime-gec": "İletişime Geç", "nav-iletisim-etiket": "İletişim",
+        "sayfa-baslik": "Anlaşmalı Rehabilitasyon Merkezleri",
+        "sayfa-alt-metin": "Merkezlerin üzerine tıklayarak detaylı hizmet protokollerine, konum verilerine ve kapasitelere anında erişebilirsiniz.",
+        "arama-placeholder": "Merkez adı veya hizmet arayın...",
+        "filtre-tum-ilceler": "Tüm İlçeler",
+        "filtre-tum-hizmetler": "Tüm Hizmetler",
+        "yukleniyor": "Merkezler yükleniyor...",
+        "bulunamadi": "Kriterlere uygun merkez bulunamadı.",
+        "kart-detay-btn": "Detayları ve Hizmetleri Gör →",
+        "kart-rozet": "Rehabilitasyon Merkezi",
+        "modal-hakkinda-baslik": "Kurum Hakkında Açıklama",
+        "modal-kategoriler-baslik": "Kategoriler / Hizmetler",
+        "modal-fiyat-baslik": "Fiyatlandırma & Destek",
+        "modal-adres-etiket": "Adres",
+        "modal-tel-etiket": "Telefon",
+        "modal-web-etiket": "Web",
+        "modal-web-link": "Bağlantıya Git",
+        "modal-ara-btn": "📞 Doğrudan Kurumu Ara",
+        "modal-wp-btn": "💬 WhatsApp Ön Başvuru",
+        "aciklama-yok": "Açıklama belirtilmedi.",
+        "tel-yok": "Telefon belirtilmemiş",
+        "fiyat-gorus": "Ön Görüşme Gerekli",
+        "kategori-yok": "Rehabilitasyon",
+        "bilgi-yok": "Belirtilmedi"
       },
       en: {
-        badge: "Medivibe wishes you healthy days.",
-        titleMain: "Contracted",
-        titleSub: "Rehabilitation Centers",
-        subText: "Click on the centers to instantly access detailed service protocols, location data and capacities.",
-        searchPlace: "Search city, district, center name or keywords...",
-        allLocations: "All Locations",
-        btnFilter: "Filter Results",
-        loading: "Establishing secure database connection...",
-        notFoundTitle: "No Matching Center Found",
-        notFoundSub: "Please try different keywords or locations.",
-        btnInspect: "View Details & Services →",
-        aboutLabel: "About the Institution",
-        protocolsLabel: "Categories / Tags",
-        pricingLabel: "Pricing & Support",
-        addressLabel: "Address",
-        phoneLabel: "Phone",
-        callDirectly: "📞 Call Institution Directly",
-        wpPreApp: "💬 WhatsApp Pre-Application",
-        negotiable: "Consultation Required",
-        noPhone: "Phone Not Provided",
-        aiRec: "Rehabilitation Center"
+        "nav-hastaneler": "Our Hospitals", "nav-tesisler": "Facilities",
+        "nav-bakim": "Care Centers", "nav-oteller": "Hotels", "nav-araclar": "Tools",
+        "nav-ilac-baslik": "Medication Tracker", "nav-ilac-ozet": "Treatment & reminder panel",
+        "nav-doviz-baslik": "Live Currency Converter", "nav-doviz-ozet": "Instant exchange calculator",
+        "nav-hava-baslik": "Global Weather", "nav-hava-ozet": "Travel & live forecasts",
+        "nav-iletisime-gec": "Contact Us", "nav-iletisim-etiket": "Contact",
+        "sayfa-baslik": "Contracted Rehabilitation Centers",
+        "sayfa-alt-metin": "Click on the centers to instantly access detailed service protocols, location data and capacities.",
+        "arama-placeholder": "Search center name or service...",
+        "filtre-tum-ilceler": "All Districts",
+        "filtre-tum-hizmetler": "All Services",
+        "yukleniyor": "Loading centers...",
+        "bulunamadi": "No centers found matching the criteria.",
+        "kart-detay-btn": "View Details & Services →",
+        "kart-rozet": "Rehabilitation Center",
+        "modal-hakkinda-baslik": "About the Institution",
+        "modal-kategoriler-baslik": "Categories / Services",
+        "modal-fiyat-baslik": "Pricing & Support",
+        "modal-adres-etiket": "Address",
+        "modal-tel-etiket": "Phone",
+        "modal-web-etiket": "Web",
+        "modal-web-link": "Go to Link",
+        "modal-ara-btn": "📞 Call Institution Directly",
+        "modal-wp-btn": "💬 WhatsApp Pre-Application",
+        "aciklama-yok": "No description provided.",
+        "tel-yok": "Phone not provided",
+        "fiyat-gorus": "Consultation Required",
+        "kategori-yok": "Rehabilitation",
+        "bilgi-yok": "Not provided"
       },
       de: {
-        badge: "Medivibe wünscht Ihnen gesunde Tage.",
-        titleMain: "Vertraglich",
-        titleSub: "Rehabilitationszentren",
-        subText: "Klicken Sie auf die Zentren, um sofort auf detaillierte Serviceprotokolle, Standortdaten und Kapazitäten zuzugreifen.",
-        searchPlace: "Stadt, Bezirk, Zentrumsname oder Stichwort suchen...",
-        allLocations: "Alle Standorte",
-        btnFilter: "Ergebnisse Filtern",
-        loading: "Sichere Datenbankverbindung wird hergestellt...",
-        notFoundTitle: "Kein passendes Zentrum gefunden",
-        notFoundSub: "Bitte versuchen Sie es mit anderen Schlüsselwörtern oder Standorten.",
-        btnInspect: "Details & Dienstleistungen anzeigen →",
-        aboutLabel: "Über die Institution",
-        protocolsLabel: "Kategorien / Tags",
-        pricingLabel: "Preise & Unterstützung",
-        addressLabel: "Adresse",
-        phoneLabel: "Telefon",
-        callDirectly: "📞 Institution direkt anrufen",
-        wpPreApp: "💬 WhatsApp Voranmeldung",
-        negotiable: "Beratung Erforderlich",
-        noPhone: "Telefon nicht angegeben",
-        aiRec: "Rehabilitationszentrum"
+        "nav-hastaneler": "Unsere Krankenhäuser", "nav-tesisler": "Einrichtungen",
+        "nav-bakim": "Pflegezentren", "nav-oteller": "Hotels", "nav-araclar": "Tools",
+        "nav-ilac-baslik": "Medikamenten-Tracker", "nav-ilac-ozet": "Behandlungs- & Erinnerungspanel",
+        "nav-doviz-baslik": "Live-Währungsrechner", "nav-doviz-ozet": "Sofortiger Wechselkursrechner",
+        "nav-hava-baslik": "Globales Wetter", "nav-hava-ozet": "Reise- & Sofortprognosen",
+        "nav-iletisime-gec": "Kontaktieren Sie uns", "nav-iletisim-etiket": "Kontakt",
+        "sayfa-baslik": "Vertragliche Rehabilitationszentren",
+        "sayfa-alt-metin": "Klicken Sie auf die Zentren, um sofort auf detaillierte Serviceprotokolle, Standortdaten und Kapazitäten zuzugreifen.",
+        "arama-placeholder": "Zentrumname oder Dienst suchen...",
+        "filtre-tum-ilceler": "Alle Bezirke",
+        "filtre-tum-hizmetler": "Alle Dienstleistungen",
+        "yukleniyor": "Zentren werden geladen...",
+        "bulunamadi": "Keine passenden Zentren gefunden.",
+        "kart-detay-btn": "Details & Dienstleistungen anzeigen →",
+        "kart-rozet": "Rehabilitationszentrum",
+        "modal-hakkinda-baslik": "Über die Institution",
+        "modal-kategoriler-baslik": "Kategorien / Dienste",
+        "modal-fiyat-baslik": "Preise & Unterstützung",
+        "modal-adres-etiket": "Adresse",
+        "modal-tel-etiket": "Telefon",
+        "modal-web-etiket": "Web",
+        "modal-web-link": "Link öffnen",
+        "modal-ara-btn": "📞 Institution direkt anrufen",
+        "modal-wp-btn": "💬 WhatsApp Voranmeldung",
+        "aciklama-yok": "Keine Beschreibung vorhanden.",
+        "tel-yok": "Telefon nicht angegeben",
+        "fiyat-gorus": "Beratung erforderlich",
+        "kategori-yok": "Rehabilitation",
+        "bilgi-yok": "Nicht angegeben"
       }
     };
 
-    const FallbackGorsel = "https://images.unsplash.com/photo-1586105251261-72a756497a11?auto=format&fit=crop&w=600&q=80";
+    // ─── DURUM ──────────────────────────────────────────────────────────────────
+    let tumMerkezler = [];
+    let hafizaIlceler = new Set();
+    let hafizaHizmetler = new Set();
+    const sliderIntervals = {};
+    let mevcutDil = localStorage.getItem('medivibe-dil') || 'tr';
+    const FALLBACK_GORSEL = "https://images.unsplash.com/photo-1586105251261-72a756497a11?auto=format&fit=crop&w=600&q=80";
 
-    const grid = document.getElementById('bakimMerkezleriGrid');
-    const aramaInput = document.getElementById('bakimAramaInput');
-    const filtreIlce = document.getElementById('filtreIlce');
-    const btnAra = document.getElementById('btnAra');
-    const bulunamadiAlani = document.getElementById('bulunamadiAlani');
-    const yukleniyorGörünümü = document.getElementById('yukleniyorGörünümü');
-    const detayModal = document.getElementById('detayModal');
-    const modalKapatBtn = document.getElementById('modalKapatBtn');
-    
-    const langSelector = document.getElementById('languageSelector');
-    const mobilLangSelector = document.getElementById('mobilLanguageSelector');
-    const hamburgerBtn = document.getElementById('hamburgerBtn');
-    const mobilMenu = document.getElementById('mobilMenu');
+    // ─── YARDIMCI: DİL BAZLI VERİ OKU ──────────────────────────────────────────
+    // Firebase'den gelen objelerde hem düz alan (aciklama) hem dil uzantılı (aciklama_en)
+    // hem de iç içe obje yapılarını güvenle okur.
+    function veriOku(obj, alan) {
+      if (!obj) return "";
 
-    hamburgerBtn.addEventListener('click', () => {
-      mobilMenu.classList.toggle('translate-x-full');
-    });
-
-   // Bot Şemasına Göre Alan Okuyucu (Geliştirilmiş - Hata Önleyici)
-    function alanOku(merkez, anahtar, altObje = null) {
-      if (!merkez) return "";
-      
-      // 1. Veriyi hem alt objede (örn: genel_bilgi.aciklama) hem de direkt merkezde (örn: merkez.aciklama) ara
-      let kaynak = (altObje && merkez[altObje]) ? merkez[altObje] : merkez;
-      let veri = kaynak[anahtar] !== undefined ? kaynak[anahtar] : (merkez[anahtar] !== undefined ? merkez[anahtar] : "");
-      
-      // 2. Eğer dil uzantılı hali varsa onu seç (örn: aciklama_en)
-      if (aktifDil === 'en') {
-        veri = kaynak[`${anahtar}_en`] || merkez[`${anahtar}_en`] || veri;
-      } else if (aktifDil === 'de') {
-        veri = kaynak[`${anahtar}_de`] || merkez[`${anahtar}_de`] || veri;
+      // 1. Dil uzantılı alan varsa onu önceliklendir (TR dışı diller için)
+      if (mevcutDil !== 'tr') {
+        const dilAlani = `${alan}_${mevcutDil}`;
+        const dilVerisi = obj[dilAlani];
+        if (dilVerisi !== undefined && dilVerisi !== null && dilVerisi !== "") {
+          // Eğer obje dönüyorsa değer çıkar
+          if (typeof dilVerisi === 'object' && !Array.isArray(dilVerisi)) {
+            return dilVerisi[mevcutDil] || dilVerisi['tr'] || Object.values(dilVerisi)[0] || "";
+          }
+          return dilVerisi;
+        }
       }
-      
-      // 3. Eğer bulduğumuz veri hala bir OBJEYSE (object Object hatasını engellemek için)
-      if (veri && typeof veri === 'object') {
-        return veri[aktifDil] || veri['tr'] || veri['en'] || Object.values(veri)[0] || "";
+
+      // 2. Düz alan
+      let veri = obj[alan];
+      if (veri === undefined || veri === null) return "";
+
+      // 3. Eğer obje geliyorsa içini aç (boolean, number vs. değil)
+      if (typeof veri === 'object' && !Array.isArray(veri)) {
+        return veri[mevcutDil] || veri['tr'] || Object.values(veri)[0] || "";
       }
-      
+
+      // 4. Boolean veya sayı gelirse boş döndür (firebase'deki sgk_anlasma:true gibi alanlar)
+      if (typeof veri === 'boolean' || typeof veri === 'number') return "";
+
       return veri || "";
     }
 
-    // Akıllı Adres Okuyucu
-    function adresOku(merkez) {
-      if (!merkez || !merkez.adres) return "Eskişehir, Türkiye";
-      let alanAdi = aktifDil === 'tr' ? 'tam_adres' : `tam_adres_${aktifDil}`;
-      if (merkez.adres[alanAdi]) {
-        return merkez.adres[alanAdi];
+    // Merkez adını akıllıca oluştur
+    function adOlustur(m) {
+      return m.merkez_adi || m.isim || m.tesisAdi || (m.id || "").replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+    }
+
+    // Adresi akıllıca oku (adres objesini veya düz string'i destekler)
+    function adresOku(m) {
+      if (!m.adres) return "Eskişehir, Türkiye";
+      if (typeof m.adres === 'string') return m.adres;
+      if (typeof m.adres === 'object') {
+        const dilKey = mevcutDil !== 'tr' ? `tam_adres_${mevcutDil}` : 'tam_adres';
+        return m.adres[dilKey] || m.adres.tam_adres || `${m.adres.ilce || ''} / ${m.adres.sehir || 'Eskişehir'}`.trim();
       }
-      return merkez.adres.tam_adres || "Eskişehir, Türkiye";
+      return "Eskişehir, Türkiye";
     }
 
-    function baslikOlustur(merkez) {
-      if (merkez.merkez_adi) return merkez.merkez_adi;
-      if (merkez.isim) return merkez.isim;
-      
-      let idStr = merkez.id || "";
-      if (idStr.startsWith("www_")) idStr = idStr.replace("www_", "");
-      if (idStr.endsWith("_com_")) idStr = idStr.replace("_com_", "");
-      idStr = idStr.replace(/_/g, " ");
-      
-      return idStr.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+    // İlçeyi oku
+    function ilceOku(m) {
+      if (m.adres && typeof m.adres === 'object' && m.adres.ilce) return m.adres.ilce;
+      return m.ilce || m.sehir || "Eskişehir";
     }
 
-    function statikAlanlariCevir() {
-      const p = dilPaketi[aktifDil];
-      document.getElementById('uiPanelBadge').innerText = p.badge;
-      document.getElementById('uiMainTitle').innerHTML = `Anlaşmalı <span class="text-[#00a859]">${p.titleSub}</span>`;
-      document.getElementById('uiSubTitle').innerText = p.subText;
-      aramaInput.placeholder = p.searchPlace;
-      btnAra.innerText = p.btnFilter;
-      if(document.getElementById('uiLoadingText')) document.getElementById('uiLoadingText').innerText = p.loading;
-      document.getElementById('uiNotFoundTitle').innerText = p.notFoundTitle;
-      document.getElementById('uiNotFoundSub').innerText = p.notFoundSub;
-      
-      document.getElementById('uiModalAboutLabel').innerText = p.aboutLabel;
-      document.getElementById('uiModalProtocolsLabel').innerText = p.protocolsLabel;
-      document.getElementById('uiModalPricingLabel').innerText = p.pricingLabel;
-      document.getElementById('uiModalAddressLabel').innerText = p.addressLabel;
-      document.getElementById('uiModalPhoneLabel').innerText = p.phoneLabel;
-
-      filtreIlce.options[0].text = p.allLocations;
+    // Fiyatı güvenle oku (boolean/object tuzaklarını atla)
+    function fiyatOku(m) {
+      const p = dilPaketi[mevcutDil];
+      const fiyat = m.fiyat;
+      if (!fiyat) return p['fiyat-gorus'];
+      if (typeof fiyat === 'boolean') return p['fiyat-gorus'];
+      if (typeof fiyat === 'string' && fiyat.trim() !== '') return fiyat;
+      if (typeof fiyat === 'object') {
+        if (fiyat.seans_ucreti) {
+          let tutar = fiyat.seans_ucreti;
+          if (typeof tutar === 'object') tutar = tutar[mevcutDil] || tutar['tr'] || Object.values(tutar)[0];
+          return `${tutar} ${fiyat.para_birimi || 'TRY'}`;
+        }
+        const val = fiyat[mevcutDil] || fiyat['tr'];
+        if (val && typeof val !== 'boolean') return val;
+      }
+      return p['fiyat-gorus'];
     }
 
-    // VERİ ÇEKME FONKSİYONU
-    async function veritabanindanCek() {
+    // Kategorileri/hizmetleri oku (dizi veya string olabilir)
+    function kategorilerOku(m) {
+      // Olası alan adları: kategoriler, hizmetler, bakim_turleri, etiketler, tags
+      const adaylar = ['kategoriler', 'hizmetler', 'bakim_turleri', 'etiketler', 'tags', 'ozellikler'];
+      for (const alan of adaylar) {
+        const veri = veriOku(m, alan) || m[alan];
+        if (veri && Array.isArray(veri) && veri.length > 0) return veri;
+        if (veri && typeof veri === 'string' && veri.trim()) return [veri];
+      }
+      return [];
+    }
+
+    // Görselleri oku
+    function gorselleriOku(m) {
+      if (m.gorseller && Array.isArray(m.gorseller) && m.gorseller.length > 0) return m.gorseller;
+      if (m.gorsel && typeof m.gorsel === 'string') return [m.gorsel];
+      return [FALLBACK_GORSEL];
+    }
+
+    // Telefonu oku
+    function telefonOku(m) {
+      const tel = m.telefon || m.tel || "";
+      if (Array.isArray(tel)) return tel.join(", ");
+      return tel || "";
+    }
+
+    // ─── SAYFA YERELLEŞTİRME ────────────────────────────────────────────────────
+    function sayfayiYerellestir(lang) {
+      if (!dilPaketi[lang]) lang = 'tr';
+      mevcutDil = lang;
+      localStorage.setItem('medivibe-dil', lang);
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dilPaketi[lang][key] !== undefined) el.innerHTML = dilPaketi[lang][key];
+      });
+
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (dilPaketi[lang][key]) el.placeholder = dilPaketi[lang][key];
+      });
+
+      const sel = document.getElementById('languageSelector');
+      if (sel) sel.value = lang;
+      const mSel = document.getElementById('mobilLanguageSelector');
+      if (mSel) mSel.value = lang;
+
+      filtreSecenekleriniDoldur();
+      if (tumMerkezler.length > 0) filtrele();
+    }
+
+    // ─── FİLTRE SEÇENEKLERINI DOLDUR ────────────────────────────────────────────
+    function filtreSecenekleriniDoldur() {
+      const ilceSelect = document.getElementById("ilceFiltre");
+      const hizmetSelect = document.getElementById("hizmetFiltre");
+      const eskiIlce = ilceSelect.value;
+      const eskiHizmet = hizmetSelect.value;
+
+      ilceSelect.innerHTML = `<option value="">${dilPaketi[mevcutDil]['filtre-tum-ilceler']}</option>`;
+      hafizaIlceler.forEach(i => {
+        ilceSelect.innerHTML += `<option value="${i}">${i}</option>`;
+      });
+
+      hizmetSelect.innerHTML = `<option value="">${dilPaketi[mevcutDil]['filtre-tum-hizmetler']}</option>`;
+      hafizaHizmetler.forEach(h => {
+        hizmetSelect.innerHTML += `<option value="${h}">${h}</option>`;
+      });
+
+      ilceSelect.value = eskiIlce;
+      hizmetSelect.value = eskiHizmet;
+    }
+
+    // ─── VERİ ÇEKME ─────────────────────────────────────────────────────────────
+    async function verileriGetir() {
+      const grid = document.getElementById("merkezlerGrid");
+      grid.innerHTML = `<div class="col-span-full text-center py-10 text-gray-400 text-sm">
+        <div class="animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#00a859] rounded-full mb-3"></div>
+        <div>${dilPaketi[mevcutDil]['yukleniyor']}</div>
+      </div>`;
+
       try {
-        const querySnapshot = await getDocs(collection(db, "rehabilitasyon_merkezleri"));
-        TUM_MERKEZLER = [];
-        
-        querySnapshot.forEach((doc) => {
-          const data = doc.data();
-          data.id = doc.id;
-          TUM_MERKEZLER.push(data);
+        const snapshot = await getDocs(collection(db, "rehabilitasyon_merkezleri"));
+        tumMerkezler = [];
+        hafizaIlceler.clear();
+        hafizaHizmetler.clear();
+
+        snapshot.forEach(doc => {
+          const data = { id: doc.id, ...doc.data() };
+          tumMerkezler.push(data);
+
+          const ilce = ilceOku(data);
+          if (ilce) hafizaIlceler.add(ilce);
+
+          const kategoriler = kategorilerOku(data);
+          kategoriler.forEach(k => hafizaHizmetler.add(k));
         });
 
-        if(yukleniyorGörünümü) yukleniyorGörünümü.remove();
-        kartlariCiz(TUM_MERKEZLER);
-      } catch (error) {
-        console.error("Veri çekilirken hata: ", error);
-        grid.innerHTML = `<div class="col-span-full text-center text-red-500 font-bold p-6">Firebase Veritabanı Bağlantı Hatası.</div>`;
+        filtreSecenekleriniDoldur();
+        kartlariBas(tumMerkezler);
+      } catch (err) {
+        console.error("Veri yükleme hatası:", err);
+        grid.innerHTML = `<div class="col-span-full text-center text-red-500 font-bold p-6">Veritabanı bağlantı hatası. Lütfen sayfayı yenileyin.</div>`;
       }
     }
 
-    // ARAMA VE FİLTRELEME MOTORU (Eksik Olan Kısım)
-    function filtreleVeAra() {
-      const aramaKelimesi = aramaInput.value.trim().toLocaleLowerCase('tr-TR');
-      const secilenIlce = filtreIlce.value.toLocaleLowerCase('tr-TR');
-
-      const filtrelenmis = TUM_MERKEZLER.filter(merkez => {
-        const mName = baslikOlustur(merkez).toLocaleLowerCase('tr-TR');
-        const mDesc = alanOku(merkez, 'aciklama').toLocaleLowerCase('tr-TR');
-        const tamAdres = adresOku(merkez).toLocaleLowerCase('tr-TR');
-        const ilceAlani = (merkez.adres && merkez.adres.ilce ? merkez.adres.ilce : "").toLocaleLowerCase('tr-TR');
-
-        const metinEslesmesi = !aramaKelimesi || 
-                               mName.includes(aramaKelimesi) || 
-                               mDesc.includes(aramaKelimesi) || 
-                               tamAdres.includes(aramaKelimesi);
-
-        const ilceEslesmesi = secilenIlce === 'hepsi' || ilceAlani.includes(secilenIlce);
-
-        return metinEslesmesi && ilceEslesmesi;
-      });
-
-      kartlariCiz(filtrelenmis);
-    }
-
-    function sliderlariBaslat() {
-      sliderIntervals.forEach(clearInterval);
-      sliderIntervals = [];
-
-      document.querySelectorAll('.carousel-container').forEach(container => {
-        const slideCount = container.children.length;
-        if (slideCount <= 1) return;
-
-        const cardId = container.id.split('-')[2];
-        const dots = document.querySelectorAll(`.dot-id-${cardId}`);
-        let currentIdx = 0;
-
-        const interval = setInterval(() => {
-          currentIdx = (currentIdx + 1) % slideCount;
-          container.style.transform = `translateX(-${currentIdx * 100}%)`;
-          
-          dots.forEach((dot, dIdx) => {
-            if(dIdx === currentIdx) {
-              dot.classList.add('bg-white', 'w-4');
-              dot.classList.remove('bg-white/60', 'w-1.5');
-            } else {
-              dot.classList.remove('bg-white', 'w-4');
-              dot.classList.add('bg-white/60', 'w-1.5');
-            }
-          });
-        }, 4000);
-
-        sliderIntervals.push(interval);
-      });
-    }
-
-    function kartlariCiz(liste) {
+    // ─── KARTLARI BAS ────────────────────────────────────────────────────────────
+    function kartlariBas(liste) {
+      const grid = document.getElementById("merkezlerGrid");
       grid.innerHTML = "";
-      if(liste.length === 0) {
-        bulunamadiAlani.classList.remove('hidden');
+
+      if (liste.length === 0) {
+        grid.innerHTML = `<div class="col-span-full text-center py-10 text-gray-400 text-sm">${dilPaketi[mevcutDil]['bulunamadi']}</div>`;
         return;
       }
-      bulunamadiAlani.classList.add('hidden');
 
-      liste.forEach((merkez, index) => {
-        const mName = baslikOlustur(merkez);
-        const mDesc = alanOku(merkez, 'aciklama');
-        
-        let ilce = "Tepebaşı";
-        if (merkez.adres && merkez.adres.ilce) {
-          ilce = merkez.adres.ilce;
-        }
+      liste.forEach(merkez => {
+        const ad = adOlustur(merkez);
+        const aciklama = veriOku(merkez, 'aciklama') || "";
+        const ilce = ilceOku(merkez);
+        const gorseller = gorselleriOku(merkez).slice(0, 3);
+        const kategoriler = kategorilerOku(merkez).slice(0, 3);
 
-        let gorselListesi = [FallbackGorsel];
-        if (merkez.gorseller && Array.isArray(merkez.gorseller) && merkez.gorseller.length > 0) {
-          gorselListesi = merkez.gorseller;
-        } else if (merkez.gorsel && typeof merkez.gorsel === 'string') {
-          gorselListesi = [merkez.gorsel];
-        }
-
-        let slidesHtml = "";
-        let dotsHtml = "";
-        gorselListesi.forEach((imgUrl, imgIdx) => {
-          slidesHtml += `<img src="${imgUrl}" class="carousel-slide object-cover" onerror="this.src='${FallbackGorsel}'" alt="${mName}">`;
-          dotsHtml += `<span class="dot-id-${index} h-1.5 rounded-full transition-all duration-300 ${imgIdx === 0 ? 'bg-white w-4' : 'bg-white/60 w-1.5'}"></span>`;
+        let sliderHtml = '';
+        gorseller.forEach((url, i) => {
+          sliderHtml += `<img src="${url}" onerror="this.src='${FALLBACK_GORSEL}'" class="slider-img absolute inset-0 w-full h-full object-cover rounded-t-2xl ${i === 0 ? 'opacity-100' : 'opacity-0'}" data-index="${i}" alt="${ad}">`;
         });
 
+        let kategoriBadges = '';
+        if (kategoriler.length > 0) {
+          kategoriler.forEach(k => {
+            kategoriBadges += `<span class="bg-gray-100 text-gray-600 text-xs px-2.5 py-1 rounded-lg font-medium truncate">${k}</span>`;
+          });
+        } else {
+          kategoriBadges = `<span class="bg-emerald-50 text-emerald-700 text-xs px-2.5 py-1 rounded-lg font-medium">🏥 ${dilPaketi[mevcutDil]['kategori-yok']}</span>`;
+        }
+
         const kartHtml = `
-          <div data-id="${merkez.id}" class="bakim-kart-item bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 flex flex-col justify-between h-[450px] animate-fade-in cursor-pointer group">
-            <div>
-              <div class="gorsel-alan relative">
-                <div id="carousel-container-${index}" class="carousel-container">${slidesHtml}</div>
-                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1 z-10">${dotsHtml}</div>
-                <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-gray-800 font-bold text-xs px-3 py-1 rounded-full shadow-sm uppercase tracking-wide">
-                  📍 ${ilce}
-                </span>
-              </div>
-
-              <div class="p-6">
-                <span class="text-[11px] text-[#00a859] font-extrabold flex items-center gap-1 mb-1 uppercase tracking-wider">
-                  ✨ ${dilPaketi[aktifDil].aiRec}
-                </span>
-                <h3 class="text-lg font-bold text-gray-900 tracking-tight group-hover:text-[#00a859] transition line-clamp-1">${mName}</h3>
-                <p class="text-xs text-gray-500 mt-2 line-clamp-3 leading-relaxed">${mDesc || 'Açıklama mevcut değil.'}</p>
-              </div>
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl hover:border-emerald-100 transition-all duration-300 flex flex-col overflow-hidden cursor-pointer transform hover:-translate-y-1 animate-fadeIn" onclick="modalAc('${merkez.id}')">
+            <div class="relative h-48 w-full overflow-hidden bg-gray-100" id="slider-${merkez.id}">
+              ${sliderHtml}
+              <span class="absolute top-3 left-3 bg-white/95 backdrop-blur-sm text-gray-800 font-bold text-xs px-3 py-1 rounded-full shadow-sm uppercase tracking-wide z-10">📍 ${ilce}</span>
             </div>
-
-            <div class="p-6 pt-0">
-              <button class="w-full bg-gray-50 group-hover:bg-[#00a859] group-hover:text-white text-gray-700 font-bold py-3 px-4 rounded-xl text-xs transition duration-300 text-center flex items-center justify-center gap-1">
-                ${dilPaketi[aktifDil].btnInspect}
-              </button>
+            <div class="p-5 flex-1 flex flex-col justify-between">
+              <div>
+                <span class="text-[11px] text-[#00a859] font-extrabold uppercase tracking-wider">✨ ${dilPaketi[mevcutDil]['kart-rozet']}</span>
+                <h3 class="text-lg font-bold text-gray-900 mt-1 mb-2 truncate">${ad}</h3>
+                <p class="text-xs text-gray-400 line-clamp-2 mb-4 leading-relaxed">${aciklama || dilPaketi[mevcutDil]['aciklama-yok']}</p>
+              </div>
+              <div>
+                <div class="flex flex-wrap gap-1.5 pt-3 border-t border-gray-100 mb-3">${kategoriBadges}</div>
+                <button class="w-full bg-gray-50 hover:bg-[#00a859] hover:text-white text-gray-700 font-bold py-3 px-4 rounded-xl text-xs transition duration-300 text-center">
+                  ${dilPaketi[mevcutDil]['kart-detay-btn']}
+                </button>
+              </div>
             </div>
           </div>
         `;
-        grid.insertAdjacentHTML('beforeend', kartHtml);
+        grid.innerHTML += kartHtml;
       });
 
-      document.querySelectorAll('.bakim-kart-item').forEach(kart => {
-        kart.addEventListener('click', () => {
-          const mId = kart.getAttribute('data-id');
-          const secilen = TUM_MERKEZLER.find(m => m.id === mId);
-          if(secilen) modalAc(secilen);
-        });
+      // Slider'ları başlat
+      liste.forEach(merkez => {
+        const gorseller = gorselleriOku(merkez);
+        if (gorseller.length > 1) sliderBaslat(merkez.id, gorseller.length);
       });
-
-      sliderlariBaslat();
     }
 
-    function modalAc(merkez) {
-      console.log("Firebase'den gelen merkez verisi:", merkez);
-      const p = dilPaketi[aktifDil];
-      document.getElementById('modalMerkezAdi').innerText = baslikOlustur(merkez);
-      
-      const tamAdres = adresOku(merkez);
-      document.getElementById('modalAdres').innerText = tamAdres;
-      document.getElementById('modalAciklama').innerText = alanOku(merkez, 'aciklama') || "Açıklama belirtilmedi.";
-      
-      let ilce = merkez.adres && merkez.adres.ilce ? merkez.adres.ilce : "Tepebaşı";
-      let sehir = merkez.adres && merkez.adres.sehir ? merkez.adres.sehir : "Eskişehir";
-      document.getElementById('modalSehirIlce').innerText = `📍 ${ilce.toUpperCase()} / ${sehir.toUpperCase()}`;
-      
-// Ücret Ayarı (Garantili Obje Çözücü)
-      let ucret = p.negotiable;
-      if (merkez.fiyat) {
-        if (typeof merkez.fiyat === 'object') {
-          if (merkez.fiyat.seans_ucreti) {
-            let tutar = merkez.fiyat.seans_ucreti;
-            if (typeof tutar === 'object') tutar = tutar[aktifDil] || tutar['tr'] || Object.values(tutar)[0];
-            ucret = `${tutar} ${merkez.fiyat.para_birimi || 'TRY'}`;
-          } else {
-            ucret = merkez.fiyat[aktifDil] || merkez.fiyat['tr'] || Object.values(merkez.fiyat)[0];
-          }
-        } else {
-          ucret = merkez.fiyat;
-        }
-      }
-      
-      document.getElementById('modalFiyat').innerText = ucret;
-      const telKonteyner = document.getElementById('modalTel');
-      const telefonNumarasi = merkez.telefon || merkez.tel || "";
-      if(telefonNumarasi) {
-        const temizTel = telefonNumarasi.replace(/\s+/g, '');
-        telKonteyner.innerHTML = `<a href="tel:${temizTel}" class="text-blue-600 hover:underline font-semibold text-sm">${telefonNumarasi}</a>`;
-      } else {
-        telKonteyner.innerText = p.noPhone;
-      }
+    // ─── SLIDER ─────────────────────────────────────────────────────────────────
+    function sliderBaslat(id, maxIndex) {
+      if (sliderIntervals[id]) clearInterval(sliderIntervals[id]);
+      let current = 0;
+      sliderIntervals[id] = setInterval(() => {
+        const container = document.getElementById(`slider-${id}`);
+        if (!container) return;
+        const imgs = container.querySelectorAll('.slider-img');
+        if (!imgs.length) return;
+        imgs[current].classList.replace('opacity-100', 'opacity-0');
+        current = (current + 1) % maxIndex;
+        imgs[current].classList.replace('opacity-0', 'opacity-100');
+      }, 3500);
+    }
 
-      const modalContainer = document.getElementById('modalCarouselContainer');
-      let gorselListesi = [FallbackGorsel];
-      if (merkez.gorseller && Array.isArray(merkez.gorseller) && merkez.gorseller.length > 0) {
-        gorselListesi = merkez.gorseller;
-      } else if (merkez.gorsel && typeof merkez.gorsel === 'string') {
-        gorselListesi = [merkez.gorsel];
-      }
+    // ─── FİLTRELEME ─────────────────────────────────────────────────────────────
+    function filtrele() {
+      const arama = document.getElementById("aramaInput").value.toLowerCase();
+      const ilce = document.getElementById("ilceFiltre").value;
+      const hizmet = document.getElementById("hizmetFiltre").value;
 
-      let slidesHtml = "";
-      let dotsHtml = "";
-      gorselListesi.forEach((imgUrl, imgIdx) => {
-        slidesHtml += `<img src="${imgUrl}" class="carousel-slide object-cover" onerror="this.src='${FallbackGorsel}'" alt="Detay">`;
-        dotsHtml += `<span class="h-1.5 rounded-full bg-white transition-all ${imgIdx === 0 ? 'w-4' : 'w-1.5 bg-white/60'}"></span>`;
+      const filtrelenmis = tumMerkezler.filter(m => {
+        const ad = adOlustur(m).toLowerCase();
+        const aciklama = (veriOku(m, 'aciklama') || "").toLowerCase();
+        const mIlce = ilceOku(m);
+        const kategoriler = kategorilerOku(m);
+
+        const aramaKritiri = !arama || ad.includes(arama) || aciklama.includes(arama) || kategoriler.some(k => k.toLowerCase().includes(arama));
+        const ilceKritiri = !ilce || mIlce === ilce;
+        const hizmetKritiri = !hizmet || kategoriler.includes(hizmet);
+
+        return aramaKritiri && ilceKritiri && hizmetKritiri;
       });
-      modalContainer.innerHTML = slidesHtml;
-      document.getElementById('modalCarouselDots').innerHTML = dotsHtml;
 
-      const aksiyonAlani = document.getElementById('modalAksiyonAlani');
-      aksiyonAlani.innerHTML = `
-        <a href="tel:${telefonNumarasi.replace(/\s+/g, '')}" class="flex-1 bg-[#00a859] hover:bg-[#008f4c] text-white font-bold py-3 px-4 rounded-xl text-xs text-center transition shadow-sm">${p.callDirectly}</a>
-        <a href="https://wa.me/905551234567" target="_blank" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl text-xs text-center transition shadow-sm">${p.wpPreApp}</a>
+      kartlariBas(filtrelenmis);
+    }
+
+    // ─── MODAL ──────────────────────────────────────────────────────────────────
+    window.modalAc = function(id) {
+      const m = tumMerkezler.find(x => x.id === id);
+      if (!m) return;
+      const p = dilPaketi[mevcutDil];
+
+      console.log("Firebase merkez verisi:", m); // Debug
+
+      document.getElementById('modalMerkezAdi').innerText = adOlustur(m);
+
+      const ilce = ilceOku(m);
+      const sehir = (m.adres && m.adres.sehir) ? m.adres.sehir : 'Eskişehir';
+      document.getElementById('modalIlceBadge').innerText = `📍 ${ilce.toUpperCase()} / ${sehir.toUpperCase()}`;
+
+      document.getElementById('modalAciklama').innerText = veriOku(m, 'aciklama') || p['aciklama-yok'];
+      document.getElementById('modalAdres').innerText = adresOku(m);
+      document.getElementById('modalFiyat').innerText = fiyatOku(m);
+
+      // Telefon
+      const telEl = document.getElementById('modalTelefon');
+      const tel = telefonOku(m);
+      if (tel) {
+        telEl.innerHTML = `<a href="tel:${tel.replace(/\s+/g, '')}" class="text-blue-600 hover:underline font-semibold">${tel}</a>`;
+      } else {
+        telEl.innerText = p['tel-yok'];
+      }
+
+      // Web
+      const webEl = document.getElementById('modalWeb');
+      const webUrl = m.kaynakUrl || m.web || m.website || "#";
+      webEl.href = webUrl;
+      webEl.innerText = webUrl !== "#" ? webUrl : p['bilgi-yok'];
+
+      // Kategoriler
+      const katEl = document.getElementById('modalKategoriler');
+      const kategoriler = kategorilerOku(m);
+      if (kategoriler.length > 0) {
+        katEl.innerHTML = kategoriler.map(k =>
+          `<span class="bg-emerald-50 text-emerald-700 border border-emerald-100 text-xs px-3 py-1 rounded-full font-medium">🏥 ${k}</span>`
+        ).join('');
+      } else {
+        katEl.innerHTML = `<span class="text-xs text-gray-500 font-medium">🏥 ${p['kategori-yok']}</span>`;
+      }
+
+      // Modal görseller (slider)
+      const sliderContainer = document.getElementById('modalSliderContainer');
+      const dotsEl = document.getElementById('modalSliderDots');
+      const gorseller = gorselleriOku(m);
+      
+      // Mevcut intervali temizle
+      if (sliderIntervals['modal']) clearInterval(sliderIntervals['modal']);
+
+      let sliderHtml = '';
+      gorseller.forEach((url, i) => {
+        sliderHtml += `<img src="${url}" onerror="this.src='${FALLBACK_GORSEL}'" class="slider-img absolute inset-0 w-full h-full object-cover ${i === 0 ? 'opacity-100' : 'opacity-0'}" data-index="${i}" alt="Görsel ${i+1}">`;
+      });
+      // dotsEl'i koruyarak slider HTML'ini güncelle
+      sliderContainer.innerHTML = sliderHtml;
+      sliderContainer.appendChild(dotsEl);
+
+      dotsEl.innerHTML = gorseller.map((_, i) =>
+        `<span class="h-1.5 rounded-full transition-all duration-300 ${i === 0 ? 'bg-white w-4' : 'bg-white/60 w-1.5'}"></span>`
+      ).join('');
+
+      if (gorseller.length > 1) {
+        let modalCurrent = 0;
+        const modalDots = dotsEl.querySelectorAll('span');
+        sliderIntervals['modal'] = setInterval(() => {
+          const imgs = sliderContainer.querySelectorAll('.slider-img');
+          if (!imgs.length) return;
+          imgs[modalCurrent].classList.replace('opacity-100', 'opacity-0');
+          modalDots[modalCurrent]?.classList.replace('w-4', 'w-1.5');
+          modalDots[modalCurrent]?.classList.replace('bg-white', 'bg-white/60');
+          modalCurrent = (modalCurrent + 1) % gorseller.length;
+          imgs[modalCurrent].classList.replace('opacity-0', 'opacity-100');
+          modalDots[modalCurrent]?.classList.replace('w-1.5', 'w-4');
+          modalDots[modalCurrent]?.classList.replace('bg-white/60', 'bg-white');
+        }, 3500);
+      }
+
+      // Aksiyon butonları
+      const aksiyonEl = document.getElementById('modalAksiyonAlani');
+      const telHref = tel ? `tel:${tel.replace(/\s+/g, '')}` : "#";
+      aksiyonEl.innerHTML = `
+        <a href="${telHref}" class="flex-1 bg-[#00a859] hover:bg-[#008f4c] text-white font-bold py-3 px-4 rounded-xl text-xs text-center transition shadow-sm">${p['modal-ara-btn']}</a>
+        <a href="https://wa.me/905551234567" target="_blank" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl text-xs text-center transition shadow-sm">${p['modal-wp-btn']}</a>
       `;
 
-      detayModal.classList.remove('opacity-0', 'invisible');
-    }
+      // Modali aç
+      const modal = document.getElementById("detayModal");
+      modal.classList.remove("hidden");
+      setTimeout(() => {
+        modal.classList.remove("opacity-0");
+        modal.querySelector('.transform').classList.remove("scale-95");
+      }, 10);
+    };
 
-    modalKapatBtn.addEventListener('click', () => {
-      detayModal.classList.add('opacity-0', 'invisible');
+    window.modalKapat = function() {
+      if (sliderIntervals['modal']) clearInterval(sliderIntervals['modal']);
+      const modal = document.getElementById("detayModal");
+      modal.classList.add("opacity-0");
+      modal.querySelector('.transform').classList.add("scale-95");
+      setTimeout(() => modal.classList.add("hidden"), 300);
+    };
+
+    // Modal dışına tıkla kapat
+    document.getElementById("detayModal").addEventListener("click", function(e) {
+      if (e.target === this) modalKapat();
     });
 
-    // Filtreleme Dinleyicileri (Yeni Eklendi)
-    btnAra.addEventListener('click', filtreleVeAra);
-    filtreIlce.addEventListener('change', filtreleVeAra);
-    aramaInput.addEventListener('keyup', (e) => {
-      if (e.key === 'Enter') {
-        filtreleVeAra();
-      }
-    });
+    // ─── OLAY DİNLEYİCİLER ──────────────────────────────────────────────────────
+    document.getElementById("aramaInput").addEventListener("input", filtrele);
+    document.getElementById("ilceFiltre").addEventListener("change", filtrele);
+    document.getElementById("hizmetFiltre").addEventListener("change", filtrele);
 
-    langSelector.addEventListener('change', (e) => {
-      aktifDil = e.target.value;
-      mobilLangSelector.value = aktifDil;
-      statikAlanlariCevir();
-      filtreleVeAra(); // Dil değiştiğinde aramayı koru
-    });
+    document.getElementById("languageSelector").addEventListener("change", e => sayfayiYerellestir(e.target.value));
+    document.getElementById("mobilLanguageSelector").addEventListener("change", e => sayfayiYerellestir(e.target.value));
 
-    mobilLangSelector.addEventListener('change', (e) => {
-      aktifDil = e.target.value;
-      langSelector.value = aktifDil;
-      statikAlanlariCevir();
-      filtreleVeAra(); // Dil değiştiğinde aramayı koru
-    });
+    const hamburgerBtn = document.getElementById("hamburgerBtn");
+    const mobilMenu = document.getElementById("mobilMenu");
+    hamburgerBtn.addEventListener("click", () => mobilMenu.classList.toggle("translate-x-full"));
 
-    statikAlanlariCevir();
-    veritabanindanCek();
+    // ─── BAŞLAT ─────────────────────────────────────────────────────────────────
+    sayfayiYerellestir(mevcutDil);
+    verileriGetir();
   </script>
 </body>
 </html>
