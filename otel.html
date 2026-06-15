@@ -15,7 +15,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
     .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-    .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; rounded: 10px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
     .custom-scrollbar::-webkit-scrollbar-thumb { background: #00a859; border-radius: 10px; }
     /* Görsel Slider Yumuşak Geçiş */
     .slider-img { transition: opacity 0.8s ease-in-out; }
@@ -23,6 +23,7 @@
 </head>
 <body class="text-gray-800 antialiased pt-24 pb-12">
 
+  <!-- Üst Navigasyon -->
   <nav class="bg-white px-6 md:px-12 py-4 flex justify-between items-center fixed w-full top-0 z-50 shadow-sm">
     
     <div class="flex items-center gap-10">
@@ -37,9 +38,9 @@
         <a href="hastaneler.html" id="nav_hastaneler" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300">Hastanelerimiz</a>
         <a href="tesisler.html" id="nav_tesisler" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300">Tesisler</a>
         <a href="bakim.html" id="nav_bakim" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300">Bakım Merkezleri</a>
-        
         <a href="otel.html" id="nav_oteller" class="text-sm font-semibold text-[#00a859] transition duration-300">Oteller</a>
 
+        <!-- Masaüstü Araçlar Menüsü -->
         <div class="relative group py-2">
           <button id="nav_araclar" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300 flex items-center gap-1.5 outline-none">
             Araçlar
@@ -52,7 +53,7 @@
             <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-2 space-y-0.5">
               
               <a href="takip.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-emerald-50/60 group/item transition-all duration-200">
-                <div class="w-9 h-9 bg-[#00a859] text-white flex items-center justify-center rounded-xl text-lg shadow-sm">💊</div>
+                <div class="w-9 h-9 bg-emerald-100/70 text-[#00a859] flex items-center justify-center rounded-xl text-lg shadow-sm">💊</div>
                 <div>
                   <div id="nav_ilac_baslik" class="text-xs font-bold text-gray-800 group-hover/item:text-[#00a859] transition-colors">İlaç Takip Sistemi</div>
                   <div id="nav_ilac_alt" class="text-[10px] text-gray-500 mt-0.5 font-medium">Tedavi ve hatırlatıcı paneli</div>
@@ -64,6 +65,14 @@
                 <div>
                   <div id="nav_doviz_baslik" class="text-xs font-bold text-gray-800 group-hover/item:text-[#00a859] transition-colors">Canlı Döviz Çevirici</div>
                   <div id="nav_doviz_alt" class="text-[10px] text-gray-400 mt-0.5 font-medium">Anlık borsa kur hesaplayıcı</div>
+                </div>
+              </a>
+
+              <a href="hava.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-emerald-50/60 group/item transition-all duration-200">
+                <div class="w-9 h-9 bg-emerald-100/70 text-[#00a859] flex items-center justify-center rounded-xl text-lg shadow-sm">☀️</div>
+                <div>
+                  <div id="nav_hava_baslik" class="text-xs font-bold text-gray-800 group-hover/item:text-[#00a859] transition-colors">Küresel Hava Durumu</div>
+                  <div id="nav_hava_alt" class="text-[10px] text-gray-400 mt-0.5 font-medium">Seyahat ve anlık tahminler</div>
                 </div>
               </a>
 
@@ -106,6 +115,37 @@
     </button>
   </nav>
 
+  <!-- Mobil Menü -->
+  <div id="mobilMenu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col pt-24 px-8 pb-8 shadow-2xl overflow-y-auto">
+    <div class="flex flex-col gap-5 text-lg font-bold text-gray-800">
+      <a href="hastaneler.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859]" id="mob_hastaneler">Hastanelerimiz</a>
+      <a href="tesisler.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859]" id="mob_tesisler">Tesisler</a>
+      <a href="bakim.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859]" id="mob_bakim">Bakım Merkezleri</a>
+      <a href="otel.html" class="border-b border-gray-100 pb-3 text-[#00a859]" id="mob_oteller">Oteller</a>
+      
+      <!-- Mobil Menü İçin Araçlar Linkleri -->
+      <a href="takip.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859] flex items-center gap-2 text-base font-semibold text-gray-600">
+        <span>💊</span> <span id="mob_ilac_baslik">İlaç Takip Sistemi</span>
+      </a>
+      <a href="doviz.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859] flex items-center gap-2 text-base font-semibold text-gray-600">
+        <span>💱</span> <span id="mob_doviz_baslik">Canlı Döviz Çevirici</span>
+      </a>
+      <a href="hava.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859] flex items-center gap-2 text-base font-semibold text-gray-600">
+        <span>☀️</span> <span id="mob_hava_baslik">Küresel Hava Durumu</span>
+      </a>
+
+      <div class="flex items-center justify-between border-b border-gray-100 pb-3 mt-2">
+        <span class="text-gray-600 text-sm font-medium">Dil Seçimi</span>
+        <select id="mobilLanguageSelector" class="bg-gray-100 border-none text-gray-800 text-sm font-semibold rounded-lg px-3 py-2 outline-none">
+          <option value="tr">TR</option>
+          <option value="en">EN</option>
+          <option value="de">DE</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ana İçerik -->
   <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
     
     <div class="text-center max-w-3xl mx-auto mb-10">
@@ -145,6 +185,7 @@
 
   </main>
 
+  <!-- Detay Modal -->
   <div id="detayModal" class="fixed inset-0 bg-gray-900/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4 md:p-6 opacity-0 invisible transition-all duration-300">
     <div class="bg-white rounded-[2rem] max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl animate-fade-in flex flex-col">
       
@@ -218,6 +259,20 @@
       </div>
     </div>
   </div>
+
+  <!-- Mobil Menü Kontrol Scripti -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobilMenu = document.getElementById('mobilMenu');
+
+      if (hamburgerBtn && mobilMenu) {
+        hamburgerBtn.addEventListener('click', () => {
+          mobilMenu.classList.toggle('translate-x-full');
+        });
+      }
+    });
+  </script>
 
 
   <script type="module">
