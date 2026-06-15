@@ -17,7 +17,7 @@
 </head>
 <body class="text-gray-800 antialiased pt-24 pb-12">
 
-  <!-- ÜST NAVİGASYON BAR (Tam Sürüm + Hava Durumu Entegreli) -->
+  <!-- ÜST NAVİGASYON BAR -->
   <nav class="bg-white px-6 md:px-12 py-4 flex justify-between items-center fixed w-full top-0 z-50 shadow-sm">
     
     <div class="flex items-center gap-10">
@@ -74,9 +74,6 @@
     
     <!-- Sağ Araçlar Alanı -->
     <div class="hidden md:flex items-center gap-6 shrink-0">
-      
-     
-
       <a href="iletisim.html" class="bg-[#00a859] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-[#008f4c] hover:shadow-lg transition-all duration-300 whitespace-nowrap lang-iletisim-btn">
         İletişime Geç
       </a>
@@ -101,27 +98,6 @@
         <option value="en">EN</option>
         <option value="de">DE</option>
       </select>
-
-      <!-- Profil Tetikleyici Bölgesi -->
-      <div class="relative py-1" id="profileArea">
-        <button id="profileMenuBtn" class="flex items-center justify-center w-10 h-10 bg-gray-100 text-[#00a859] font-bold text-lg rounded-full hover:bg-emerald-50 transition-all duration-300 shadow-sm focus:outline-none border border-gray-200/80">
-          <svg class="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"></path>
-          </svg>
-        </button>
-        <div id="profileDropdown" class="absolute right-0 top-full pt-2 w-60 hidden z-50">
-          <div class="bg-white rounded-2xl shadow-2xl border border-gray-100 p-2.5 space-y-1">
-            <div id="loggedOutMenu" class="space-y-1">
-              <a href="giris.html" class="flex items-center gap-3 p-3 rounded-xl text-xs font-semibold text-gray-700 hover:bg-gray-50 hover:text-[#00a859] transition-all duration-200 group">
-                <span class="lang-giris-yap">Giriş Yap</span>
-              </a>
-              <a href="kayit.html" class="flex items-center gap-3 p-3 rounded-xl text-xs font-semibold text-white bg-[#00a859] hover:bg-[#008f4c] transition-all text-center justify-center rounded-xl">
-                <span class="lang-hesap-olustur">Hesap Oluştur</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- Mobil Hamburger Buton -->
@@ -153,7 +129,7 @@
     <div class="text-center max-w-3xl mx-auto mb-10">
       <span id="uiPanelBadge" class="text-xs font-bold uppercase tracking-wider text-[#00a859] bg-emerald-50 px-3 py-1.5 rounded-full">Medivibe sağlıklı günler diler.</span>
       <h1 id="uiMainTitle" class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight mt-3">Anlaşmalı <span class="text-[#00a859]">Bakım Merkezleri</span></h1>
-      <p id="uiSubTitle" class="mt-3 text-base text-gray-500 leading-relaxed">Merkezlerin üzerine tıklayarak detaylı hizmet protokollerine, konum verlerine ve kapasitelere anında erişebilirsiniz.</p>
+      <p id="uiSubTitle" class="mt-3 text-base text-gray-500 leading-relaxed">Merkezlerin üzerine tıklayarak detaylı hizmet protokollerine, konum verlerine og kapasitelere anında erişebilirsiniz.</p>
     </div>
 
     <!-- Filtreleme Alanı -->
@@ -348,43 +324,31 @@
     const mobilLangSelector = document.getElementById('mobilLanguageSelector');
     const hamburgerBtn = document.getElementById('hamburgerBtn');
     const mobilMenu = document.getElementById('mobilMenu');
-    const profileMenuBtn = document.getElementById('profileMenuBtn');
-    const profileDropdown = document.getElementById('profileDropdown');
 
     // NAVİGASYON ETKİLEŞİM TETİKLERİ
     hamburgerBtn.addEventListener('click', () => {
       mobilMenu.classList.toggle('translate-x-full');
     });
 
-    profileMenuBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      profileDropdown.classList.toggle('hidden');
-    });
-
-    document.addEventListener('click', () => { profileDropdown.classList.add('hidden'); });
-
     // Düz Yapı (Flat) Akıllı Çok Dilli Okuyucu Fonksiyonu
     function alanOku(merkez, anahtar) {
       if (!merkez) return "";
       let dilEki = aktifDil === 'tr' ? '' : `_${aktifDil}`;
       
-      // 1. Dil takısı varsa oku (örn: aciklama_en, adres_de)
       if (dilEki && merkez[anahtar + dilEki] !== undefined && merkez[anahtar + dilEki] !== "") {
         return merkez[anahtar + dilEki];
       }
-      // 2. Ana kök değeri döndür (örn: aciklama, adres)
       if (merkez[anahtar] !== undefined) {
         return merkez[anahtar];
       }
       return "";
     }
 
-    // Doküman ID'sini veya linkleri Temiz Başlığa Çeviren Sihirbaz
+    // Doküman ID'sini Temiz Başlığa Çeviren Sihirbaz
     function baslikOlustur(merkez) {
       if (merkez.merkez_adi) return merkez.merkez_adi;
       if (merkez.isim) return merkez.isim;
       
-      // www_nezihhuzurevi_com_ yapısını Nezih Huzurevi formatına çevirir
       let idStr = merkez.id || "";
       if (idStr.startsWith("www_")) idStr = idStr.replace("www_", "");
       if (idStr.endsWith("_com_")) idStr = idStr.replace("_com_", "");
@@ -411,22 +375,17 @@
       document.getElementById('uiModalPhoneLabel').innerText = p.phoneLabel;
 
       filtreIlce.options[0].text = p.allLocations;
-      
-      // Canlı Hava Durumu Çevirisi
-      const havaMetni = aktifDil === 'tr' ? 'Eskişehir' : aktifDil === 'en' ? 'Eskisehir' : 'Eskisehir';
-      document.getElementById('havaDurumuText').innerText = `${havaMetni}: 24°C`;
     }
 
-    // Veritabanından Düz (Flat) Verileri Çekme
+    // Veritabanından Verileri Çekme
     async function veritabanindanCek() {
       try {
-        // Doğru koleksiyon adı: bakimMerkezleri
         const querySnapshot = await getDocs(collection(db, "bakimMerkezleri"));
         TUM_MERKEZLER = [];
         
         querySnapshot.forEach((doc) => {
           const data = doc.data();
-          data.id = doc.id; // Doküman anahtarını ekle
+          data.id = doc.id;
           TUM_MERKEZLER.push(data);
         });
 
@@ -434,7 +393,7 @@
         kartlariCiz(TUM_MERKEZLER);
       } catch (error) {
         console.error("Veri çekilirken hata: ", error);
-        grid.innerHTML = `<div class="col-span-full text-center text-red-500 font-bold p-6">Firebase Veritabanı Kuralları veya Bağlantı İzin Hatası Açık.</div>`;
+        grid.innerHTML = `<div class="col-span-full text-center text-red-500 font-bold p-6">Firebase Veritabanı Bağlantı Hatası.</div>`;
       }
     }
 
@@ -483,12 +442,10 @@
         const mDesc = alanOku(merkez, 'aciklama');
         const mAdres = alanOku(merkez, 'adres') || "Eskişehir, Türkiye";
         
-        // Adres içinden ilçe ayıklama algoritması
         let ilce = "Tepebaşı";
         if(mAdres.toLowerCase().includes("kartal")) ilce = "Kartal";
         if(mAdres.toLowerCase().includes("odunpazarı")) ilce = "Odunpazarı";
 
-        // Görseller dizisi kontrolü (Kök dizindeki görsel veya array kontrolü)
         let gorselListesi = [FallbackGorsel];
         if (merkez.gorseller && Array.isArray(merkez.gorseller) && merkez.gorseller.length > 0) {
           gorselListesi = merkez.gorseller;
@@ -533,7 +490,6 @@
         grid.insertAdjacentHTML('beforeend', kartHtml);
       });
 
-      // Kartlara tıklama olayı
       document.querySelectorAll('.bakim-kart-item').forEach(kart => {
         kart.addEventListener('click', () => {
           const mId = kart.getAttribute('data-id');
@@ -545,7 +501,7 @@
       sliderlariBaslat();
     }
 
-    // Modal Penceresini Doğru (Flat) Değerlerle Doldurma
+    // Modal Penceresini Doldurma ve Açma
     function modalAc(merkez) {
       const p = dilPaketi[aktifDil];
       document.getElementById('modalMerkezAdi').innerText = baslikOlustur(merkez);
@@ -559,11 +515,9 @@
       if(tamAdres.toLowerCase().includes("odunpazarı")) ilce = "Odunpazarı / Eskişehir";
       document.getElementById('modalSehirIlce').innerText = `📍 ${ilce.toUpperCase()}`;
 
-      // Fiyat Alanı Hesaplama
       const seansUcreti = merkez.fiyat || merkez.seans_ucreti || p.negotiable;
       document.getElementById('modalFiyat').innerText = seansUcreti;
 
-      // Telefon Alanı Düzenleme
       const telKonteyner = document.getElementById('modalTel');
       const telefonNumarasi = merkez.telefon || merkez.tel || "";
       if(telefonNumarasi) {
@@ -575,77 +529,54 @@
 
       // Modal Karusel Yapısı
       const modalContainer = document.getElementById('modalCarouselContainer');
-      const modalDots = document.getElementById('modalCarouselDots');
-      modalContainer.innerHTML = "";
-      modalDots.innerHTML = "";
-      
-      let gorseller = [FallbackGorsel];
-      if (merkez.gorseller && Array.isArray(merkez.gorseller)) gorseller = merkez.gorseller;
-      else if (merkez.gorsel) gorseller = [merkez.gorsel];
-
-      gorseller.forEach((img, idx) => {
-        modalContainer.innerHTML += `<img src="${img}" class="carousel-slide object-cover">`;
-        modalDots.innerHTML += `<span class="m-dot h-1.5 rounded-full bg-white transition-all duration-300 ${idx === 0 ? 'w-4':'w-1.5 opacity-60'}"></span>`;
-      });
-
-      // Aksiyon Butonları (Arama / WhatsApp Bağlantısı)
-      const aksiyonAlani = document.getElementById('modalAksiyonAlani');
-      const temizTelefon = telefonNumarasi.replace(/\s+/g, '');
-      
-      if(merkez.whatsapp) {
-        aksiyonAlani.innerHTML = `<a href="${merkez.whatsapp}" target="_blank" class="w-full bg-[#00a859] hover:bg-[#008f4c] text-white font-bold py-3 px-4 rounded-xl text-sm shadow-sm transition text-center flex items-center justify-center gap-1.5">${p.wpPreApp}</a>`;
-      } else if(temizTelefon) {
-        aksiyonAlani.innerHTML = `<a href="tel:${temizTelefon}" class="w-full bg-gray-900 hover:bg-black text-white font-bold py-3 px-4 rounded-xl text-sm shadow-sm transition text-center flex items-center justify-center gap-1.5">${p.callDirectly}</a>`;
-      } else {
-        aksiyonAlani.innerHTML = `<button disabled class="w-full bg-gray-300 text-gray-500 font-bold py-3 px-4 rounded-xl text-sm text-center">${p.noPhone}</button>`;
+      let gorselListesi = [FallbackGorsel];
+      if (merkez.gorseller && Array.isArray(merkez.gorseller) && merkez.gorseller.length > 0) {
+        gorselListesi = merkez.gorseller;
+      } else if (merkez.gorsel && typeof merkez.gorsel === 'string') {
+        gorselListesi = [merkez.gorsel];
       }
+
+      let slidesHtml = "";
+      let dotsHtml = "";
+      gorselListesi.forEach((imgUrl, imgIdx) => {
+        slidesHtml += `<img src="${imgUrl}" class="carousel-slide object-cover" onerror="this.src='${FallbackGorsel}'" alt="Detay">`;
+        dotsHtml += `<span class="h-1.5 rounded-full bg-white transition-all ${imgIdx === 0 ? 'w-4' : 'w-1.5 bg-white/60'}"></span>`;
+      });
+      modalContainer.innerHTML = slidesHtml;
+      document.getElementById('modalCarouselDots').innerHTML = dotsHtml;
+
+      // Aksiyon Butonları
+      const aksiyonAlani = document.getElementById('modalAksiyonAlani');
+      aksiyonAlani.innerHTML = `
+        <a href="tel:${telefonNumarasi.replace(/\s+/g, '')}" class="flex-1 bg-[#00a859] hover:bg-[#008f4c] text-white font-bold py-3 px-4 rounded-xl text-xs text-center transition shadow-sm">${p.callDirectly}</a>
+        <a href="https://wa.me/905551234567" target="_blank" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl text-xs text-center transition shadow-sm">${p.wpPreApp}</a>
+      `;
 
       detayModal.classList.remove('opacity-0', 'invisible');
     }
 
-    function modalKapat() { detayModal.classList.add('opacity-0', 'invisible'); }
-    modalKapatBtn.addEventListener('click', modalKapat);
-    detayModal.addEventListener('click', (e) => { if(e.target === detayModal) modalKapat(); });
+    modalKapatBtn.addEventListener('click', () => {
+      detayModal.classList.add('opacity-0', 'invisible');
+    });
 
-    // Client-Side Filtreleme Mantığı
-    function filtreleVeAra() {
-      const aramaKelimesi = aramaInput.value.toLocaleLowerCase('tr-TR').trim();
-      const secilenIlce = filtreIlce.value;
-
-      const filtrelenmis = TUM_MERKEZLER.filter(merkez => {
-        const mName = baslikOlustur(merkez).toLocaleLowerCase('tr-TR');
-        const mDesc = (alanOku(merkez, 'aciklama') || "").toLocaleLowerCase('tr-TR');
-        const tamAdres = (alanOku(merkez, 'adres') || "").toLocaleLowerCase('tr-TR');
-        
-        const metinEslesmesi = mName.includes(aramaKelimesi) || mDesc.includes(aramaKelimesi) || tamAdres.includes(aramaKelimesi);
-        const ilceEslesmesi = secilenIlce === 'hepsi' || tamAdres.includes(secilenIlce);
-
-        return metinEslesmesi && ilceEslesmesi;
-      });
-
-      kartlariCiz(filtrelenmis);
-    }
-
-    // Dil Seçiciler Senkronizasyonu
-    function dilDegistir(yeniDil) {
-      aktifDil = yeniDil;
-      langSelector.value = yeniDil;
-      mobilLangSelector.value = yeniDil;
+    // Dil seçicilerin olayları
+    langSelector.addEventListener('change', (e) => {
+      aktifDil = e.target.value;
+      mobilLangSelector.value = aktifDil;
       statikAlanlariCevir();
       kartlariCiz(TUM_MERKEZLER);
-    }
-
-    langSelector.addEventListener('change', (e) => dilDegistir(e.target.value));
-    mobilLangSelector.addEventListener('change', (e) => dilDegistir(e.target.value));
-
-    btnAra.addEventListener('click', filtreleVeAra);
-    aramaInput.addEventListener('keyup', (e) => { if(e.key === 'Enter') filtreleVeAra(); });
-    filtreIlce.addEventListener('change', filtreleVeAra);
-
-    window.addEventListener('DOMContentLoaded', () => {
-      statikAlanlariCevir();
-      veritabanindanCek();
     });
+
+    mobilLangSelector.addEventListener('change', (e) => {
+      aktifDil = e.target.value;
+      langSelector.value = aktifDil;
+      statikAlanlariCevir();
+      kartlariCiz(TUM_MERKEZLER);
+    });
+
+    // Sayfa Başlangıç Atamaları
+    statikAlanlariCevir();
+    veritabanindanCek();
   </script>
 </body>
 </html>
