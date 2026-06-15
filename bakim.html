@@ -349,7 +349,7 @@
     async function veritabanindanCek() {
       try {
         // Scraper'ın bastığı koleksiyon adı: rehabilitasyon_merkezleri
-        const querySnapshot = await getDocs(collection(db, "rehabilitasyon_merkezleri"));
+        const querySnapshot = await getDocs(collection(db, "bakimMerkezleri"));
         TUM_MERKEZLER = [];
         
         querySnapshot.forEach((doc) => {
