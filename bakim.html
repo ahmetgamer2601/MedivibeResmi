@@ -315,18 +315,27 @@
       mobilMenu.classList.toggle('translate-x-full');
     });
 
-    // Düz Alan Okuyucu
-    function alanOku(merkez, anahtar) {
+   // Bot Şemasına Göre Alan Okuyucu (Geliştirilmiş - Hata Önleyici)
+    function alanOku(merkez, anahtar, altObje = null) {
       if (!merkez) return "";
-      let dilEki = aktifDil === 'tr' ? '' : `_${aktifDil}`;
       
-      if (dilEki && merkez[anahtar + dilEki] !== undefined && merkez[anahtar + dilEki] !== "") {
-        return merkez[anahtar + dilEki];
+      // 1. Veriyi hem alt objede (örn: genel_bilgi.aciklama) hem de direkt merkezde (örn: merkez.aciklama) ara
+      let kaynak = (altObje && merkez[altObje]) ? merkez[altObje] : merkez;
+      let veri = kaynak[anahtar] !== undefined ? kaynak[anahtar] : (merkez[anahtar] !== undefined ? merkez[anahtar] : "");
+      
+      // 2. Eğer dil uzantılı hali varsa onu seç (örn: aciklama_en)
+      if (aktifDil === 'en') {
+        veri = kaynak[`${anahtar}_en`] || merkez[`${anahtar}_en`] || veri;
+      } else if (aktifDil === 'de') {
+        veri = kaynak[`${anahtar}_de`] || merkez[`${anahtar}_de`] || veri;
       }
-      if (merkez[anahtar] !== undefined) {
-        return merkez[anahtar];
+      
+      // 3. Eğer bulduğumuz veri hala bir OBJEYSE (object Object hatasını engellemek için)
+      if (veri && typeof veri === 'object') {
+        return veri[aktifDil] || veri['tr'] || veri['en'] || Object.values(veri)[0] || "";
       }
-      return "";
+      
+      return veri || "";
     }
 
     // Akıllı Adres Okuyucu
@@ -530,10 +539,24 @@
       let ilce = merkez.adres && merkez.adres.ilce ? merkez.adres.ilce : "Tepebaşı";
       let sehir = merkez.adres && merkez.adres.sehir ? merkez.adres.sehir : "Eskişehir";
       document.getElementById('modalSehirIlce').innerText = `📍 ${ilce.toUpperCase()} / ${sehir.toUpperCase()}`;
-
-      const seansUcreti = merkez.fiyat || merkez.seans_ucreti || p.negotiable;
-      document.getElementById('modalFiyat').innerText = seansUcreti;
-
+      
+// Ücret Ayarı (Garantili Obje Çözücü)
+      let ucret = p.negotiable;
+      if (merkez.fiyat) {
+        if (typeof merkez.fiyat === 'object') {
+          if (merkez.fiyat.seans_ucreti) {
+            let tutar = merkez.fiyat.seans_ucreti;
+            if (typeof tutar === 'object') tutar = tutar[aktifDil] || tutar['tr'] || Object.values(tutar)[0];
+            ucret = `${tutar} ${merkez.fiyat.para_birimi || 'TRY'}`;
+          } else {
+            ucret = merkez.fiyat[aktifDil] || merkez.fiyat['tr'] || Object.values(merkez.fiyat)[0];
+          }
+        } else {
+          ucret = merkez.fiyat;
+        }
+      }
+      
+      document.getElementById('modalFiyat').innerText = ucret;
       const telKonteyner = document.getElementById('modalTel');
       const telefonNumarasi = merkez.telefon || merkez.tel || "";
       if(telefonNumarasi) {
