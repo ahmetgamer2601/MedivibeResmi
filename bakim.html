@@ -1,704 +1,602 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fizyomer Terapia Fizik Tedavi ve Rehabilitasyon Tıp Merkezi</title>
-    <meta name="description" content="Fizyomer Terapia, Eskişehir'de yüksek kalite standartlarında bütünleştirici rehabilitasyon programları sunan, fizik tedavi ve rehabilitasyon alanında uzmanlaşmış bir tıp merkezidir. Geniş tedavi yelpazesi ve hasta odaklı hizmet anlayışıyla yaşam kalitenizi yükseltmeyi hedefler.">
-    <meta name="keywords" content="Fizyomer, Fizyomer Terapia, rehabilitasyon, fizik tedavi, Eskişehir, bütünleştirici rehabilitasyon, pediatrik rehabilitasyon, nörolojik rehabilitasyon, ortopedik rehabilitasyon, kardiyak rehabilitasyon, inkontinans rehabilitasyonu, lenfödem, skolyoz, kuru iğneleme, PRP, kinesiyoterapi, ESWT, akupunktur, kriyoterapi, ozon tedavisi, magnetoterapi, Vojta terapisi, sağlık merkezi">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        html { scroll-behavior: smooth; }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rehabilitasyon Merkezleri | MediVibe</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+    .animate-fade-in { animation: fadeIn 0.4s ease-out forwards; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+    .gorsel-alan { position: relative; height: 14rem; width: 100%; background-color: #f1f5f9; overflow: hidden; }
+    .carousel-container { display: flex; transition: transform 0.5s ease-in-out; height: 100%; width: 100%; }
+    .carousel-slide { min-width: 100%; height: 100%; object-fit: cover; }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+<body class="text-gray-800 antialiased pt-24 pb-12">
 
-    <!-- Üst Bilgi Çubuğu (Top Bar) -->
-    <div class="bg-blue-900 text-white text-sm py-2 px-4 sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-            <div class="flex flex-wrap justify-center sm:justify-start gap-4 items-center">
-                <a href="tel:+902222114040" class="hover:text-blue-200 transition flex items-center gap-1">
-                    <i class="fa-solid fa-phone text-xs"></i> +90 222 211 40 40
-                </a>
-                <a href="tel:4446904" class="hover:text-blue-200 transition flex items-center gap-1">
-                    <i class="fa-solid fa-headset text-xs"></i> 444 6 904
-                </a>
-                <a href="mailto:info@fizyomer.com.tr" class="hover:text-blue-200 transition flex items-center gap-1">
-                    <i class="fa-solid fa-envelope text-xs"></i> info@fizyomer.com.tr
-                </a>
-            </div>
-            <div class="flex items-center gap-4 text-xs">
-                <div class="flex items-center gap-1 text-blue-200">
-                    <i class="fa-solid fa-clock"></i>
-                    <span>Pazartesi – Cuma: 8:00 – 22:00 | Cmt: 8:00 – 22:00</span>
+  <nav class="bg-white px-6 md:px-12 py-4 flex justify-between items-center fixed w-full top-0 z-50 shadow-sm">
+    <div class="flex items-center gap-10">
+      <a href="index.html" class="flex items-center gap-3 transition transform hover:opacity-90 active:scale-95">
+        <img src="logo.png" alt="Medivibe" class="h-10 object-contain" onerror="this.src='https://via.placeholder.com/150x40?text=LOGO'">
+        <span class="hidden md:block text-2xl font-extrabold tracking-tight text-gray-800 ml-[-24px]">
+          Medi<span class="text-[#00a859]">vibe</span>
+        </span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="hastaneler.html" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300 lang-hastaneler">Hastanelerimiz</a>
+        <a href="tesisler.html" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300 lang-tesisler">Tesisler</a>
+        <a href="bakim.html" class="text-sm font-semibold text-[#00a859] transition duration-300 lang-bakim">Bakım Merkezleri</a>
+        <a href="otel.html" class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300 lang-oteller">Oteller</a>
+
+        <div class="relative group py-2">
+          <button class="text-sm font-semibold text-gray-700 hover:text-[#00a859] transition duration-300 flex items-center gap-1.5 outline-none">
+            <span class="lang-araclar">Araçlar</span>
+            <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180 text-gray-500 group-hover:text-[#00a859]" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
+            </svg>
+          </button>
+          
+          <div class="absolute left-0 top-full pt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-3 group-hover:translate-y-0 z-50">
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-2 space-y-0.5">
+              <a href="takip.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-emerald-50/60 group/item transition-all duration-200">
+                <div class="w-9 h-9 bg-emerald-100/70 text-[#00a859] flex items-center justify-center rounded-xl text-lg shadow-sm">💊</div>
+                <div>
+                  <div class="text-xs font-bold text-gray-800 group-hover/item:text-[#00a859] transition-colors lang-ilac-takip-baslik">İlaç Takip Sistemi</div>
+                  <div class="text-[10px] text-gray-400 mt-0.5 font-medium lang-ilac-takip-alt">Tedavi ve hatırlatıcı paneli</div>
                 </div>
-                <div class="flex gap-1 border-l border-blue-700 pl-3">
-                    <button onclick="changeLanguage('tr')" class="hover:opacity-80 font-bold text-white transition">TR</button>
-                    <button onclick="changeLanguage('en')" class="hover:opacity-80 transition text-blue-300">EN</button>
-                    <button onclick="changeLanguage('de')" class="hover:opacity-80 transition text-blue-300">DE</button>
+              </a>
+              <a href="doviz.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-emerald-50/60 group/item transition-all duration-200">
+                <div class="w-9 h-9 bg-emerald-100/70 text-[#00a859] flex items-center justify-center rounded-xl text-lg shadow-sm">💱</div>
+                <div>
+                  <div class="text-xs font-bold text-gray-800 group-hover/item:text-[#00a859] transition-colors lang-doviz-baslik">Canlı Döviz Çevirici</div>
+                  <div class="text-[10px] text-gray-400 mt-0.5 font-medium lang-doviz-alt">Anlık borsa kur hesaplayıcı</div>
                 </div>
+              </a>
+              <a href="hava.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-emerald-50/60 group/item transition-all duration-200">
+                <div class="w-9 h-9 bg-emerald-100/70 text-[#00a859] flex items-center justify-center rounded-xl text-lg shadow-sm">☀️</div>
+                <div>
+                  <div class="text-xs font-bold text-gray-800 group-hover/item:text-[#00a859] transition-colors lang-hava-durumu-baslik">Küresel Hava Durumu</div>
+                  <div class="text-[10px] text-gray-400 mt-0.5 font-medium lang-hava-durumu-alt">Seyahat ve anlık tahminler</div>
+                </div>
+              </a>
             </div>
+          </div>
         </div>
+      </div>
+    </div>
+    
+    <div class="hidden md:flex items-center gap-6 shrink-0">
+      <a href="iletisim.html" class="bg-[#00a859] text-white px-6 py-2.5 rounded-full font-semibold hover:bg-[#008f4c] hover:shadow-lg transition-all duration-300 whitespace-nowrap lang-iletisim-btn">
+        İletişime Geç
+      </a>
+
+      <a href="ceviri.html" class="flex items-center justify-center w-10 h-10 bg-gray-50 text-gray-600 rounded-full hover:bg-emerald-50 hover:text-[#00a859] transition-all duration-300 shadow-sm border border-gray-100 group shrink-0" title="Akıllı Tıbbi Belge Çevirisi">
+        <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"></path>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"></path>
+        </svg>
+      </a>
+
+      <div class="flex flex-col items-end whitespace-nowrap">
+        <span class="text-xs text-gray-500 font-medium lang-iletisim">İletişim</span>
+        <a href="tel:+905551234567" class="font-bold text-gray-800 hover:text-[#00a859] transition flex items-center gap-2">
+          🇹🇷 +90 555 123 45 67
+        </a>
+      </div>
+      
+      <select id="languageSelector" class="bg-gray-100 border-none text-gray-800 text-sm font-semibold rounded-lg px-3 py-2 outline-none cursor-pointer hover:bg-gray-200 transition shrink-0">
+        <option value="tr">TR</option>
+        <option value="en">EN</option>
+        <option value="de">DE</option>
+      </select>
     </div>
 
-    <!-- Navigasyon Barı -->
-    <nav class="bg-white border-b border-slate-200 sticky top-[38px] sm:top-[36px] z-40 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 h-20 flex justify-between items-center">
-            <a href="#" class="flex flex-col">
-                <span class="text-xl font-black tracking-tight text-blue-900 flex items-center gap-2">
-                    <i class="fa-solid fa-house-medical text-blue-600"></i> FİZYOMER <span class="text-blue-600 font-light text-lg">Terapia</span>
-                </span>
-                <span id="nav-subtitle" class="text-[10px] text-slate-500 font-medium tracking-wider uppercase -mt-1">Fizik Tedavi ve Rehabilitasyon Tıp Merkezi</span>
-            </a>
+    <button id="hamburgerBtn" class="block md:hidden text-gray-800 p-2 focus:outline-none">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    </button>
+  </nav>
 
-            <div class="hidden md:flex items-center gap-6 font-semibold text-sm text-slate-600">
-                <a href="#hakkimizda" id="link-about" class="hover:text-blue-600 transition">Kurumsal</a>
-                <a href="#hizmetler" id="link-services" class="hover:text-blue-600 transition">Hizmetlerimiz</a>
-                <a href="#tedaviler" id="link-treatments" class="hover:text-blue-600 transition">Tedavi Yöntemleri</a>
-                <a href="#hastalar" id="link-patients" class="hover:text-blue-600 transition">Hedef Hasta Grubu</a>
-                <a href="#galeri" id="link-gallery" class="hover:text-blue-600 transition">Galeri</a>
-                <a href="#iletisim" id="btn-appointment" class="bg-blue-600 text-white px-4 py-2.5 rounded-lg hover:bg-blue-700 transition flex items-center gap-2 shadow-sm shadow-blue-200">
-                    <i class="fa-solid fa-calendar-check"></i> <span>Online Randevu</span>
-                </a>
-            </div>
+  <div id="mobilMenu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col pt-24 px-8 pb-8 shadow-2xl overflow-y-auto">
+    <div class="flex flex-col gap-5 text-lg font-bold text-gray-800">
+      <a href="hastaneler.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859] lang-hastaneler">Hastanelerimiz</a>
+      <a href="tesisler.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859] lang-tesisler">Tesisler</a>
+      <a href="bakim.html" class="border-b border-gray-100 pb-3 text-[#00a859] lang-bakim">Bakım Merkezleri</a>
+      <a href="otel.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859] lang-oteller">Oteller</a>
+      <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+        <span class="text-gray-600 text-sm">Dil Seçimi</span>
+        <select id="mobilLanguageSelector" class="bg-gray-100 border-none text-gray-800 text-sm font-semibold rounded-lg px-3 py-2 outline-none">
+          <option value="tr">TR</option>
+          <option value="en">EN</option>
+          <option value="de">DE</option>
+        </select>
+      </div>
+    </div>
+  </div>
 
-            <button onclick="toggleMobileMenu()" class="md:hidden text-slate-600 hover:text-blue-600 text-2xl focus:outline-none">
-                <i class="fa-solid fa-bars" id="menu-icon"></i>
-            </button>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <span id="uiPanelBadge" class="text-xs font-bold uppercase tracking-wider text-[#00a859] bg-emerald-50 px-3 py-1.5 rounded-full">Medivibe sağlıklı günler diler.</span>
+      <h1 id="uiMainTitle" class="text-3xl md:text-5xl font-extrabold text-gray-900 tracking-tight mt-3">Anlaşmalı <span class="text-[#00a859]">Rehabilitasyon Merkezleri</span></h1>
+      <p id="uiSubTitle" class="mt-3 text-base text-gray-500 leading-relaxed">Merkezlerin üzerine tıklayarak detaylı hizmet protokollerine, konum verlerine og kapasitelere anında erişebilirsiniz.</p>
+    </div>
+
+    <div class="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 max-w-5xl mx-auto mb-12 flex flex-col lg:flex-row gap-3 items-center">
+      <div class="relative w-full flex-1">
+        <span class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none text-gray-400 text-lg">🔍</span>
+        <input type="text" id="bakimAramaInput" class="w-full bg-gray-50 border border-gray-200 rounded-xl pl-11 pr-4 py-3 text-sm focus:outline-none focus:border-[#00a859] transition" placeholder="Şehir, ilçe, merkez adı veya anahtar kelime ara...">
+      </div>
+      <div class="w-full lg:w-auto flex flex-col sm:flex-row gap-2">
+        <select id="filtreIlce" class="bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#00a859] font-medium text-gray-600 transition w-full sm:w-auto">
+          <option value="hepsi">Tüm Konumlar</option>
+          <option value="kartal">Kartal</option>
+          <option value="tepebaşı">Tepebaşı</option>
+          <option value="odunpazarı">Odunpazarı</option>
+        </select>
+        <button id="btnAra" class="bg-[#00a859] hover:bg-[#008f4c] text-white px-6 py-3 rounded-xl text-sm font-bold transition shadow-sm w-full sm:w-auto">Sonuçları Süz</button>
+      </div>
+    </div>
+
+    <div id="bakimMerkezleriGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+      <div id="yukleniyorGörünümü" class="col-span-full text-center py-12 text-gray-500 font-medium">
+        <div class="animate-spin inline-block w-8 h-8 border-[3px] border-current border-t-transparent text-[#00a859] rounded-full mb-2"></div>
+        <div id="uiLoadingText">Veritabanına güvenli bağlantı kuruluyor...</div>
+      </div>
+    </div>
+
+    <div id="bulunamadiAlani" class="hidden text-center py-16">
+      <div class="text-5xl mb-4">📭</div>
+      <h3 id="uiNotFoundTitle" class="text-lg font-bold text-gray-800">Kriterlere Uygun Merkez Bulunamadı</h3>
+      <p id="uiNotFoundSub" class="text-sm text-gray-500 mt-1">Lütfen farklı anahtar kelimeler veya lokasyonlar deneyin.</p>
+    </div>
+  </main>
+
+  <div id="detayModal" class="fixed inset-0 bg-gray-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 invisible transition-all duration-300">
+    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100 animate-fade-in flex flex-col">
+      <div class="p-6 border-b border-gray-100 flex justify-between items-start sticky top-0 bg-white z-10">
+        <div>
+          <span id="modalSehirIlce" class="text-[11px] font-bold uppercase tracking-wider text-[#00a859] bg-emerald-50 px-2.5 py-1 rounded-md">📍 LOKASYON</span>
+          <h2 id="modalMerkezAdi" class="text-xl font-extrabold text-gray-900 mt-1.5 tracking-tight">Merkez Detayları</h2>
+        </div>
+        <button id="modalKapatBtn" class="bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-800 w-8 h-8 rounded-full flex items-center justify-center transition font-bold text-sm">✕</button>
+      </div>
+      
+      <div class="p-6 space-y-6">
+        <div class="gorsel-alan rounded-2xl relative h-64 shadow-inner">
+          <div id="modalCarouselContainer" class="carousel-container"></div>
+          <div id="modalCarouselDots" class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10"></div>
+        </div>
+        
+        <div>
+          <h4 id="uiModalAboutLabel" class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Kurum Hakkında Açıklama</h4>
+          <p id="modalAciklama" class="text-sm text-gray-600 leading-relaxed bg-gray-50/50 p-4 rounded-xl border border-gray-100"></p>
         </div>
 
-        <!-- Mobil Menü -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 py-4 flex flex-col gap-3 font-semibold text-slate-600 shadow-inner">
-            <a href="#hakkimizda" onclick="toggleMobileMenu()" class="block py-2 border-b border-slate-100">Kurumsal</a>
-            <a href="#hizmetler" onclick="toggleMobileMenu()" class="block py-2 border-b border-slate-100">Hizmetlerimiz</a>
-            <a href="#tedaviler" onclick="toggleMobileMenu()" class="block py-2 border-b border-slate-100">Tedavi Yöntemleri</a>
-            <a href="#hastalar" onclick="toggleMobileMenu()" class="block py-2 border-b border-slate-100">Hedef Hasta Grubu</a>
-            <a href="#galeri" onclick="toggleMobileMenu()" class="block py-2 border-b border-slate-100">Galeri</a>
-            <a href="#iletisim" onclick="toggleMobileMenu()" class="w-full text-center bg-blue-600 text-white py-2.5 rounded-lg hover:bg-blue-700 transition block mt-2">Online Randevu</a>
-        </div>
-    </nav>
-
-    <!-- Kahraman Alanı (Hero Section) -->
-    <header class="relative bg-gradient-to-r align-middle from-blue-900 to-slate-900 text-white py-20 lg:py-32 px-4 overflow-hidden">
-        <div class="absolute inset-0 opacity-20 bg-cover bg-center mix-blend-overlay" style="background-image: url('https://fizyomer.com.tr/wp-content/uploads/2020/11/bg-4.jpg');"></div>
-        <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 items-center relative z-10">
-            <div class="lg:col-span-7 space-y-6">
-                <div class="inline-flex items-center gap-2 bg-blue-500/20 text-blue-300 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider backdrop-blur-sm border border-blue-500/30">
-                    <i class="fa-solid fa-award"></i> <span id="hero-badge">Kuruluş: 2006 • Rehabilitasyon Merkezi</span>
-                </div>
-                <h1 id="hero-title" class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
-                    Yaşam Kalitenizi Yükseltmek İçin <span class="text-blue-400">Yüksek Standartlar</span>
-                </h1>
-                <p id="hero-desc" class="text-lg text-slate-300 leading-relaxed max-w-2xl">
-                    Fizyomer Terapia, Eskişehir'de yüksek kalite standartlarında bütünleştirici rehabilitasyon programları sunan, fizik tedavi ve rehabilitasyon alanında uzmanlaşmış bir tıp merkezidir.
-                </p>
-                <div class="flex flex-wrap gap-4 pt-2">
-                    <a href="#hizmetler" id="hero-btn-primary" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3.5 rounded-xl font-bold transition shadow-lg shadow-blue-900/40 flex items-center gap-2">
-                        <span>Hizmetlerimizi İnceleyin</span> <i class="fa-solid fa-arrow-right text-xs"></i>
-                    </a>
-                    <a href="#iletisim" id="hero-btn-secondary" class="bg-white/10 hover:bg-white/20 border border-white/20 text-white px-6 py-3.5 rounded-xl font-bold transition backdrop-blur-sm flex items-center gap-2">
-                        <i class="fa-solid fa-phone"></i> <span>Bizimle İletişime Geçin</span>
-                    </a>
-                </div>
-            </div>
-            <div class="lg:col-span-5 relative">
-                <div class="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 relative group">
-                    <img id="hero-img" src="https://fizyomer.com.tr/wp-content/uploads/2023/01/prp-580x360.jpg" alt="Fizyomer Terapia" class="w-full h-full object-cover">
-                </div>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hızlı Bilgi Kartları -->
-    <section class="max-w-7xl mx-auto px-4 -mt-8 relative z-20 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div class="bg-white p-5 rounded-xl shadow-md border border-slate-100 flex items-start gap-4">
-            <div class="bg-blue-50 p-3 rounded-lg text-blue-600"><i class="fa-solid fa-coins text-xl"></i></div>
-            <div>
-                <h4 id="card-currency-title" class="text-xs font-bold text-slate-400 uppercase tracking-wider">Para Birimi</h4>
-                <p class="font-bold text-slate-800 text-lg">TRY (Türk Lirası)</p>
-            </div>
-        </div>
-        <div class="bg-white p-5 rounded-xl shadow-md border border-slate-100 flex items-start gap-4">
-            <div class="bg-blue-50 p-3 rounded-lg text-blue-600"><i class="fa-solid fa-handshake-angle text-xl"></i></div>
-            <div>
-                <h4 id="card-sgk-title" class="text-xs font-bold text-slate-400 uppercase tracking-wider">SGK Anlaşması</h4>
-                <p id="card-sgk-value" class="font-bold text-red-600 text-lg">Bulunmuyor (False)</p>
-            </div>
-        </div>
-        <div class="bg-white p-5 rounded-xl shadow-md border border-slate-100 flex items-start gap-4">
-            <div class="bg-blue-50 p-3 rounded-lg text-blue-600"><i class="fa-solid fa-passport text-xl"></i></div>
-            <div>
-                <h4 id="card-tourism-title" class="text-xs font-bold text-slate-400 uppercase tracking-wider">Sağlık Turizmi Belgesi</h4>
-                <p id="card-tourism-value" class="font-bold text-red-600 text-lg">Bulunmuyor (False)</p>
-            </div>
-        </div>
-        <div class="bg-white p-5 rounded-xl shadow-md border border-slate-100 flex items-start gap-4">
-            <div class="bg-blue-50 p-3 rounded-lg text-blue-600"><i class="fa-solid fa-bed text-xl"></i></div>
-            <div>
-                <h4 id="card-bed-title" class="text-xs font-bold text-slate-400 uppercase tracking-wider">Yatak Kapasitesi</h4>
-                <p id="card-bed-value" class="font-bold text-slate-500 text-lg">Belirtilmemiş (Null)</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hakkımızda (Kurumsal) -->
-    <section id="hakkimizda" class="max-w-7xl mx-auto px-4 py-20 grid lg:grid-cols-12 gap-12 items-center">
-        <div class="lg:col-span-5 space-y-4">
-            <div class="aspect-square bg-slate-200 rounded-2xl overflow-hidden shadow-lg border border-slate-200 relative">
-                <img src="https://fizyomer.com.tr/wp-content/uploads/2020/12/30-580x360-1-580x360.jpg" alt="Fizyomer Terapia Kurumsal" class="w-full h-full object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
-                    <div class="text-white">
-                        <p id="about-experience-title" class="text-xs uppercase tracking-wider opacity-75 font-semibold">Sağlıkta Güven ve Tecrübe</p>
-                        <p id="about-experience-desc" class="text-xl font-black">2006 Yılından Beri Hizmetinizdeyiz</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="lg:col-span-7 space-y-6">
-            <div class="space-y-2">
-                <h6 id="about-subtitle" class="text-blue-600 font-bold uppercase tracking-widest text-xs">Kurumsal Bilgiler</h6>
-                <h2 id="about-title" class="text-3xl font-black tracking-tight text-slate-900">Fizyomer Terapia Hakkında</h2>
-            </div>
-            <p id="about-p" class="text-slate-600 leading-relaxed text-base">
-                Fizyomer Terapia sağlık hizmetlerinde yüksek kalite standartlarını yakalamayı ve sunmayı amaçlar. Bu standartları karşılamak için bilimsel ve teknolojik gelişmeleri yakından takip eder. Misyonumuz, dünyadaki tüm insanların yaşam kalitesini iyileştirmek için yüksek kalitede rehabilitasyon hizmetleri sunmaktır. Fizyomer Terapia, hasta ve ailelerinin memnuniyetini sağlamayı ilke edinmiş, kaliteli sağlık hizmetleri sunarak toplumun sağlıklı ve mutlu bireylerden oluşmasına katkıda bulunmaktadır.
-            </p>
-            <div class="border-t border-slate-200 pt-6 grid sm:grid-cols-2 gap-6">
-                <div class="flex items-start gap-3">
-                    <div class="bg-blue-50 p-2 rounded-lg text-blue-600 mt-1"><i class="fa-solid fa-calendar-days"></i></div>
-                    <div>
-                        <h5 id="about-hours-title" class="font-bold text-slate-900 text-sm">Çalışma Saatleri</h5>
-                        <p id="about-hours-val" class="text-slate-600 text-xs mt-0.5">Pazartesi – Cuma: 8:00 – 22:00, Cumartesi: 8:00 – 22:00, Pazar: Kapalı</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-3">
-                    <div class="bg-blue-50 p-2 rounded-lg text-blue-600 mt-1"><i class="fa-solid fa-stethoscope"></i></div>
-                    <div>
-                        <h5 id="about-category-title" class="font-bold text-slate-900 text-sm">Hizmet Kategorisi</h5>
-                        <p id="about-category-val" class="text-slate-600 text-xs mt-0.5">Rehabilitasyon Merkezi</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Hizmetlerimiz (Services) -->
-    <section id="hizmetler" class="bg-slate-100 py-20 px-4">
-        <div class="max-w-7xl mx-auto space-y-12">
-            <div class="text-center max-w-xl mx-auto space-y-2">
-                <h6 id="services-subtitle" class="text-blue-600 font-bold uppercase tracking-widest text-xs">Sağlık Çözümlerimiz</h6>
-                <h2 id="services-title" class="text-3xl font-black tracking-tight text-slate-900">Sunulan Hizmetler</h2>
-                <p id="services-desc" class="text-sm text-slate-500">Tıp merkezimizde uygulanan kapsamlı hizmet, entegrasyon ve destek programları.</p>
-            </div>
-            <div id="services-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Dinamik JavaScript veya Doğrudan HTML Enjeksiyonu -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Tedavi Yöntemleri (Treatment Methods) -->
-    <section id="tedaviler" class="max-w-7xl mx-auto px-4 py-20 space-y-12">
-        <div class="text-center max-w-xl mx-auto space-y-2">
-            <h6 id="treatments-subtitle" class="text-blue-600 font-bold uppercase tracking-widest text-xs">Modern ve Bilimsel Yaklaşımlar</h6>
-            <h2 id="treatments-title" class="text-3xl font-black tracking-tight text-slate-900">Tedavi Yöntemleri</h2>
-            <p id="treatments-desc" class="text-sm text-slate-500">Teknolojik cihaz altyapımız ve bilimsel yöntemlerle gerçekleştirdiğimiz uygulamalar.</p>
-        </div>
-        <div id="treatments-container" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            <!-- Dinamik Tedaviler -->
-        </div>
-    </section>
-
-    <!-- Hedef Hasta Grubu (Target Patient Group) -->
-    <section id="hastalar" class="bg-blue-900 text-white py-20 px-4 relative overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-cover bg-center mix-blend-overlay" style="background-image: url('https://fizyomer.com.tr/wp-content/uploads/2020/12/slider-2.jpg');"></div>
-        <div class="max-w-7xl mx-auto space-y-12 relative z-10">
-            <div class="text-center max-w-xl mx-auto space-y-2">
-                <h6 id="patients-subtitle" class="text-blue-300 font-bold uppercase tracking-widest text-xs">Kimler İçin Uygun?</h6>
-                <h2 id="patients-title" class="text-3xl font-black tracking-tight">Hedef Hasta Grubu</h2>
-                <p id="patients-desc" class="text-sm text-blue-200">Rehabilitasyon ve tedavi süreçlerimizden faydalanabilecek hasta profilleri.</p>
-            </div>
-            <div id="patients-container" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <!-- Dinamik Hastalar -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Uzmanlık Alanları (Specialties) -->
-    <section class="max-w-7xl mx-auto px-4 py-20 space-y-12">
-        <div class="text-center max-w-xl mx-auto space-y-2">
-            <h6 id="specialties-subtitle" class="text-blue-600 font-bold uppercase tracking-widest text-xs">Tıbbi Odak Noktalarımız</h6>
-            <h2 id="specialties-title" class="text-3xl font-black tracking-tight text-slate-900">Uzmanlık Alanları</h2>
-            <p id="specialties-desc" class="text-sm text-slate-500">Klinik kadromuzun ve merkezimizin spesifik olarak yoğunlaştığı klinik dallar.</p>
-        </div>
-        <div id="specialties-container" class="flex flex-wrap justify-center gap-3">
-            <!-- Dinamik Uzmanlıklar -->
-        </div>
-    </section>
-
-    <!-- Medya Galerisi (Gallery) -->
-    <section id="galeri" class="bg-slate-100 py-20 px-4">
-        <div class="max-w-7xl mx-auto space-y-12">
-            <div class="text-center max-w-xl mx-auto space-y-2">
-                <h6 id="gallery-subtitle" class="text-blue-600 font-bold uppercase tracking-widest text-xs">Görsel Tur</h6>
-                <h2 id="gallery-title" class="text-3xl font-black tracking-tight text-slate-900">Merkezimizden Görseller</h2>
-                <p id="gallery-desc" class="text-sm text-slate-500">Klinik odalarımız, teknolojik donanımlarımız ve uygulama alanlarımız.</p>
-            </div>
-            
-            <div id="gallery-container" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                <!-- Dinamik Görseller (Bayrak linkleri filtrelenerek eklenecek) -->
-            </div>
-        </div>
-    </section>
-
-    <!-- İletişim ve Randevu Alanı (Contact) -->
-    <section id="iletisim" class="max-w-7xl mx-auto px-4 py-20 grid lg:grid-cols-12 gap-12 items-start">
-        <div class="lg:col-span-5 space-y-6">
-            <div class="space-y-2">
-                <h6 id="contact-subtitle" class="text-blue-600 font-bold uppercase tracking-widest text-xs">Bize Ulaşın</h6>
-                <h2 id="contact-title" class="text-3xl font-black tracking-tight text-slate-900">İletişim Bilgileri</h2>
-                <p id="contact-desc" class="text-sm text-slate-500">Sorularınız, detaylı bilgi talepleriniz veya randevu işlemleriniz için her zaman hazırız.</p>
-            </div>
-
-            <div class="space-y-4 font-medium text-sm text-slate-700">
-                <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-4">
-                    <div class="bg-blue-50 p-3 rounded-lg text-blue-600"><i class="fa-solid fa-phone text-base"></i></div>
-                    <div>
-                        <h4 id="contact-phone-title" class="font-bold text-slate-900 text-xs uppercase tracking-wider mb-1">Telefon Numaraları</h4>
-                        <div class="flex flex-col gap-1 text-slate-600 font-semibold">
-                            <a href="tel:+902222114040" class="hover:text-blue-600 transition">+90 222 211 40 40</a>
-                            <a href="tel:4446904" class="hover:text-blue-600 transition">444 6 904</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-4">
-                    <div class="bg-blue-50 p-3 rounded-lg text-blue-600"><i class="fa-solid fa-envelope text-base"></i></div>
-                    <div>
-                        <h4 id="contact-email-title" class="font-bold text-slate-900 text-xs uppercase tracking-wider mb-1">E-Posta Adresi</h4>
-                        <a href="mailto:info@fizyomer.com.tr" class="text-slate-600 font-semibold hover:text-blue-600 transition">info@fizyomer.com.tr</a>
-                    </div>
-                </div>
-
-                <div class="bg-white p-4 rounded-xl border border-slate-200 flex items-start gap-4">
-                    <div class="bg-blue-50 p-3 rounded-lg text-blue-600"><i class="fa-solid fa-globe text-base"></i></div>
-                    <div>
-                        <h4 id="contact-web-title" class="font-bold text-slate-900 text-xs uppercase tracking-wider mb-1">Resmi Web Sitesi</h4>
-                        <a href="https://fizyomer.com.tr/" target="_blank" class="text-slate-600 font-semibold hover:text-blue-600 transition break-all">https://fizyomer.com.tr/</a>
-                    </div>
-                </div>
-            </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+            <h4 id="uiModalProtocolsLabel" class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Kategoriler / Etiketler</h4>
+            <div id="modalBakimTurleri" class="flex flex-wrap gap-1.5"><span class="text-xs text-gray-500 font-medium">Rehabilitasyon</span></div>
+          </div>
+          <div class="bg-gray-50 p-4 rounded-xl border border-gray-100">
+            <h4 id="uiModalPricingLabel" class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Fiyatlandırma & Destek</h4>
+            <span id="modalFiyat" class="text-sm font-bold text-emerald-600 bg-emerald-50 px-3 py-1 rounded-md inline-block"></span>
+          </div>
         </div>
 
-        <div class="lg:col-span-7 bg-white p-8 rounded-2xl border border-slate-200 shadow-xl shadow-slate-100">
-            <h3 id="form-title" class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                <i class="fa-solid fa-paper-plane text-blue-600 text-base"></i> Online Randevu / İletişim Talebi
-            </h3>
-            <form onsubmit="handleFormSubmit(event)" class="space-y-4">
-                <div class="grid sm:grid-cols-2 gap-4">
-                    <div>
-                        <label id="label-name" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Adınız Soyadınız</label>
-                        <input type="text" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-600 transition">
-                    </div>
-                    <div>
-                        <label id="label-phone" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Telefon Numaranız</label>
-                        <input type="tel" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-600 transition">
-                    </div>
-                </div>
-                <div>
-                    <label id="label-email" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">E-Posta Adresiniz</label>
-                    <input type="email" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-600 transition">
-                </div>
-                <div>
-                    <label id="label-msg" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Mesajınız veya Tedavi Talebiniz</label>
-                    <textarea rows="4" required class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-blue-600 transition"></textarea>
-                </div>
-                <button type="submit" id="btn-submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition shadow-md shadow-blue-200">
-                    Talebi Gönder
-                </button>
-            </form>
+        <div class="border border-gray-100 p-4 rounded-2xl space-y-2.5 text-xs text-gray-600 bg-white">
+          <div class="flex flex-col gap-1">
+            <strong id="uiModalAddressLabel" class="text-gray-400 uppercase text-[10px]">Adres</strong>
+            <span id="modalAdres" class="text-sm text-gray-700 font-medium"></span>
+          </div>
+          <div class="flex flex-col gap-1 pt-2 border-t border-gray-50">
+            <strong id="uiModalPhoneLabel" class="text-gray-400 uppercase text-[10px]">Telefon</strong>
+            <div id="modalTel" class="text-sm text-gray-700 font-medium"></div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Alt Bilgi (Footer) -->
-    <footer class="bg-slate-900 text-slate-400 py-12 px-4 border-t border-slate-800 text-sm">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="flex flex-col items-center md:items-start text-center md:text-left">
-                <span class="text-white font-black tracking-tight text-lg">FİZYOMER Terapia</span>
-                <span id="footer-subtitle" class="text-xs text-slate-500 mt-0.5">Fizik Tedavi ve Rehabilitasyon Tıp Merkezi © 2026</span>
-            </div>
-            <div class="flex flex-wrap justify-center gap-6 text-slate-400 font-semibold">
-                <a href="#hakkimizda" class="hover:text-white transition">Kurumsal</a>
-                <a href="#hizmetler" class="hover:text-white transition">Hizmetler</a>
-                <a href="#tedaviler" class="hover:text-white transition">Tedaviler</a>
-                <a href="#hastalar" class="hover:text-white transition">Hasta Grubu</a>
-                <a href="#galeri" class="hover:text-white transition">Galeri</a>
-            </div>
-        </div>
-    </footer>
+      <div class="p-6 border-t border-gray-100 bg-gray-50 flex gap-3 rounded-b-3xl" id="modalAksiyonAlani"></div>
+    </div>
+  </div>
 
-    <!-- Veri ve Dil Yönetim Scripti -->
-    <script>
-        // Eksiksiz Kaynak Veri Objeleri
-        const data = {
-            tr: {
-                merkez_adi: "Fizyomer Terapia Fizik Tedavi ve Rehabilitasyon Tıp Merkezi",
-                aciklama: "Fizyomer Terapia sağlık hizmetlerinde yüksek kalite standartlarını yakalamayı ve sunmayı amaçlar. Bu standartları karşılamak için bilimsel ve teknolojik gelişmeleri yakından takip eder. Misyonumuz, dünyadaki tüm insanların yaşam kalitesini iyileştirmek için yüksek kalitede rehabilitasyon hizmetleri sunmaktır. Fizyomer Terapia, hasta ve ailelerinin memnuniyetini sağlamayı ilke edinmiş, kaliteli sağlık hizmetleri sunarak toplumun sağlıklı ve mutlu bireylerden oluşmasına katkıda bulunmaktadır.",
-                kategori: "Rehabilitasyon Merkezi",
-                calisma_saatleri: "Pazartesi – Cuma: 8:00 – 22:00, Cumartesi: 8:00 – 22:00, Pazar: Kapalı",
-                hizmetler: [
-                    "Bütünleştirici Rehabilitasyon Programları",
-                    "Pediatrik Rehabilitasyon",
-                    "Nörolojik Rehabilitasyon",
-                    "Ortopedik Rehabilitasyon",
-                    "Fizik Tedavi ve Rehabilitasyon",
-                    "Sağlık Sigortası Hizmetleri",
-                    "Online Randevu Talebi",
-                    "Havalimanı Transfer Hizmeti",
-                    "Online Tıbbi Doküman Değerlendirme ve Görüş Verme"
-                ],
-                tedaviler: [
-                    "3 Tesla Yüksek Yoğunluklu Magnetoterapi",
-                    "PRP Tedavisi",
-                    "Hacamat Tedavisi",
-                    "Ozon Tedavisi",
-                    "Vojta Terapisi",
-                    "Ultrason Tedavisi",
-                    "Lazer Tedavisi",
-                    "Kısa Dalga Terapisi",
-                    "Egzersiz Terapisi",
-                    "Tıbbi Pilates",
-                    "Refleksoloji",
-                    "Kupa Terapisi",
-                    "Akupunktur Tedavisi",
-                    "İnkontinans Manyetik Terapi (Fonksiyonel Manyetik Stimülasyon)",
-                    "Kriyoterapi",
-                    "Kuru İğneleme",
-                    "Kinezyo-Terapi (Kinesiyolojik Bantlama)",
-                    "ESWT – Ekstrakorporeal Şok Dalga Tedavisi",
-                    "Manuel Lenf Drenajı"
-                ],
-                hastalar: [
-                    "Yüz Felci Hastaları", "Tenisçi Dirseği Olanlar", "Şişmanlık Sorunu Olanlar",
-                    "Şeker Kontrolü İhtiyacı Olanlar", "Sırt Ağrısı Çekenler", "Kalça Protezi Sonrası Rehabilitasyon İhtiyacı Olanlar",
-                    "Fibromiyalji Hastaları", "El Yaralanması Olanlar", "Omuz Sıkışma Sendromu Yaşayanlar",
-                    "Parkinson Hastalığı Olanlar", "İnsülin Direnci Olanlar", "Yanık Mağdurları",
-                    "Her Türlü İdrar ve Fekal İnkontinans Sorunu Olanlar", "Ameliyat veya Doğum Sonrası Rehabilitasyon İhtiyacı Olanlar",
-                    "Bazı Cinsel İşlev Bozuklukları Olanlar", "Pelvis veya Belde Kronik Ağrıları Olanlar", "Lenfödem Hastaları",
-                    "KOAH (Hafif, Orta, Şiddetli) Hastaları", "Kalp Krizi, Kalp Yetmezliği, Anjiyoplasti veya Kalp Ameliyatı Geçirenler",
-                    "İnflamasyon Problemi Olanlar", "Kas Ağrısı ve Sertliği Yaşayanlar", "Skolyoz (Omurga Eğriliği) Hastaları",
-                    "Nöromüsküler Skolyoz Hastaları", "Doğum Kusurları ile İlişkili Durumları Olanlar", "Kas Distrofisi Hastaları",
-                    "Serebral Palsi Hastaları", "Yaralı Tendonları, Bağları, Kasları ve Eklemleri Olanlar", "Pediatrik Hastalar",
-                    "Nörolojik Rahatsızlıkları Olan Hastalar", "Ortopedik Sorunları Olan Hastalar"
-                ],
-                uzmanlik: [
-                    "Fizik Tedavi ve Rehabilitasyon", "Bütünleştirici Rehabilitasyon", "Pediatrik Rehabilitasyon",
-                    "Nörolojik Rehabilitasyon", "Ortopedik Rehabilitasyon", "Ağrı Yönetimi",
-                    "Kas ve Eklem Hastalıkları", "Solunum Rehabilitasyonu", "Kardiyak Rehabilitasyon",
-                    "İnkontinans Rehabilitasyonu", "Lenfödem Rehabilitasyonu", "Skolyoz Rehabilitasyon"
-                ],
-                ui: {
-                    aboutSub: "Kurumsal Bilgiler", aboutTitle: "Fizyomer Terapia Hakkında", textHours: "Çalışma Saatleri",
-                    textCategory: "Hizmet Kategorisi", servSub: "Sağlık Çözümlerimiz", servTitle: "Sunulan Hizmetler",
-                    servDesc: "Tıp merkezimizde uygulanan kapsamlı hizmet, entegrasyon ve destek programları.",
-                    treatSub: "Modern ve Bilimsel Yaklaşımlar", treatTitle: "Tedavi Yöntemleri",
-                    treatDesc: "Teknolojik cihaz altyapımız ve bilimsel yöntemlerle gerçekleştirdiğimiz uygulamalar.",
-                    patSub: "Kimler İçin Uygun?", patTitle: "Hedef Hasta Grubu",
-                    patDesc: "Rehabilitasyon ve tedavi süreçlerimizden faydalanabilecek hasta profilleri.",
-                    specSub: "Tıbbi Odak Noktalarımız", specTitle: "Uzmanlık Alanları",
-                    specDesc: "Klinik kadromuzun ve merkezimizin spesifik olarak yoğunlaştığı klinik dallar.",
-                    galSub: "Görsel Tur", galTitle: "Merkezimizden Görseller",
-                    galDesc: "Klinik odalarımız, teknolojik donanımlarımız ve uygulama alanlarımız.",
-                    contSub: "Bize Ulaşın", contTitle: "İletişim Bilgileri",
-                    contDesc: "Sorularınız, detaylı bilgi talepleriniz veya randevu işlemleriniz için her zaman hazırız.",
-                    formTitle: "Online Randevu / İletişim Talebi", labelName: "Adınız Soyadınız",
-                    labelPhone: "Telefon Numaranız", labelEmail: "E-Posta Adresiniz",
-                    labelMsg: "Mesajınız veya Tedavi Talebiniz", btnSubmit: "Talebi Gönder"
-                }
-            },
-            en: {
-                merkez_adi: "Fizyomer Terapia Physical Therapy and Rehabilitation Medical Center",
-                aciklama: "Fizyomer Terapia aims to achieve and offer high-quality standards in healthcare services. To meet these standards, it closely follows scientific and technological developments. Our mission is to provide high-quality rehabilitation services to improve the quality of life for all people in the world. Fizyomer Terapia, committed to ensuring the satisfaction of patients and their families, contributes to the formation of a healthy and happy society by providing quality healthcare services.",
-                kategori: "Rehabilitation Center",
-                calisma_saatleri: "Monday – Friday: 8:00 AM – 10:00 PM, Saturday: 8:00 AM – 10:00 PM, Sunday: Closed",
-                hizmetler: [
-                    "Integrative Rehabilitation Programs", "Pediatric Rehabilitation", "Neurological Rehabilitation",
-                    "Orthopedic Rehabilitation", "Physical Therapy and Rehabilitation", "Health Insurance Services",
-                    "Online Appointment Request", "Airport Transfer Service", "Online Medical Document Evaluation and Opinion Provision"
-                ],
-                tedaviler: [
-                    "3 Tesla High-Intensity Magnetotherapy", "PRP Treatment", "Cupping Therapy (Hacamat)",
-                    "Ozone Therapy", "Vojta Therapy", "Ultrasound Therapy", "Laser Therapy", "Shortwave Therapy",
-                    "Exercise Therapy", "Medical Pilates", "Reflexology", "Cupping Therapy", "Acupuncture Treatment",
-                    "Incontinence Magnetic Therapy (Functional Magnetic Stimulation)", "Cryotherapy", "Dry Needling",
-                    "Kinesio-Therapy (Kinesiological Taping)", "ESWT – Extracorporeal Shockwave Therapy", "Manual Lymphatic Drainage"
-                ],
-                hastalar: [
-                    "Patients with Facial Paralysis", "Those with Tennis Elbow", "Those with Obesity Problems",
-                    "Those Needing Diabetes Management", "Those Suffering from Back Pain", "Those Needing Post-Hip Replacement Rehabilitation",
-                    "Fibromyalgia Patients", "Those with Hand Injuries", "Those Experiencing Shoulder Impingement Syndrome",
-                    "Patients with Parkinson's Disease", "Those with Insulin Resistance", "Burn Victims",
-                    "Those with All Types of Urinary and Fecal Incontinence", "Those Needing Post-Surgical or Post-Natal Rehabilitation",
-                    "Those with Certain Sexual Dysfunctions", "Those with Chronic Pelvic or Lower Back Pain", "Lymphedema Patients",
-                    "Patients with COPD (Mild, Moderate, Severe)", "Those Who Have Had a Heart Attack, Heart Failure, Angioplasty, or Heart Surgery",
-                    "Those with Inflammation Problems", "Those Experiencing Muscle Pain and Stiffness", "Scoliosis (Spinal Curvature) Patients",
-                    "Neuromuscular Scoliosis Patients", "Those with Conditions Related to Birth Defects", "Muscular Dystrophy Patients",
-                    "Cerebral Palsy Patients", "Those with Injured Tendons, Ligaments, Muscles, and Joints", "Pediatric Patients",
-                    "Patients with Neurological Conditions", "Patients with Orthopedic Problems"
-                ],
-                uzmanlik: [
-                    "Physical Therapy and Rehabilitation", "Integrative Rehabilitation", "Pediatric Rehabilitation",
-                    "Neurological Rehabilitation", "Orthopedic Rehabilitation", "Pain Management",
-                    "Muscle and Joint Diseases", "Respiratory Rehabilitation", "Cardiac Rehabilitation",
-                    "Incontinence Rehabilitation", "Lymphedema Rehabilitation", "Scoliosis Rehabilitation"
-                ],
-                ui: {
-                    aboutSub: "Corporate Info", aboutTitle: "About Fizyomer Terapia", textHours: "Working Hours",
-                    textCategory: "Service Category", servSub: "Our Health Solutions", servTitle: "Services Provided",
-                    servDesc: "Comprehensive service, integration and support programs implemented in our medical center.",
-                    treatSub: "Modern & Scientific Approaches", treatTitle: "Treatment Methods",
-                    treatDesc: "Applications we carry out with our technological device infrastructure and scientific methods.",
-                    patSub: "Who Is It For?", patTitle: "Target Patient Group",
-                    patDesc: "Patient profiles that can benefit from our rehabilitation and treatment processes.",
-                    specSub: "Our Medical Focus", specTitle: "Specialties",
-                    specDesc: "Specific clinical branches focused heavily by our clinical staff and center.",
-                    galSub: "Visual Tour", galTitle: "Gallery From Our Center",
-                    galDesc: "Our clinical rooms, technological equipment and treatment fields.",
-                    contSub: "Contact Us", contTitle: "Contact Information",
-                    contDesc: "We are always available for your questions, detailed information or appointment requests.",
-                    formTitle: "Online Appointment / Contact Request", labelName: "Your Full Name",
-                    labelPhone: "Your Phone Number", labelEmail: "Your E-mail Address",
-                    labelMsg: "Your Message or Treatment Request", btnSubmit: "Send Request"
-                }
-            },
-            de: {
-                merkez_adi: "Fizyomer Terapia Zentrum für Physiotherapie und Rehabilitation",
-                aciklama: "Fizyomer Terapia strebt danach, hohe Qualitätsstandards in Gesundheitsdienstleistungen zu erreichen und anzubieten. Um diesen Standards gerecht zu werden, verfolgt es wissenschaftliche und technologische Entwicklungen genau. Unsere Mission ist es, qualitativ hochwertige Rehabilitationsdienstleistungen anzubieten, um die Lebensqualität aller Menschen weltweit zu verbessern. Fizyomer Terapia, das sich der Zufriedenheit von Patienten und ihren Familien verschrieben hat, trägt durch die Bereitstellung hochwertiger Gesundheitsdienstleistungen zur Bildung einer gesunden und glücklichen Gesellschaft bei.",
-                kategori: "Rehabilitationszentrum",
-                calisma_saatleri: "Montag – Freitag: 8:00 – 22:00 Uhr, Samstag: 8:00 – 22:00 Uhr, Sonntag: Geschlossen",
-                hizmetler: [
-                    "Integrative Rehabilitationsprogramme", "Pädiatrische Rehabilitation", "Neurologische Rehabilitation",
-                    "Orthopädische Rehabilitation", "Physiotherapie und Rehabilitation", "Krankenversicherungsleistungen",
-                    "Online-Terminanfrage", "Flughafentransfer-Service", "Online-Bewertung medizinischer Dokumente und Stellungnahme"
-                ],
-                tedaviler: [
-                    "3 Tesla Hochintensive Magnetfeldtherapie", "PRP-Behandlung", "Schröpftherapie (Hacamat)",
-                    "Ozontherapie", "Vojta-Therapie", "Ultraschalltherapie", "Lasertherapie", "Kurzwellentherapie",
-                    "Bewegungstherapie", "Medizinisches Pilates", "Reflexologie", "Schröpftherapie", "Akupunkturbehandlung",
-                    "Inkontinenz-Magnetfeldtherapie (Funktionelle Magnetstimulation)", "Kryotherapie", "Dry Needling (Trockenes Nadeln)",
-                    "Kinesio-Therapie (Kinesiologisches Taping)", "ESWT – Extrakorporale Stoßwellentherapie", "Manuelle Lymphdrainage"
-                ],
-                hastalar: [
-                    "Patienten mit Gesichtslähmung", "Personen mit Tennisarm", "Personen mit Adipositasproblemen",
-                    "Personen mit Bedarf an Diabetesmanagement", "Personen mit Rückenschmerzen", "Personen mit Rehabilitationsbedarf nach Hüftprothesen-Operation",
-                    "Fibromyalgie-Patienten", "Personen mit Handverletzungen", "Personen mit Schulter-Engpass-Syndrom",
-                    "Patienten mit Parkinson-Krankheit", "Personen mit Insulinresistenz", "Verbrennungsopfer",
-                    "Personen mit allen Arten von Harn- und Stuhlinkontinenz", "Personen mit Rehabilitationsbedarf nach Operationen oder Geburten",
-                    "Personen mit bestimmten sexuellen Funktionsstörungen", "Personen mit chronischen Becken- oder Rückenschmerzen", "Lymphödem-Patienten",
-                    "Patienten mit COPD (leicht, mittelschwer, schwer)", "Personen, die einen Herzinfarkt, Herzinsuffizienz, Angioplastie oder Herzoperation hatten",
-                    "Personen mit Entzündungsproblemen", "Personen mit Muskelschmerzen und Steifheit", "Skoliose-Patienten (Wirbelsäulenkrümmung)",
-                    "Neuromuskuläre Skoliose-Patienten", "Personen mit Zuständen im Zusammenhang mit Geburtsfehlern", "Muskeldystrophie-Patienten",
-                    "Zerebralparese-Patienten", "Personen mit verletzten Sehnen, Bändern, Muskeln und Gelenken", "Pädiatrische Patienten",
-                    "Patienten mit neurologischen Erkrankungen", "Patienten mit orthopädischen Problemen"
-                ],
-                uzmanlik: [
-                    "Physiotherapie und Rehabilitation", "Integrative Rehabilitation", "Pädiatrische Rehabilitation",
-                    "Neurologische Rehabilitation", "Orthopädische Rehabilitation", "Schmerztherapie",
-                    "Muskel- und Gelenkerkrankungen", "Atemwegserkrankungen", "Herzrehabilitation",
-                    "Inkontinenzrehabilitation", "Lymphödem-Rehabilitation", "Skoliose-Rehabilitation"
-                ],
-                ui: {
-                    aboutSub: "Unternehmensinfo", aboutTitle: "Über Fizyomer Terapia", textHours: "Öffnungszeiten",
-                    textCategory: "Dienstleistungskategorie", servSub: "Unsere Gesundheitlösungen", servTitle: "Dienstleistungen",
-                    servDesc: "Umfassende Service-, Integrations- und Unterstützungsprogramme in unserem medizinischen Zentrum.",
-                    treatSub: "Moderne & Wissenschaftliche Ansätze", treatTitle: "Behandlungsmethoden",
-                    treatDesc: "Anwendungen, die wir mit unserer technologischen Geräteinfrastruktur und wissenschaftlichen Methoden durchführen.",
-                    patSub: "Für wen ist es geeignet?", patTitle: "Zielpatientengruppe",
-                    patDesc: "Patientenprofile, die von unseren Rehabilitations- und Behandlungsprozessen profitieren können.",
-                    specSub: "Unser Medizinischer Fokus", specTitle: "Fachgebiete",
-                    specDesc: "Spezifische klinische Zweige, auf die sich unser klinisches Personal und Zentrum stark konzentrieren.",
-                    galSub: "Visuelle Tour", galTitle: "Galerie Unseres Zentrums",
-                    galDesc: "Unsere klinischen Räume, technologischen Geräte und Behandlungsfelder.",
-                    contSub: "Kontaktieren Sie Uns", contTitle: "Kontaktinformationen",
-                    contDesc: "Wir stehen Ihnen für Ihre Fragen, detaillierte Informationen oder Terminanfragen jederzeit zur Verfügung.",
-                    formTitle: "Online-Termin / Kontaktanfrage", labelName: "Vor- und Nachname",
-                    labelPhone: "Telefonnummer", labelEmail: "E-Mail-Adresse",
-                    labelMsg: "Ihre Nachricht oder Behandlungsanfrage", btnSubmit: "Anfrage Senden"
-                }
-            }
-        };
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-        // Resim Listesi (Gtranslate bayrak resimleri elenmiş, gerçek klinik resimler listelenmiştir)
-        const rawImages = [
-            "https://fizyomer.com.tr/wp-content/uploads/2023/01/prp-580x360.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/12/30-580x360-1-580x360.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/12/3-2.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2022/02/parkinson_hastaligi-580x360.png",
-            "https://fizyomer.com.tr/wp-content/uploads/2022/02/omuz_sikisma_sendromu-580x360.jpeg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/12/31-580x360-1-580x360.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2023/01/tenisci_dirsegi-580x360.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/12/34-580x360-1-580x360.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2026/03/3-Tesla-Yuksek-Yogunluklu-Magnetoterapi-580x360.jpeg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/12/34-580x360-1.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/12/slider-2.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/12/43-580x360-1-580x360.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/11/slider-1-2.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/12/28-580x360-1-580x360.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/12/17-580x360-1-580x360.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/12/3-4.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/12/32-580x360-1.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/12/37-580x360-1-580x360.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2023/04/Eurocross-Turkey.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2022/11/hacamat_tedavisi-580x360.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/12/22-580x360-1-580x360.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/12/16-580x360-1-580x360.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2023/01/sirt_agrisi-580x360.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/12/41-580x360-1-580x360.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/12/27-580x360-1-580x360.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/11/bg-4.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2020/12/42-580x360-1-580x360.jpg",
-            "https://fizyomer.com.tr/wp-content/uploads/2023/01/Yuz-Felci-pws8w40wpomlnddonwyrek9gcvlil2uhisf4jn3bi8-580x360.jpg"
-        ];
+    const firebaseConfig = { 
+      apiKey: "AIzaSyD-mksVUYTyFLfRb1O0TBZoHVjkWAeSjwQ",
+      authDomain: "medivibe-resmi.firebaseapp.com",
+      projectId: "medivibe-resmi",
+      storageBucket: "medivibe-resmi.firebasestorage.app",
+      messagingSenderId: "486046453284",
+      appId: "1:486046453284:web:efb5c976322e3f6bf512b1",
+      measurementId: "G-9WMY2W05DJ"
+    };
 
-        let currentLang = 'tr';
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-        function renderPage() {
-            const l = data[currentLang];
-            
-            // Başlıklar ve Metinler
-            document.getElementById('nav-subtitle').innerText = l.merkez_adi;
-            document.getElementById('hero-badge').innerText = `Kuruluş: 2006 • ${l.kategori}`;
-            document.getElementById('hero-title').innerHTML = currentLang === 'tr' ? 'Yaşam Kalitenizi Yükseltmek İçin <span class="text-blue-400">Yüksek Standartlar</span>' : l.merkez_adi;
-            document.getElementById('hero-desc').innerText = l.aciklama.substring(0, 185) + "...";
-            
-            document.getElementById('about-subtitle').innerText = l.ui.aboutSub;
-            document.getElementById('about-title').innerText = l.ui.aboutTitle;
-            document.getElementById('about-p').innerText = l.aciklama;
-            document.getElementById('about-hours-title').innerText = l.ui.textHours;
-            document.getElementById('about-hours-val').innerText = l.calisma_saatleri;
-            document.getElementById('about-category-title').innerText = l.ui.textCategory;
-            document.getElementById('about-category-val').innerText = l.kategori;
+    let TUM_MERKEZLER = [];
+    let aktifDil = 'tr';
+    let sliderIntervals = [];
 
-            document.getElementById('services-subtitle').innerText = l.ui.servSub;
-            document.getElementById('services-title').innerText = l.ui.servTitle;
-            document.getElementById('services-desc').innerText = l.ui.servDesc;
+    const dilPaketi = {
+      tr: {
+        badge: "Medivibe sağlıklı günler diler.",
+        titleMain: "Anlaşmalı",
+        titleSub: "Rehabilitasyon Merkezleri",
+        subText: "Merkezlerin üzerine tıklayarak detaylı hizmet protokollerine, konum verilerine ve kapasitelere anında erişebilirsiniz.",
+        searchPlace: "Şehir, ilçe, merkez adı veya anahtar kelime ara...",
+        allLocations: "Tüm Konumlar",
+        btnFilter: "Sonuçları Süz",
+        loading: "Veritabanına güvenli bağlantı kuruluyor...",
+        notFoundTitle: "Kriterlere Uygun Merkez Bulunamadı",
+        notFoundSub: "Lütfen farklı anahtar kelimeler veya lokasyonlar deneyin.",
+        btnInspect: "Detayları ve Hizmetleri Gör →",
+        aboutLabel: "Kurum Hakkında Açıklama",
+        protocolsLabel: "Kategoriler / Etiketler",
+        pricingLabel: "Fiyatlandırma & Destek",
+        addressLabel: "Adres",
+        phoneLabel: "Telefon",
+        callDirectly: "📞 Doğrudan Kurumu Ara",
+        wpPreApp: "💬 WhatsApp Ön Başvuru Hattı",
+        negotiable: "Ön Görüşme Gerekli / Yapılandırılıyor",
+        noPhone: "Telefon Belirtilmemiş",
+        aiRec: "Rehabilitasyon Merkezi"
+      },
+      en: {
+        badge: "Medivibe wishes you healthy days.",
+        titleMain: "Contracted",
+        titleSub: "Rehabilitation Centers",
+        subText: "Click on the centers to instantly access detailed service protocols, location data and capacities.",
+        searchPlace: "Search city, district, center name or keywords...",
+        allLocations: "All Locations",
+        btnFilter: "Filter Results",
+        loading: "Establishing secure database connection...",
+        notFoundTitle: "No Matching Center Found",
+        notFoundSub: "Please try different keywords or locations.",
+        btnInspect: "View Details & Services →",
+        aboutLabel: "About the Institution",
+        protocolsLabel: "Categories / Tags",
+        pricingLabel: "Pricing & Support",
+        addressLabel: "Address",
+        phoneLabel: "Phone",
+        callDirectly: "📞 Call Institution Directly",
+        wpPreApp: "💬 WhatsApp Pre-Application",
+        negotiable: "Consultation Required",
+        noPhone: "Phone Not Provided",
+        aiRec: "Rehabilitation Center"
+      },
+      de: {
+        badge: "Medivibe wünscht Ihnen gesunde Tage.",
+        titleMain: "Vertraglich",
+        titleSub: "Rehabilitationszentren",
+        subText: "Klicken Sie auf die Zentren, um sofort auf detaillierte Serviceprotokolle, Standortdaten und Kapazitäten zuzugreifen.",
+        searchPlace: "Stadt, Bezirk, Zentrumsname oder Stichwort suchen...",
+        allLocations: "Alle Standorte",
+        btnFilter: "Ergebnisse Filtern",
+        loading: "Sichere Datenbankverbindung wird hergestellt...",
+        notFoundTitle: "Kein passendes Zentrum gefunden",
+        notFoundSub: "Bitte versuchen Sie es mit anderen Schlüsselwörtern oder Standorten.",
+        btnInspect: "Details & Dienstleistungen anzeigen →",
+        aboutLabel: "Über die Institution",
+        protocolsLabel: "Kategorien / Tags",
+        pricingLabel: "Preise & Unterstützung",
+        addressLabel: "Adresse",
+        phoneLabel: "Telefon",
+        callDirectly: "📞 Institution direkt anrufen",
+        wpPreApp: "💬 WhatsApp Voranmeldung",
+        negotiable: "Beratung Erforderlich",
+        noPhone: "Telefon nicht angegeben",
+        aiRec: "Rehabilitationszentrum"
+      }
+    };
 
-            document.getElementById('treatments-subtitle').innerText = l.ui.treatSub;
-            document.getElementById('treatments-title').innerText = l.ui.treatTitle;
-            document.getElementById('treatments-desc').innerText = l.ui.treatDesc;
+    const FallbackGorsel = "https://images.unsplash.com/photo-1586105251261-72a756497a11?auto=format&fit=crop&w=600&q=80";
 
-            document.getElementById('patients-subtitle').innerText = l.ui.patSub;
-            document.getElementById('patients-title').innerText = l.ui.patTitle;
-            document.getElementById('patients-desc').innerText = l.ui.patDesc;
+    const grid = document.getElementById('bakimMerkezleriGrid');
+    const aramaInput = document.getElementById('bakimAramaInput');
+    const filtreIlce = document.getElementById('filtreIlce');
+    const btnAra = document.getElementById('btnAra');
+    const bulunamadiAlani = document.getElementById('bulunamadiAlani');
+    const yukleniyorGörünümü = document.getElementById('yukleniyorGörünümü');
+    const detayModal = document.getElementById('detayModal');
+    const modalKapatBtn = document.getElementById('modalKapatBtn');
+    
+    const langSelector = document.getElementById('languageSelector');
+    const mobilLangSelector = document.getElementById('mobilLanguageSelector');
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobilMenu = document.getElementById('mobilMenu');
 
-            document.getElementById('specialties-subtitle').innerText = l.ui.specSub;
-            document.getElementById('specialties-title').innerText = l.ui.specTitle;
-            document.getElementById('specialties-desc').innerText = l.ui.specDesc;
+    hamburgerBtn.addEventListener('click', () => {
+      mobilMenu.classList.toggle('translate-x-full');
+    });
 
-            document.getElementById('gallery-subtitle').innerText = l.ui.galSub;
-            document.getElementById('gallery-title').innerText = l.ui.galTitle;
-            document.getElementById('gallery-desc').innerText = l.ui.galDesc;
+    // Düz Alan Okuyucu
+    function alanOku(merkez, anahtar) {
+      if (!merkez) return "";
+      let dilEki = aktifDil === 'tr' ? '' : `_${aktifDil}`;
+      
+      if (dilEki && merkez[anahtar + dilEki] !== undefined && merkez[anahtar + dilEki] !== "") {
+        return merkez[anahtar + dilEki];
+      }
+      if (merkez[anahtar] !== undefined) {
+        return merkez[anahtar];
+      }
+      return "";
+    }
 
-            document.getElementById('contact-subtitle').innerText = l.ui.contSub;
-            document.getElementById('contact-title').innerText = l.ui.contTitle;
-            document.getElementById('contact-desc').innerText = l.ui.contDesc;
-            document.getElementById('form-title').innerHTML = `<i class="fa-solid fa-paper-plane text-blue-600 text-base"></i> ${l.ui.formTitle}`;
+    // Akıllı Adres Okuyucu
+    function adresOku(merkez) {
+      if (!merkez || !merkez.adres) return "Eskişehir, Türkiye";
+      let alanAdi = aktifDil === 'tr' ? 'tam_adres' : `tam_adres_${aktifDil}`;
+      if (merkez.adres[alanAdi]) {
+        return merkez.adres[alanAdi];
+      }
+      return merkez.adres.tam_adres || "Eskişehir, Türkiye";
+    }
 
-            document.getElementById('label-name').innerText = l.ui.labelName;
-            document.getElementById('label-phone').innerText = l.ui.labelPhone;
-            document.getElementById('label-email').innerText = l.ui.labelEmail;
-            document.getElementById('label-msg').innerText = l.ui.labelMsg;
-            document.getElementById('btn-submit').innerText = l.ui.btnSubmit;
-            document.getElementById('footer-subtitle').innerText = `${l.merkez_adi} © 2026`;
+    function baslikOlustur(merkez) {
+      if (merkez.merkez_adi) return merkez.merkez_adi;
+      if (merkez.isim) return merkez.isim;
+      
+      let idStr = merkez.id || "";
+      if (idStr.startsWith("www_")) idStr = idStr.replace("www_", "");
+      if (idStr.endsWith("_com_")) idStr = idStr.replace("_com_", "");
+      idStr = idStr.replace(/_/g, " ");
+      
+      return idStr.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+    }
 
-            // Hizmet Listesi Render
-            const servContainer = document.getElementById('services-container');
-            servContainer.innerHTML = '';
-            l.hizmetler.forEach((s, idx) => {
-                servContainer.innerHTML += `
-                    <div class="bg-white p-6 rounded-2xl border border-slate-200/60 shadow-sm hover:shadow-md transition group">
-                        <div class="bg-blue-50 text-blue-600 w-12 h-12 rounded-xl flex items-center justify-center font-bold text-lg mb-4 group-hover:bg-blue-600 group-hover:text-white transition">
-                            0${idx+1}
-                        </div>
-                        <h4 class="font-bold text-slate-900 text-lg mb-2">${s}</h4>
-                        <p class="text-xs text-slate-500 leading-relaxed">${l.kategori} kapsamında yüksek standartlı profesyonel klinik destek süreci.</p>
-                    </div>
-                `;
-            });
+    function statikAlanlariCevir() {
+      const p = dilPaketi[aktifDil];
+      document.getElementById('uiPanelBadge').innerText = p.badge;
+      document.getElementById('uiMainTitle').innerHTML = `Anlaşmalı <span class="text-[#00a859]">${p.titleSub}</span>`;
+      document.getElementById('uiSubTitle').innerText = p.subText;
+      aramaInput.placeholder = p.searchPlace;
+      btnAra.innerText = p.btnFilter;
+      if(document.getElementById('uiLoadingText')) document.getElementById('uiLoadingText').innerText = p.loading;
+      document.getElementById('uiNotFoundTitle').innerText = p.notFoundTitle;
+      document.getElementById('uiNotFoundSub').innerText = p.notFoundSub;
+      
+      document.getElementById('uiModalAboutLabel').innerText = p.aboutLabel;
+      document.getElementById('uiModalProtocolsLabel').innerText = p.protocolsLabel;
+      document.getElementById('uiModalPricingLabel').innerText = p.pricingLabel;
+      document.getElementById('uiModalAddressLabel').innerText = p.addressLabel;
+      document.getElementById('uiModalPhoneLabel').innerText = p.phoneLabel;
 
-            // Tedavi Yöntemleri Render
-            const treatContainer = document.getElementById('treatments-container');
-            treatContainer.innerHTML = '';
-            l.tedaviler.forEach(t => {
-                treatContainer.innerHTML += `
-                    <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex items-center gap-3 hover:border-blue-300 transition">
-                        <div class="text-blue-500 text-sm"><i class="fa-solid fa-circle-check"></i></div>
-                        <span class="font-semibold text-slate-800 text-sm tracking-tight">${t}</span>
-                    </div>
-                `;
-            });
+      filtreIlce.options[0].text = p.allLocations;
+    }
 
-            // Hasta Grubu Render
-            const patContainer = document.getElementById('patients-container');
-            patContainer.innerHTML = '';
-            l.hastalar.forEach(p => {
-                patContainer.innerHTML += `
-                    <div class="bg-white/10 backdrop-blur-sm border border-white/10 p-4 rounded-xl flex items-center gap-3 hover:bg-white/20 transition">
-                        <div class="text-blue-300 text-xs"><i class="fa-solid fa-user-injured"></i></div>
-                        <span class="font-medium text-white text-xs tracking-wide">${p}</span>
-                    </div>
-                `;
-            });
-
-            // Uzmanlık Alanları Render
-            const specContainer = document.getElementById('specialties-container');
-            specContainer.innerHTML = '';
-            l.uzmanlik.forEach(sp => {
-                specContainer.innerHTML += `
-                    <span class="bg-blue-50 text-blue-700 border border-blue-100 font-bold px-4 py-2 rounded-full text-xs tracking-wide">${sp}</span>
-                `;
-            });
-
-            // Resim Galerisi Render
-            const galContainer = document.getElementById('gallery-container');
-            galContainer.innerHTML = '';
-            rawImages.forEach((imgUrl, i) => {
-                galContainer.innerHTML += `
-                    <div class="aspect-video bg-slate-200 rounded-xl overflow-hidden group border border-slate-200 shadow-sm relative">
-                        <img src="${imgUrl}" alt="Fizyomer Terapia Görsel ${i+1}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
-                    </div>
-                `;
-            });
-        }
-
-        function changeLanguage(lang) {
-            currentLang = lang;
-            renderPage();
-        }
-
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('menu-icon');
-            if (menu.classList.contains('hidden')) {
-                menu.classList.remove('hidden');
-                icon.className = "fa-solid fa-xmark";
-            } else {
-                menu.classList.add('hidden');
-                icon.className = "fa-solid fa-bars";
-            }
-        }
-
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            alert(currentLang === 'tr' ? 'Talebiniz başarıyla simüle edildi!' : 'Your request has been simulated successfully!');
-            e.target.reset();
-        }
-
-        // Sayfa Yüklendiğinde Başlat
-        document.addEventListener("DOMContentLoaded", () => {
-            renderPage();
+    // VERİ ÇEKME FONKSİYONU
+    async function veritabanindanCek() {
+      try {
+        const querySnapshot = await getDocs(collection(db, "rehabilitasyon_merkezleri"));
+        TUM_MERKEZLER = [];
+        
+        querySnapshot.forEach((doc) => {
+          const data = doc.data();
+          data.id = doc.id;
+          TUM_MERKEZLER.push(data);
         });
-    </script>
+
+        if(yukleniyorGörünümü) yukleniyorGörünümü.remove();
+        kartlariCiz(TUM_MERKEZLER);
+      } catch (error) {
+        console.error("Veri çekilirken hata: ", error);
+        grid.innerHTML = `<div class="col-span-full text-center text-red-500 font-bold p-6">Firebase Veritabanı Bağlantı Hatası.</div>`;
+      }
+    }
+
+    // ARAMA VE FİLTRELEME MOTORU (Eksik Olan Kısım)
+    function filtreleVeAra() {
+      const aramaKelimesi = aramaInput.value.trim().toLocaleLowerCase('tr-TR');
+      const secilenIlce = filtreIlce.value.toLocaleLowerCase('tr-TR');
+
+      const filtrelenmis = TUM_MERKEZLER.filter(merkez => {
+        const mName = baslikOlustur(merkez).toLocaleLowerCase('tr-TR');
+        const mDesc = alanOku(merkez, 'aciklama').toLocaleLowerCase('tr-TR');
+        const tamAdres = adresOku(merkez).toLocaleLowerCase('tr-TR');
+        const ilceAlani = (merkez.adres && merkez.adres.ilce ? merkez.adres.ilce : "").toLocaleLowerCase('tr-TR');
+
+        const metinEslesmesi = !aramaKelimesi || 
+                               mName.includes(aramaKelimesi) || 
+                               mDesc.includes(aramaKelimesi) || 
+                               tamAdres.includes(aramaKelimesi);
+
+        const ilceEslesmesi = secilenIlce === 'hepsi' || ilceAlani.includes(secilenIlce);
+
+        return metinEslesmesi && ilceEslesmesi;
+      });
+
+      kartlariCiz(filtrelenmis);
+    }
+
+    function sliderlariBaslat() {
+      sliderIntervals.forEach(clearInterval);
+      sliderIntervals = [];
+
+      document.querySelectorAll('.carousel-container').forEach(container => {
+        const slideCount = container.children.length;
+        if (slideCount <= 1) return;
+
+        const cardId = container.id.split('-')[2];
+        const dots = document.querySelectorAll(`.dot-id-${cardId}`);
+        let currentIdx = 0;
+
+        const interval = setInterval(() => {
+          currentIdx = (currentIdx + 1) % slideCount;
+          container.style.transform = `translateX(-${currentIdx * 100}%)`;
+          
+          dots.forEach((dot, dIdx) => {
+            if(dIdx === currentIdx) {
+              dot.classList.add('bg-white', 'w-4');
+              dot.classList.remove('bg-white/60', 'w-1.5');
+            } else {
+              dot.classList.remove('bg-white', 'w-4');
+              dot.classList.add('bg-white/60', 'w-1.5');
+            }
+          });
+        }, 4000);
+
+        sliderIntervals.push(interval);
+      });
+    }
+
+    function kartlariCiz(liste) {
+      grid.innerHTML = "";
+      if(liste.length === 0) {
+        bulunamadiAlani.classList.remove('hidden');
+        return;
+      }
+      bulunamadiAlani.classList.add('hidden');
+
+      liste.forEach((merkez, index) => {
+        const mName = baslikOlustur(merkez);
+        const mDesc = alanOku(merkez, 'aciklama');
+        
+        let ilce = "Tepebaşı";
+        if (merkez.adres && merkez.adres.ilce) {
+          ilce = merkez.adres.ilce;
+        }
+
+        let gorselListesi = [FallbackGorsel];
+        if (merkez.gorseller && Array.isArray(merkez.gorseller) && merkez.gorseller.length > 0) {
+          gorselListesi = merkez.gorseller;
+        } else if (merkez.gorsel && typeof merkez.gorsel === 'string') {
+          gorselListesi = [merkez.gorsel];
+        }
+
+        let slidesHtml = "";
+        let dotsHtml = "";
+        gorselListesi.forEach((imgUrl, imgIdx) => {
+          slidesHtml += `<img src="${imgUrl}" class="carousel-slide object-cover" onerror="this.src='${FallbackGorsel}'" alt="${mName}">`;
+          dotsHtml += `<span class="dot-id-${index} h-1.5 rounded-full transition-all duration-300 ${imgIdx === 0 ? 'bg-white w-4' : 'bg-white/60 w-1.5'}"></span>`;
+        });
+
+        const kartHtml = `
+          <div data-id="${merkez.id}" class="bakim-kart-item bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl border border-gray-100 transition-all duration-300 flex flex-col justify-between h-[450px] animate-fade-in cursor-pointer group">
+            <div>
+              <div class="gorsel-alan relative">
+                <div id="carousel-container-${index}" class="carousel-container">${slidesHtml}</div>
+                <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1 z-10">${dotsHtml}</div>
+                <span class="absolute top-4 left-4 bg-white/95 backdrop-blur-sm text-gray-800 font-bold text-xs px-3 py-1 rounded-full shadow-sm uppercase tracking-wide">
+                  📍 ${ilce}
+                </span>
+              </div>
+
+              <div class="p-6">
+                <span class="text-[11px] text-[#00a859] font-extrabold flex items-center gap-1 mb-1 uppercase tracking-wider">
+                  ✨ ${dilPaketi[aktifDil].aiRec}
+                </span>
+                <h3 class="text-lg font-bold text-gray-900 tracking-tight group-hover:text-[#00a859] transition line-clamp-1">${mName}</h3>
+                <p class="text-xs text-gray-500 mt-2 line-clamp-3 leading-relaxed">${mDesc || 'Açıklama mevcut değil.'}</p>
+              </div>
+            </div>
+
+            <div class="p-6 pt-0">
+              <button class="w-full bg-gray-50 group-hover:bg-[#00a859] group-hover:text-white text-gray-700 font-bold py-3 px-4 rounded-xl text-xs transition duration-300 text-center flex items-center justify-center gap-1">
+                ${dilPaketi[aktifDil].btnInspect}
+              </button>
+            </div>
+          </div>
+        `;
+        grid.insertAdjacentHTML('beforeend', kartHtml);
+      });
+
+      document.querySelectorAll('.bakim-kart-item').forEach(kart => {
+        kart.addEventListener('click', () => {
+          const mId = kart.getAttribute('data-id');
+          const secilen = TUM_MERKEZLER.find(m => m.id === mId);
+          if(secilen) modalAc(secilen);
+        });
+      });
+
+      sliderlariBaslat();
+    }
+
+    function modalAc(merkez) {
+      const p = dilPaketi[aktifDil];
+      document.getElementById('modalMerkezAdi').innerText = baslikOlustur(merkez);
+      
+      const tamAdres = adresOku(merkez);
+      document.getElementById('modalAdres').innerText = tamAdres;
+      document.getElementById('modalAciklama').innerText = alanOku(merkez, 'aciklama') || "Açıklama belirtilmedi.";
+      
+      let ilce = merkez.adres && merkez.adres.ilce ? merkez.adres.ilce : "Tepebaşı";
+      let sehir = merkez.adres && merkez.adres.sehir ? merkez.adres.sehir : "Eskişehir";
+      document.getElementById('modalSehirIlce').innerText = `📍 ${ilce.toUpperCase()} / ${sehir.toUpperCase()}`;
+
+      const seansUcreti = merkez.fiyat || merkez.seans_ucreti || p.negotiable;
+      document.getElementById('modalFiyat').innerText = seansUcreti;
+
+      const telKonteyner = document.getElementById('modalTel');
+      const telefonNumarasi = merkez.telefon || merkez.tel || "";
+      if(telefonNumarasi) {
+        const temizTel = telefonNumarasi.replace(/\s+/g, '');
+        telKonteyner.innerHTML = `<a href="tel:${temizTel}" class="text-blue-600 hover:underline font-semibold text-sm">${telefonNumarasi}</a>`;
+      } else {
+        telKonteyner.innerText = p.noPhone;
+      }
+
+      const modalContainer = document.getElementById('modalCarouselContainer');
+      let gorselListesi = [FallbackGorsel];
+      if (merkez.gorseller && Array.isArray(merkez.gorseller) && merkez.gorseller.length > 0) {
+        gorselListesi = merkez.gorseller;
+      } else if (merkez.gorsel && typeof merkez.gorsel === 'string') {
+        gorselListesi = [merkez.gorsel];
+      }
+
+      let slidesHtml = "";
+      let dotsHtml = "";
+      gorselListesi.forEach((imgUrl, imgIdx) => {
+        slidesHtml += `<img src="${imgUrl}" class="carousel-slide object-cover" onerror="this.src='${FallbackGorsel}'" alt="Detay">`;
+        dotsHtml += `<span class="h-1.5 rounded-full bg-white transition-all ${imgIdx === 0 ? 'w-4' : 'w-1.5 bg-white/60'}"></span>`;
+      });
+      modalContainer.innerHTML = slidesHtml;
+      document.getElementById('modalCarouselDots').innerHTML = dotsHtml;
+
+      const aksiyonAlani = document.getElementById('modalAksiyonAlani');
+      aksiyonAlani.innerHTML = `
+        <a href="tel:${telefonNumarasi.replace(/\s+/g, '')}" class="flex-1 bg-[#00a859] hover:bg-[#008f4c] text-white font-bold py-3 px-4 rounded-xl text-xs text-center transition shadow-sm">${p.callDirectly}</a>
+        <a href="https://wa.me/905551234567" target="_blank" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl text-xs text-center transition shadow-sm">${p.wpPreApp}</a>
+      `;
+
+      detayModal.classList.remove('opacity-0', 'invisible');
+    }
+
+    modalKapatBtn.addEventListener('click', () => {
+      detayModal.classList.add('opacity-0', 'invisible');
+    });
+
+    // Filtreleme Dinleyicileri (Yeni Eklendi)
+    btnAra.addEventListener('click', filtreleVeAra);
+    filtreIlce.addEventListener('change', filtreleVeAra);
+    aramaInput.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        filtreleVeAra();
+      }
+    });
+
+    langSelector.addEventListener('change', (e) => {
+      aktifDil = e.target.value;
+      mobilLangSelector.value = aktifDil;
+      statikAlanlariCevir();
+      filtreleVeAra(); // Dil değiştiğinde aramayı koru
+    });
+
+    mobilLangSelector.addEventListener('change', (e) => {
+      aktifDil = e.target.value;
+      langSelector.value = aktifDil;
+      statikAlanlariCevir();
+      filtreleVeAra(); // Dil değiştiğinde aramayı koru
+    });
+
+    statikAlanlariCevir();
+    veritabanindanCek();
+  </script>
 </body>
 </html>
