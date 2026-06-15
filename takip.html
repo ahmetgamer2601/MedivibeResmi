@@ -61,6 +61,14 @@
                 </div>
               </a>
 
+              <a href="hava.html" class="flex items-center gap-3 p-3 rounded-xl hover:bg-emerald-50/60 group/item transition-all duration-200">
+                <div class="w-9 h-9 bg-emerald-100/70 text-[#00a859] flex items-center justify-center rounded-xl text-lg shadow-sm">☀️</div>
+                <div>
+                  <div class="text-xs font-bold text-gray-800 group-hover/item:text-[#00a859] transition-colors">Küresel Hava Durumu</div>
+                  <div class="text-[10px] text-gray-500 mt-0.5 font-medium">Seyahat ve anlık tahminler</div>
+                </div>
+              </a>
+
             </div>
           </div>
         </div>
@@ -98,6 +106,48 @@
       </svg>
     </button>
   </nav>
+
+  <div id="mobilMenu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col pt-24 px-8 pb-8 shadow-2xl overflow-y-auto">
+    <div class="flex flex-col gap-5 text-lg font-bold text-gray-800">
+      <a href="hastaneler.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859]" id="mob_hastaneler">Hastanelerimiz</a>
+      <a href="tesisler.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859]" id="mob_tesisler">Tesisler</a>
+      <a href="bakim.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859]" id="mob_bakim">Bakım Merkezleri</a>
+      <a href="otel.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859]" id="mob_oteller">Oteller</a>
+      
+      <a href="takip.html" class="border-b border-gray-100 pb-3 text-[#00a859] flex items-center gap-2 text-base font-semibold">
+        <span>💊</span> <span id="mob_ilac_baslik">İlaç Takip Sistemi</span>
+      </a>
+      <a href="doviz.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859] flex items-center gap-2 text-base font-semibold text-gray-600">
+        <span>💱</span> <span id="mob_doviz_baslik">Canlı Döviz Çevirici</span>
+      </a>
+      <a href="hava.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859] flex items-center gap-2 text-base font-semibold text-gray-600">
+        <span>☀️</span> <span id="mob_hava_baslik">Küresel Hava Durumu</span>
+      </a>
+
+      <div class="flex items-center justify-between border-b border-gray-100 pb-3 mt-2">
+        <span class="text-gray-600 text-sm font-medium">Dil Seçimi</span>
+        <select id="mobilLanguageSelector" class="bg-gray-100 border-none text-gray-800 text-sm font-semibold rounded-lg px-3 py-2 outline-none">
+          <option value="tr">TR</option>
+          <option value="en">EN</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobilMenu = document.getElementById('mobilMenu');
+
+      if (hamburgerBtn && mobilMenu) {
+        hamburgerBtn.addEventListener('click', () => {
+          mobilMenu.classList.toggle('translate-x-full');
+        });
+      }
+    });
+  </script>
+
+
   
   <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="mb-8 text-center md:text-left">
