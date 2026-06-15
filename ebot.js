@@ -50,16 +50,7 @@ firebase: {
   ],
 
   linkler: [
-    "https://www.avrupasb.com.tr/",
-    "https://www.idilbakimevi.com.tr/",
-    "https://www.izmiryaslibakimevi.com/",
-    "https://www.marmarahuzurevi.com.tr/",
-    "https://www.bursahuzurevi.com/",
-    "https://www.antalyahuzurevi.com.tr/",
-    "https://www.nezihhuzurevi.com/",
-    "https://www.gokturkhuzurevi.com/",
-    "https://www.merihhuzurevi.com/",
-    "https://www.aselbakimevi.com/"
+"https://fizyomer.com.tr/",
   ]
 };
 
