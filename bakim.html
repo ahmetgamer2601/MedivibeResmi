@@ -22,7 +22,6 @@
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased pt-20">
 
-  <!-- Üst Navigasyon -->
   <nav class="bg-white px-6 md:px-12 py-4 flex justify-between items-center fixed w-full top-0 z-50 shadow-sm">
     <div class="flex items-center gap-10">
       <a href="index.html" class="flex items-center gap-3 transition transform hover:opacity-90 active:scale-95">
@@ -107,14 +106,24 @@
     </button>
   </nav>
 
-  <!-- Mobil Menü -->
   <div id="mobilMenu" class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col pt-24 px-8 pb-8 shadow-2xl overflow-y-auto">
     <div class="flex flex-col gap-5 text-lg font-bold text-gray-800">
       <a href="hastaneler.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859]" data-i18n="nav-hastaneler">Hastanelerimiz</a>
       <a href="tesisler.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859]" data-i18n="nav-tesisler">Tesisler</a>
       <a href="bakim.html" class="border-b border-gray-100 pb-3 text-[#00a859]" data-i18n="nav-bakim">Bakım Merkezleri</a>
       <a href="otel.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859]" data-i18n="nav-oteller">Oteller</a>
-      <div class="flex items-center justify-between border-b border-gray-100 pb-3">
+      
+      <a href="takip.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859] flex items-center gap-2 text-base font-semibold text-gray-600">
+        <span>💊</span> <span data-i18n="nav-ilac-baslik">İlaç Takip Sistemi</span>
+      </a>
+      <a href="doviz.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859] flex items-center gap-2 text-base font-semibold text-gray-600">
+        <span>💱</span> <span data-i18n="nav-doviz-baslik">Canlı Döviz Çevirici</span>
+      </a>
+      <a href="hava.html" class="border-b border-gray-100 pb-3 hover:text-[#00a859] flex items-center gap-2 text-base font-semibold text-gray-600">
+        <span>☀️</span> <span data-i18n="nav-hava-baslik">Küresel Hava Durumu</span>
+      </a>
+
+      <div class="flex items-center justify-between border-b border-gray-100 pb-3 mt-2">
         <span class="text-gray-600 text-sm">Dil Seçimi</span>
         <select id="mobilLanguageSelector" class="bg-gray-100 border-none text-gray-800 text-sm font-semibold rounded-lg px-3 py-2 outline-none">
           <option value="tr">TR</option>
@@ -124,6 +133,7 @@
       </div>
     </div>
   </div>
+
 
   <!-- Ana İçerik -->
   <main class="container mx-auto px-6 md:px-12 pt-28 pb-12">
