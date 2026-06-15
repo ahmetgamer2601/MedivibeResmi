@@ -519,6 +519,7 @@
     }
 
     function modalAc(merkez) {
+      console.log("Firebase'den gelen merkez verisi:", merkez);
       const p = dilPaketi[aktifDil];
       document.getElementById('modalMerkezAdi').innerText = baslikOlustur(merkez);
       
