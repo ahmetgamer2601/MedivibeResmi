@@ -22,5 +22,10 @@
   },
   "engines": {
     "node": "20.x"
+  },
+  "railway": {
+    "build": {
+      "builder": "NIXPACKS"
+    }
   }
 }
