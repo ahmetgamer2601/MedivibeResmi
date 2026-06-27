@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Bakım Merkezi Web Scraper — Stealth Puppeteer + Gemini + Firebase",
   "main": "bot.js",
-  "scripts": {
-    "start": "node bot.js & node bildirim-motoru.js & python hotel_scraper.py --simdi & python3 rehab_scraper.py --simdi & node bot-motoru.js --tek-sefer & node ebot.js --tek-sefer",
+ "scripts": {
+    "start": "python hotel_scraper.py & python3 rehab_scraper.py & node bot-motoru.js & node ebot.js & node bildirim-motoru.js & node bot.js",
     "tek-sefer": "node bot.js --tek-sefer",
     "test-url": "node bot.js --url https://www.drserhatduruhanengellibakimmerkezi.com/"
   },
